@@ -1,0 +1,209 @@
+\documentclass[10pt,reqno]{amsart}
+\usepackage{graphicx}
+\usepackage{fullpage}
+\usepackage{tcolorbox}
+% \usepackage[a4paper, total={5.5in, 8in}]{geometry}
+%\usepackage{mathpazo}
+%\usepackage{euler}
+\usepackage{amsfonts,amssymb,latexsym,amsmath,amsthm}
+\usepackage{tikz-cd}
+\usepackage{mathrsfs}
+\usepackage{stmaryrd}
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks = true,
+    linkbordercolor = {red}
+}
+\theoremstyle{definition}
+%% this allows for theorems which are not automatically numbered
+\newtheorem{defi}{Definition}[section]
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}{Lemma}[section]
+\newtheorem{obs}{Observation}
+\newtheorem{exercise}{Exercise}[section]
+\newtheorem{rem}{Remark}[section]
+\newtheorem{construction}{Construction}[section]
+\newtheorem{prop}{Proposition}[section]
+\newtheorem{coro}{Corollary}[section]
+\newtheorem{disc}{Discussion}[section]
+\DeclareMathOperator{\spec}{Spec}
+\DeclareMathOperator{\im}{im}
+\DeclareMathOperator{\obj}{obj}
+\DeclareMathOperator{\ext}{Ext}
+\DeclareMathOperator{\Lim}{Lim}
+\DeclareMathOperator{\Int}{Int}
+\DeclareMathOperator{\tor}{Tor}
+\DeclareMathOperator{\ann}{ann}
+\DeclareMathOperator{\id}{id}
+\DeclareMathOperator{\proj}{Proj}
+\DeclareMathOperator{\gal}{Gal}
+\DeclareMathOperator{\coker}{coker}
+\newcommand{\degg}{\textup{deg}}
+\newtheorem{ex}{Example}[section]
+%% The above lines are for formatting.  In general, you will not want to change these.
+%%Commands to make life easier
+\newcommand{\RR}{\mathbf R}
+\newcommand{\aff}{\mathbf A}
+\newcommand{\ff}{\mathbf F}
+\usepackage{mathtools}
+% \newcommand{\ZZ}{\mathbf Z}
+\newcommand{\pring}{k[x_1, \ldots , x_n]}
+\newcommand{\polyring}{[x_1, \ldots , x_n]}
+\newcommand{\poly}{\sum_{\alpha} a_{\alpha} x^{\alpha}} 
+\newcommand{\ZZn}[1]{\ZZ/{#1}\ZZ}
+% \newcommand{\QQ}{\mathbf Q}
+\newcommand{\rr}{\mathbb R}
+\newcommand{\cc}{\mathbb C}
+\newcommand{\complex}{\mathbf {C}_\bullet}
+\newcommand{\nn}{\mathbb N}
+\newcommand{\zz}{\mathbb Z}
+\newcommand{\PP}{\mathbb  P}
+\newcommand{\cat}{\mathbf{C}}
+\newcommand{\ca}{\mathbf}
+\newcommand{\zzn}[1]{\zz/{#1}\zz}
+\newcommand{\qq}{\mathbb Q}
+\newcommand{\calM}{\mathcal M}
+\newcommand{\latex}{\LaTeX}
+\newcommand{\V}{\mathbf V}
+\newcommand{\tex}{\TeX}
+\newcommand{\sm}{\setminus} 
+\newcommand{\dom}{\text{Dom}}
+\newcommand{\lcm}{\text{lcm}}
+\DeclareMathOperator{\GL}{GL}
+\DeclareMathOperator{\Cl}{Cl}
+\DeclareMathOperator{\Hom}{Hom}
+\DeclareMathOperator{\aut}{Aut}
+\DeclareMathOperator{\SL}{SL}
+\DeclareMathOperator{\inn}{Inn}
+\DeclareMathOperator{\card}{card}
+\newcommand{\sym}{\text{Sym}}
+\newcommand{\ord}{\text{ord}}
+\newcommand{\ran}{\text{Ran}}
+\newcommand{\pp}{\prime}
+\newcommand{\lra}{\longrightarrow} 
+\newcommand{\lmt}{\longmapsto} 
+\newcommand{\xlra}{\xlongrightarrow} 
+\newcommand{\gap}{\; \; \;}
+\newcommand{\Mod}[1]{\ (\mathrm{mod}\ #1)}
+\newcommand{\p}{\mathfrak{p}} 
+\newcommand{\rmod}{\textit{R}-\textbf{Mod}}
+\newcommand{\idealP}{\mathfrak{P}}
+\newcommand{\ideala}{\mathfrak{a}}
+\newcommand{\idealb}{\mathfrak{b}}
+\newcommand{\idealA}{\mathfrak{A}}
+\newcommand{\idealB}{\mathfrak{B}}
+\newcommand{\X}{\mathfrak{X}}
+\newcommand{\idealF}{\mathfrak{F}}
+\newcommand{\idealm}{\mathfrak{m}}
+\newcommand{\s}{\mathcal{S}}
+\newcommand{\cha}{\text{char}}
+\newcommand{\ccc}{\mathfrak{C}}
+\newcommand{\idealM}{\mathfrak{M}}
+\tcbuselibrary{listings,theorems}
+\usetikzlibrary{decorations.pathmorphing} 
+\newcommand{\overbar}[1]{\mkern 1.5mu\overline{\mkern-1.5mu#1\mkern-1.5mu}\mkern 1.5mu}
+
+%Itemize gap:
+
+% \pagecolor{black}
+% \color{white}
+% Author info
+
+\title{Math 425A HW8, Oct. 21, 6PM}
+\date{October 15, 2022 \\ {Department of Mathematics, University of Southern California}}
+\address{Department of Mathematics, University of Southern California, 
+Los Angeles, CA 90007}
+\begin{document}
+\maketitle
+\setcounter{tocdepth}{4}
+\setcounter{secnumdepth}{4}
+
+\section{Chapter 4.}
+
+\begin{tcolorbox}[colback=black!5!white,colframe=black!75!black,title= Chapter 4: Exercise $1.12.$] Let $(X, d)$ be a metric space, and let $E$ be a subset of $X$.
+\begin{itemize}
+	\item[(a)] Show that $E$ is dense in $X$ if and only if any nonempty open subset of $X$ contains a point of $E$.
+	\item[(b)] Suppose $E \subseteq Y \subseteq X$. Prove that $E$ is dense in $Y$ if and only if $\Cl_X(E) \supseteq Y$.  
+\end{itemize}
+\tcblower 
+\begin{proof} (a) ($\Rightarrow$) Suppose that $E$ is dense in $X$. Then we have that $\Cl_X(E) = X$. Let $W$ be a nonempty open subset of $X$, so $W \subseteq \Cl_X(E)$. Suppose by contradiction that there are no points of $E$ in $W$, i.e. $W \cap E = \varnothing$. Thus we have solely that $W \subseteq \Lim_X(E)$. Take $\ell \in W$. Then $\ell \in \Lim_X(E)$, so for any open neighborhood $U$ of $\ell$, $U \cap (E \setminus \{\ell \} )= U \cap E \neq \varnothing$. But as $W$ is itself an open neighborhood of $\ell$ then $W \cap E \neq \varnothing$. This a contradiction. Therefore $W$ must have at least one point of $E$. $(\Leftarrow)$ Assume that any nonempty open subset of $X$ contains a point of $E$. Clearly, by construction, $E \subseteq X$ and $\Lim_X(E) \subseteq X$ so $\Cl_X(E) \subseteq X$. It remains to show the opposite inclusion. Now let $p  \in X$. Then consider the open neighborhood $B_X(p, \epsilon)$. Then we have that $B_X(p, \epsilon)$ contains a point of $E$ as it's open and a subset of $X$, so $B_X(p, \epsilon) \cap E \neq \varnothing$. Hence, by Remark 1.18 in the Course Notes, we have that $p \in \Cl_X(E)$. 
+
+(b) $(\Rightarrow)$ Suppose that $E$ is dense in $Y$, i.e. $\Cl_Y(E) = Y$. But as $Y \subseteq X$, then $\Cl_Y (E) = \Cl_X(E) \cap Y$. Hence this means that $E = \Cl_X(E) \cap Y$. Let $y \in Y$. Then $y \in E$, as $\Cl_Y(E) = E$. So $y \in \Cl_X(E) \cap Y$, and thus $y \in \Cl_X(E)$. We can conclude that $Y \subseteq \Cl_X(E)$. $(\Leftarrow)$ Suppose that $Y \subseteq \Cl_X(E)$. Then $\Cl_Y(E) = \Cl_X(E) \cap Y = Y$. Hence $\Cl_Y(E) = Y$ and $E$ is dense in $Y$.
+\end{proof}
+
+\end{tcolorbox}
+
+\begin{tcolorbox}[colback=black!5!white,colframe=black!75!black,title= Chapter 4: Exercise $1.13.$] Previously, we said that a subset $E$ of $\rr$ was dense in $\rr$ if for any real numbers $a$ and $b$, there exists a number $c \in E$ which lies between $a$ and $b$. Show that in $\rr$, the new, more general definition of \textit{dense} agrees with the old one. That is, show that a subset $E$ of $\rr$ is dense in $\rr$ according to the new definition if and only if it is dense according to the old one. (Hint: Use Exercise $1.12(a)$.)
+\tcblower 
+\begin{proof} $(\Rightarrow)$ Suppose that $E \subseteq \rr$ and $E$ is dense in $\rr$, i.e. $\Cl_\rr (E) = \rr$. Then consider the interval $(a,b) = \{x \in \rr \colon a <x < b \} \subseteq \rr$. We know that this set is open in $\rr$, and so by (a) of Exercise 1.12, then $(a,b)$ contains a point of $E$. That is, there is some $q \in E$ such that $a<q<b$; this precisely our old definition. $(\Leftarrow)$ Suppose that for any $a,b \in \rr$ we can find a $p \in E \subseteq \rr$ such that $a<p<b$. But as open sets of the form $(a,b)$, which are just open balls, form a basis of $\rr$, and any open subset of $\rr$ can be decomposed into a union of these open balls, then every point $p \in E$ can be found in the composition of an open set of $\rr$. Thus by Exercise 1.12(a), we have $E$ is dense in $X$ according to the new definition. 
+\end{proof}
+
+\end{tcolorbox}
+
+\begin{tcolorbox}[colback=black!5!white,colframe=black!75!black,title= Chapter 4: Exercise $2.1.$] Let $S = (p_n)_{n=1}^\infty$ be a sequence in $\rr$ whose image is $(\qq \cap (0,1)) \cup \{ 5 \}$. What are
+the two possibilities for $S^\ast$? Justify your answer.
+\tcblower 
+\begin{proof} By Theorem 2.6., we have that $S^\ast = (\{p_n \}_{n=1}^\infty )' \cup S_\infty$. Moreover it's clear that $(\{p_n \}_{n=1}^\infty )' = [0,1]$. Then two possibilities for $S^\ast$ are $S^\ast = [0,1] \cup \{ 5 \} $ or $S^\ast = [0,1]$, depending on $S_\infty$; that is, if $5$ appears in $S$ infinitely many times, then we have $S^\ast = [0,1] \cup \{ 5 \}$, but if $5$ only appears finitely many times then $S^\ast = [0,1]$.
+\end{proof}
+
+\end{tcolorbox}
+\begin{tcolorbox}[colback=black!5!white,colframe=black!75!black,title= Chapter 4: Exercise $2.2.$] Let $S= (p_n)_{n=1}^\infty$ be a sequence in a metric space $X$, and let $S^\ast$ denote the set of subsequential limits of $S$. The following are equivalent.
+\begin{itemize}
+	\item [(1)] $p_n \to p$ as $n\to \infty$.
+	\item [(2)] Every subsequence of $(p_n)_{n=1}^\infty$ converges to $p$ in $X$.
+	\item [(3)] $S^\ast = \{ p \}$, and every subsequence of $(p_n)_{n=1}^\infty$ converges in $X$.
+\end{itemize} 
+\tcblower 
+\begin{proof} $(1) \Rightarrow (2)$ Suppose that $p_n \to p$ as $n \to \infty$, i.e. $S$ converges to $p$ in $X$. Let $A = (p_{n_k})_{k=1}^\infty$ be a subsequence of $S$. As $S$ converges to $p$ in $X$ then for some $N \in \nn$ we have that $n\geq N$ implies $ p_n \in B_X(p,\epsilon)$ for all $\epsilon > 0$. We claim that $n_k \geq k$, in terms of indices. Firstly $n _1 \geq 1$ by construction of being a strictly increasing sequence of indices. Now suppose that $n_l \geq l$ for some $l \in \nn$. Then $n_{l+1} > n_l \geq l$, by definition. So then $n_{l+1} \geq n_l + 1 \geq l+1$ as if $s,t \in \nn$ and $s>t$ then $s \geq t+1$. Thus we can pick $k$ sufficiently large so that $k \geq N$. This implies that $n_k \geq k \geq N$ by our claim and hence $d(p, p_{n_k} ) < \epsilon$; that is, $A$ converges to $p$ as well. 
+
+$(2) \Leftrightarrow (3)$  For the forward direction, suppose that every subsequence $A = (p_{n_k})_{k=1}^\infty$ of $S$ converges to $p$ in $X$. Then as $S^\ast$ denotes the set of all subsequential limits, and all of the subsequences of $S$ converge to $p$ by hypothesis, then $S^\ast = \{ p \}$.  For the backwards direction, suppose that $S^\ast = \{p \}$, and every subsequence of $S$ converges in $X$. To rephrase this assumption, every subsequence of $S$ converges in $X$ so the set of subsequences are the same as the set of all subsequential limits as they all converge, and given that $S^\ast = \{p \}$, then every subsequence converges to $p$ in $X$.
+
+$(2) \Rightarrow (1)$ Suppose $A = (p_{n_k})_{k=1}^\infty$ is a subsequence of $S$ that converges to $p$. Then we have some $N \in \nn$ such that $n_k \geq N$ guarantees that $p_{n_k} \in B_X(p, \epsilon)$ for any $\epsilon > 0$. But, trivially, we have that $S$ is a subsequence as itself given by the rule for $A = (p_{n_k})_{k=1}^\infty$ we let $n_k = k$, i.e. $n_1 = 1$, $n_2 = 2$, and so on. Thus $S$ converges to $p$ as well.
+\end{proof}
+
+\end{tcolorbox}
+
+
+\begin{tcolorbox}[colback=black!5!white,colframe=black!75!black,title= Chapter 4: Exercise $2.3.$] Let $(X, d)$ be a metric space, and let $(x_n)_{n=1}^\infty$ be a sequence in $X$. Prove the following statements.
+\begin{itemize}
+	\item [(a)] If $(x_n)_{n=1}^\infty$ converges in $X$, then it is Cauchy in $X$. 
+	\item [(b)] If $(x_n)_{n=1}^\infty$ is Cauchy in $X$, then it is bounded in $X$.
+\end{itemize}
+\tcblower 
+\begin{proof} 
+(a) Suppose that $(x_n)_{n=1}^\infty$ converges to $x$ in $X$. Then there exists $N \in \nn$ such that $n \geq N$ implies $x_n \in U$ for any open neighborhood $U$ of $x$. Let $\epsilon > 0$ and $ m \geq n$. Then $x_n, x_m \in B_X(x, \frac{\epsilon}{2})$. Thus we have that $d(x,x_n)< \epsilon /2$ and $d(x, x_m) < \epsilon/2 $. So then $d(x_n, x_m) \leq d(x_n, x) + d(x, x_m) < \epsilon/2 + \epsilon/2 = \epsilon$. Therefore $d(x_n, x_m) <\epsilon$ and $(x_n)_{n=1}^\infty$ is Cauchy in $X$. 
+
+(b) Suppose that $(x_n)_{n=1}^\infty$ is Cauchy in $X$. Then for any $\epsilon > 0$, there exists an $N \in \nn$ such that $m \geq n \geq N $ implies $d(x_n, x_m) < \epsilon$. Let $\epsilon > 0$ and pick some point $p \in X$. Write $\ell = \max_{N \geq i } d(x_i, p)$ where $N \geq i \geq 1$. Then $d(x_\alpha, p) < \ell + \epsilon$ if $\alpha \leq  N$. Now supppose $\alpha > N$. Then $d(x_\alpha, p) \leq d(x_\alpha, x_N) + d(x_N, p) < \epsilon + \ell $. Thus $\{x_n\}_{n=1}^\infty$ is bounded. 
+\end{proof}
+
+\end{tcolorbox}
+
+\begin{tcolorbox}[colback=black!5!white,colframe=black!75!black,title= Chapter 4: Exercise $2.4.$] Let $(X,d)$ be a metric space; let $Y$ be subset of $X$. The following statements hold. 
+
+\begin{itemize}
+	\item [(a)] If $Y$ is complete, then $Y$ is closed in $X$.
+	\item [(b)] If $X$ is complete and $Y$ is closed in $X$, then $Y$ is complete. 
+\end{itemize}
+Hint for (a): Theorem 1.11 and Proposition 1.15
+\tcblower 
+\begin{proof} (a) Suppose that $Y$ is complete, i.e. every Cauchy sequence in $Y$ converges in $Y$. Our strategy will be to show that $\Lim_X(Y) \subseteq Y$. Let $p \in \Lim_X(Y)$. Then there exists a sequence $Z = (p_n)_{n=1} ^\infty$ in $Y\setminus \{ p \} \subseteq Y$ that converges in $X$ to $p$. This sequence is itself Cauchy in $X$ and as $\im Z \subseteq Y \subseteq X$ then it is also Cauchy in $Y$. As $Y$ is complete, then $Z$ converges to, say, a priori $\ell $ in $Y$. So $p_n \to p$ in $X$ and $p_n \to \ell $ in $Y$ as $n \to \infty$. By Exercise 1.4, $p_n \to \ell$ in $Y$ implies that $p_n \to \ell$ in $X$ and $\ell \in Y$. But by Corollary 2.4, we must have that $p = \ell$. Hence $p \in Y$ and $Y$ is thus closed.
+
+(b) Suppose that $X$ is complete and $Y$ is closed in $X$. Let $S = (z_n)_{n=1}^\infty$ be a Cauchy sequence of $Y$. As $S$ is Cauchy in $Y$ then it is also Cauchy in $X$, and $X$ is complete which means that $S$ converges to some point $x \in X$. Thus $z_n \to x$ in $X$ as $n \to \infty$. WLOG, $z_n \neq x$ for all $n$. We claim that as $z_n \to x$ in $X$, then $x \in \Lim_X (Y)$. Let $\epsilon > 0$. Then as $z_n \to x$ in $X$ there is some $N \in \nn$ such that $n \geq N$ implies that $z_n \in B_X(x, \epsilon)$. As we've chose $z_n \neq x$, then $z_n \in B_X(x,\epsilon)\setminus \{ x \} \cap Y $. Hence $x \in \Lim_X(Y)$. Thus as $Y$ is closed we have that $\Lim_X (Y) \subseteq Y$. Hence $z_n \to x$ in $X$ and $x \in Y$. By Exercise 1.4., we have that $z_n \to x$ in $Y$. Therefore $Y$ is complete. 
+\end{proof}
+
+\end{tcolorbox}
+\begin{tcolorbox}[colback=black!5!white,colframe=black!75!black,title= Chapter 4: Exercise $4.1.$] Let $(X,d)$ be a metric space. Assume $F$ and $K$ are subsets of $X$, with $F$ closed and $K$ compact. Then $F \cap K$ is compact. 
+\tcblower 
+\begin{proof} Consider the metric subspace $(K,d)$. Then as $F$ is closed in $(X, d)$, then $F$ is closed in $(K,d)$ (this fact is given by the analogue of being open in a topological subspace is the same as being open in the topological space intersected with the subspace and some open set of the original topological space). Hence $F \cap K$ is closed as $K$ is itself closed, and so $F \cap K \subseteq K$ and thus have that $F \cap K$ is compact by Theorem 4.9.
+\end{proof}
+
+\end{tcolorbox}
+\begin{tcolorbox}[colback=black!5!white,colframe=black!75!black,title= Chapter 4: Exercise $4.2.$] Give an example of a collection $\mathcal A$ of bounded subsets of $\rr$ such that $\mathcal A$ has the finite intersection property, but $\bigcap_{A \in \mathcal A} A  = \varnothing$. Hint: If $A \subseteq \rr$ is bounded in $\rr$, what else can prevent it from being compact?
+\tcblower 
+\begin{proof} Consider the  collection $\mathcal M = \left \{ (0,\frac{1}{n}]_{n=2}^\infty \right \}$. Then $\mathcal M$ has the finite intersection property as we can always pick a real number  $\ell \in \rr$ such that is it is squished between $0 < \ell < 1/N$ where $\bigcap_{k=1}^N (0, \frac{1}{k} ]$. But this cannot be applied to $\bigcap_{A \in \mathcal M} A$, clearly, i.e. $\bigcap_{A \in \mathcal M} A = \varnothing$. 
+\end{proof} 
+
+\end{tcolorbox}
+
+
+\end{document}

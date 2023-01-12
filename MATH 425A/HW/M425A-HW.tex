@@ -1,0 +1,221 @@
+\documentclass[9pt,reqno]{amsart}
+\usepackage{graphicx}
+% \usepackage[a4paper, total={5.5in, 8in}]{geometry}
+\usepackage{mathpazo}
+\usepackage{euler}
+
+
+\graphicspath{ {./urpimages/} }
+\usepackage{amsfonts,amssymb,latexsym,amsmath, amsthm}
+\usepackage{tikz-cd}
+\usepackage{mathrsfs}
+\usepackage{stmaryrd}
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks = true,
+    linkbordercolor = {red}
+}
+\theoremstyle{definition}
+%% this allows for theorems which are not automatically numbered
+\newtheorem{defi}{Definition}[section]
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}{Lemma}[section]
+\newtheorem{obs}{Observation}
+\newtheorem{exercise}{Exercise}[section]
+\newcommand{\heg}{\text{Heg}}
+\newtheorem{rem}{Remark}[section]
+\newtheorem{construction}{Construction}[section]
+\newtheorem{prop}{Proposition}[section]
+\newtheorem{coro}{Corollary}[section]
+\newtheorem{disc}{Discussion}[section]
+\DeclareMathOperator{\spec}{Spec}
+\DeclareMathOperator{\im}{im}
+\DeclareMathOperator{\obj}{obj}
+\DeclareMathOperator{\ext}{Ext}
+\DeclareMathOperator{\tor}{Tor}
+\DeclareMathOperator{\ann}{ann}
+\DeclareMathOperator{\id}{id}
+\DeclareMathOperator{\proj}{Proj}
+\DeclareMathOperator{\gal}{Gal}
+\DeclareMathOperator{\coker}{coker}
+\newcommand{\degg}{\textup{deg}}
+\newtheorem{ex}{Example}[section]
+%% The above lines are for formatting.  In general, you will not want to change these.
+%%Commands to make life easier
+\newcommand{\RR}{\mathbf R}
+\newcommand{\aff}{\mathbf A}
+\newcommand{\ff}{\mathbf F}
+\usepackage{mathtools}
+\newcommand{\cccC}{\mathbf C}
+\newcommand{\oo}{\mathcal{O}}
+% \newcommand{\ZZ}{\mathbf Z}
+\newcommand{\pring}{k[x_1, \ldots , x_n]}
+\newcommand{\polyring}{[x_1, \ldots , x_n]}
+\newcommand{\poly}{\sum_{\alpha} a_{\alpha} x^{\alpha}} 
+\newcommand{\ZZn}[1]{\ZZ/{#1}\ZZ}
+% \newcommand{\QQ}{\mathbf Q}
+\newcommand{\rr}{\mathbf R}
+\newcommand{\cc}{\mathbf C}
+\newcommand{\complex}{\mathbf {C}_\bullet}
+\newcommand{\nn}{\mathbb N}
+\newcommand{\zz}{\mathbf Z}
+\newcommand{\PP}{\mathbf P}
+\newcommand{\cat}{\mathbf{C}}
+\newcommand{\ca}{\mathbf}
+\newcommand{\zzn}[1]{\zz/{#1}\zz}
+\newcommand{\qq}{\mathbf Q}
+\newcommand{\calM}{\mathcal M}
+\newcommand{\latex}{\LaTeX}
+\newcommand{\V}{\mathbf V}
+\newcommand{\tex}{\TeX}
+\newcommand{\sm}{\setminus} 
+\newcommand{\dom}{\text{Dom}}
+\newcommand{\lcm}{\text{lcm}}
+\DeclareMathOperator{\GL}{GL}
+\DeclareMathOperator{\Hom}{Hom}
+\DeclareMathOperator{\aut}{Aut}
+\DeclareMathOperator{\SL}{SL}
+\DeclareMathOperator{\inn}{Inn}
+\newcommand{\sym}{\text{Sym}}
+\newcommand{\ord}{\text{ord}}
+\newcommand{\ran}{\text{Ran}}
+\newcommand{\pp}{\prime}
+\newcommand{\lra}{\longrightarrow} 
+\newcommand{\lmt}{\longmapsto} 
+\newcommand{\xlra}{\xlongrightarrow} 
+\newcommand{\gap}{\; \; \;}
+\newcommand{\Mod}[1]{\ (\mathrm{mod}\ #1)}
+\newcommand{\p}{\mathfrak{p}} 
+\newcommand{\rmod}{\textit{R}-\textbf{Mod}}
+\newcommand{\idealP}{\mathfrak{P}}
+\newcommand{\ideala}{\mathfrak{a}}
+\newcommand{\idealb}{\mathfrak{b}}
+\newcommand{\idealA}{\mathfrak{A}}
+\newcommand{\idealB}{\mathfrak{B}}
+\newcommand{\X}{\mathfrak{X}}
+\newcommand{\idealF}{\mathfrak{F}}
+\newcommand{\idealm}{\mathfrak{m}}
+\newcommand{\s}{\mathcal{S}}
+\newcommand{\cha}{\text{char}}
+\newcommand{\ccc}{\mathfrak{C}}
+\newcommand{\idealM}{\mathfrak{M}}
+\usetikzlibrary{decorations.pathmorphing} 
+\newcommand{\overbar}[1]{\mkern 1.5mu\overline{\mkern-1.5mu#1\mkern-1.5mu}\mkern 1.5mu}
+
+%Itemize gap:
+
+% \pagecolor{black}
+% \color{white}
+% Author info
+
+\title{Math 425A HW1, Due 09/02/2022}
+\author{Juan Serratos}
+\email{jserrato@usc.edu}
+\date{Jul 02, 2022 \\ {Department of Mathematics, University of Southern California}}
+\address{Department of Mathematics, University of Southern California, 
+Los Angeles, CA 90007}
+\begin{document}
+\maketitle
+\setcounter{tocdepth}{4}
+\setcounter{secnumdepth}{4}
+\section{\S 1.1.}
+\begin{exercise}[1.1.] Let $A$ and $B$ be subsets of another set $X$. Prove the following statements.
+\begin{itemize}
+	\item [(a)] $A \cap B = A\setminus (A \setminus B)$
+	\item [(b)] $A \subseteq B$ if and only of $X \setminus A \supseteq X \setminus B$.
+\end{itemize}
+\end{exercise}
+
+\begin{proof} (a) For the backwards inclusion, suppose $x \in A \setminus (A\setminus B)$. Then $x \in A$ but $x \notin A \setminus B$ so then we have that $x \notin \{ x \in A \colon x \notin B \}$ which means that we must have that $x \in B$ since $x \in A$. Thus $x \in A \cap B$. Now suppose we have $x \in A \cap B$. So then $x \in A$ and $x \in B$, and so $x \notin A \setminus B$ since if this we did have $x \in A \setminus B$ this contradicts our assumption that although $x \in A$, we also have $x \in B$. 
+
+(b.) Suppose $A \subseteq B$. Then let $x \in X \setminus B$. If we had that $x \notin X \setminus A$, then this would mean that $x \in A$ but $x \notin B$, which contradicts our initial assumption that $A \subseteq B$. Thus the forward direction holds. Now for the backwards direction, suppose $X \setminus B \subseteq X \setminus A$. Now take $p \in A$. Then $p \notin X \setminus A$, and so if $p \in X \setminus B$, then this again contradicts our assumption, and so $p \in B$. Hence the backwards direction holds as well. 
+\end{proof}
+
+
+\section*{\S 3.1. }
+\begin{exercise}[3.1.] Let $ f \colon A \to B$ be a function. Prove the following statements:
+\begin{itemize}
+	\item [(a)] $f$ is injective if and only if $f^{-1}(f(C)) = C$ for every subset $C \subseteq A$.
+	\item [(b)] $f$ is surjective if and only if $f(f^{-1}(D)) = D$ for every subset $D \subseteq B$.
+\end{itemize}
+
+\begin{proof}
+	(a) $(\Rightarrow )$ Suppose that $f \colon A \to B$ is injective. Let $x \in f^{-1} (f(C))$, where $C \subseteq A$. Clearly we have that $f (C) \subseteq B$ so it makes sense to consider the preimage of this set. Now as $x$ is in the preimage of $f(C)$, then $x \in A$ such that $f(x) = f(c_1)$ for some arbitrary $c_1 \in C$. As $f$ is injective, then we have that $x = c_1$; hence, as $c_1 \in C$ we chosen arbitrarily, then $x \in C$. Thus $ f^{-1} (f(C)) \subseteq C$. For the reverse inclusion, suppose that $y \in C$ where $C \subseteq A$. Note that $f(C) = \{ f(x) \colon x \in C \subseteq A \}$, and so $f(y) \in f(C)$. Thus we have that $y \in f^{-1}(f(C))$, by definition of the set, i.e. $y \in \{ x \in A \colon f(x) \in f(C) \} = f^{-1} (f(C))$. Therefore if $f$ is injective, then we have that $f^{-1}(f(C)) = C$ for every subset $ C \subseteq A$. For the reverse direction $(\Leftarrow)$, suppose, by contrapositive, that $f \colon A \to B$ is not injective. Then we have some $x_1, x_2 \in C \subseteq A$ with $f(x_1) = f(x_2)$. So then $\{x_1, x_2 \} \subseteq f^{-1} (f(\{x_1 \})$, but $\{x_1 , x_2 \} \neq f^{-1} (f(\{x \})$ since $f^{-1} (f(x_1\})$ is not contained in the singleton $\{x_1 \}$ (WLOG).
+	
+	(b) $(\Rightarrow)$ Suppose $f$ is surjective, although not necessary for one side of the inclusion. Let $x \in f(f^{-1} (D))$ for some subset $D \subseteq B$. Then there is some $\ell \in f^{-1}(D)$ with $f(\ell ) =x$. By definition, this means that $\ell \in A$ with $f(\ell ) \in D$, and so $x \in D$. Thus the forward inclusion holds. Now let $m \in D$. Then we have some $a \in A$ with $f(a) = m$ as $f$ is surjective. This means that $a \in f^{-1} (D)$ and so $m = f(a) \in f(f^{-1}(D))$. Hence the backwards inclusion holds and we have $f (f^{-1} (D)) = D$. For the reverse direction $(\Leftarrow)$, suppose $f(f^{-1}(D)) =D$ for all subsets $D \subseteq B$. But then, as $B$ is a subset of itself, then $f(f^{-1} (B)) = B$. If we have $x \in f^{-1} (B)$ then $x \in A$ with $f(x) \in B$, but this set condition is just by all elements in the domain $A$ so $f^{-1} (B) = A$. Hence $f(f^{-1}(B)) = f(A) = B$. Thus $f$ is surjective. 
+\end{proof}
+	
+\end{exercise}
+
+\begin{exercise}[3.2.] Let $f \colon A \to B$ and $g \colon B \to C$ be functions.
+\begin{itemize}
+	\item[(a)] Prove that if $f$ and $g$ are both injective, then so is $g \circ f$.
+	\item[(b)] Prove that if $f$ and $g$ are both surjective, then so is $g \circ f$.
+	\item[(c)] Prove that if $g \circ f$ is surjective, then so is $g$. 
+	\item[(d)] Argue that surjectivity of $g \circ f$ does not imply surjectivity of $f$, by providing explicit examples of functions $f$ and $g$ for which $g \circ f$ is surjective but $f$ is not. You should explicitly demonstrate that your functions have the desired properties. 
+	\item[(e)] Prove that if $g \circ f$ is injective, then so is $f$. 
+	\item[(f)] Argue that injectivity of $g \circ f$ does not imply injectivity of $g$. Format your answer similarly to part (d).
+
+\end{itemize}
+\end{exercise}
+
+\begin{proof}(a) Suppose that $f$ and $g$ are both injective. Now consider the composed map \\ $g \circ f \colon A \to C$. Assume that $ g \circ f (x) = g \circ f(y)$ for some $x, y \in A$. Then, $g(f(x)) = g(f(y))$ implies $f(x) = f(y)$ as $g$ is injective, and, lastly, as $f$ is injective then $x = y$; thus $g \circ f$ is itself injective.  
+
+(b) Suppose $f$ and $g$ are both surjective. As $f$ is surjective then $f(A) = B$, and as $g$ is surjective, then $g(B) = g(f(A)) = C$. Thus the last equality tells us that given some $c \in C$, we have some $a \in A$ such that $g(f(a)) = g\circ f(a) =  c$. Thus $g \circ f$ is surjective. 
+
+(c) Suppose $g \circ f$ is surjective. The for all $ c_1 \in C$, we have $g(f(a)) = c$ for all $a \in A$, and so define $f(a) = b \in B$, which then means that $g(b) = c$. Thus we see that we see that for every $c \in C$ there is some $b \in B$ with $g(b) = c$. Hence $g$ is surjective. 
+
+
+
+(d) A simple example which shows that given that $g \circ f$ surjective doesn't necessarily imply that $f$ is surjective is one where we define $f \colon \rr \to \rr$ by $x \mapsto x^2$ and $g \colon \rr \to \{ 0 \}$ where this is zero mapping which takes ever element $r \in \rr \mapsto 0 \in \rr$. We see that $g\circ f(\rr ) =  \{ 0 \}$, easily, but $f$ itself isn't surjective since, for example, $2 \in \rr$ isn't hit by $f$ since $2$ isn't the square of a real number.   
+
+(e) Suppose that $f$ is not injective. Then we must show that $g \circ f \colon A \to C$ is not injective by contrapositive. Now since $f$ is not injective, then there is some $x_1, x_2$ such that $x_1 \neq x_2$ but $f(x_1) = f(x_2)$. Composing with $g$, then $g \circ f(x_1) = g(f(x_1)) = g(f(x_2)) = g\circ f(x_2)$. Hence $ g\circ f$ is not injective. 
+
+(d) An example where we have that $g \circ f$ is injective but $g$ itself isn't injective is the case where we take $A = \{ x\}$, $B = \{ s,t \}$ and $C = \{ v\}$, where $f \colon a \mapsto s$, $g \colon s, t \mapsto v$. Obviously given that $g \circ f \colon A \to C$, the preimage of $v$ in the codomain can only have one element in the domain by construction so the composition is an injection. But by construction again $g$ is not an injection since it maps two distinct elements in the domain $B = \{ s, t \}$ to the same image in $C = \{ v \}$. 
+\end{proof}
+
+
+\begin{exercise}[3.3.] Let $f \colon X \to Y$ be a function.
+\begin{itemize}
+	\item [(a)] If $A$ and $C$ are subsets of $X$, then $f(C \setminus A) \supseteq f(C) \setminus f(A)$. 
+	\item [(b)] $f$ is injective if and only if $f(C\setminus A) = f(C) \setminus f(A)$ for any two subsets $A$ and $C$ of $X$. 
+	\item [(c)] If $B$ and $D$ are subsets of $Y$, then $f^{-1} (D\setminus B) = f^{-1} (D) \setminus f^{-1} (B)$. 
+\end{itemize}
+\end{exercise}
+\begin{proof}
+	(a) Suppose $A, C \subseteq X$. Let $x \in f(C) \setminus f(A)$. So $x \in f(C)$ and $x \notin f(A)$. This means that we have some $c_1 \in C$ with $x = f(c_1)$. Then $c_1 \notin A$ since if $c_1 \in A$, then $x = f(c_1) \in f(A)$, which is a contradiction. Thus $c_1 \in C \setminus A$  and $x \in f(C \setminus A)$. 
+
+			
+	(b) Suppose that $A$ and $C$ are subsets of $X$. ($\Rightarrow$) We've already shown the reverse inclusion for this, in general, in part (a), and so it remains to show the opposite inclusion.  Assume that $f \colon X \to Y$ is injective. Let $x \in f(C \setminus A)$. Then there is some $c \in C \setminus A$ with $x = f(c)$, and so $f(x) \in f(C)$. If we have that $f(x) \in A$, then this implies that there is some $y \in A$ with $f(c) = x = f(y)$, and since $f$ is injective, then $c=y$. This implies $y \notin A$ as $c=y$ cannot be in $A$ by assumption, and so we have a contradiction. Hence $x \notin f(A)$ and $x \in f(C) \setminus f(A)$. For the opposite direction $(\Leftarrow)$, suppose we have that $f$ is not injective. Then we must show the equivalence $f(C\setminus A) = f(C) \setminus f(A)$ is not satisfied. If $f$ is not injective, then there are some $x, y \in X$ with $x \neq y$ such that $f(x) = f(y)$. 
+	.
+	
+	(c) Suppose $B$ and $D$ are subsets of $Y$. Take $x \in f^{-1} (D\setminus B)$. Then we have $x \in A$ such that $f(x) \in D \setminus B$. Thus $f(x) \in D$ and $f(x) \notin B$. Which means that $x \in A$ such that $f(x) \in D$, i.e. $x \in f^{-1} (D)$; $x \in A$ such that $f(x) \notin B$, i.e. $x \notin f^{-1} (B)$. Thus $x \in f^{-1} (D) \setminus f^{-1} (B)$. For the other direction, let $ x \in f^{-1} (D) \setminus f^{-1} (B)$. Then $x  \in A$ with $f(x) \in D$, and $x \notin f^{-1} (B)$ with $f(x) \notin B$; that is, $f(x) \in D \setminus B$. Hence $x \in f^{-1} (D \setminus B)$. Therefore the equivalence of sets holds. 
+\end{proof}
+
+\section{\S 4.1.}
+
+\begin{exercise}[4.1.] Assume that $\text{card}(A) \leq  \text{card}(X)$ and $\text{card}(B) \leq \text{card}(Y)$. Prove that $\text{card}(B^A) \leq  \text{card}(Y^X)$. 
+\end{exercise}
+
+\begin{proof}
+	By assumption, we have maps $\varphi \colon A \to X$ and $\psi \colon B \to Y$ that are both injective. This is to say that $ \text{card} (\Hom (A, B)) \leq \text{card} (\Hom (X, Y))$. That is, we want to find some injective function from $B^A := \Hom (A, B) \to \Hom (X, Y)$. For this, we define $\Phi \colon \Hom (A, B) \to \Hom (X, Y)$, where $\Phi \colon f \mapsto h \circ f \circ k$, where $k \colon X \to A$ is the left inverse of $\varphi \colon A \to X$ and $h \colon Y \to B$ is the left inverse of $\psi \colon B \to Y$. It remains to show that $\Phi$ is injective: Let $\Phi (f_1) = \Phi (f_2)$, then $h \circ f_1 \circ k  = h \circ f_2 \circ k$. Now we invert:
+	\begin{align*}
+	h \circ f_1 \circ k  &= h \circ f_2 \circ k \\ 
+		\implies h \circ \psi \circ f_1 \circ k &= h \circ \psi \circ f_1 \circ k \\
+		1_B \circ f_1 \circ k &= 1_B \circ f_2 \circ  k \\
+		1_B \circ f_1 \circ k \circ \varphi &= 1_B \circ f_2 \circ k \circ \varphi \\
+		1_B \circ f_1 \circ 1_A &= 1_B \circ f_2 \circ 1_A \\
+		f_1 &= f_2
+	\end{align*}
+	Therefore we have that $f_1 = f_2$ and $\Phi$ is injective. Hence $\text{card} (B^A) \leq \text{card} (X^Y)$.
+	\end{proof}
+\begin{exercise}[4.2.]  Prove that for any set $A$, one has $\mathcal P (A) \sim  \{0, 1\}^A$. 
+\end{exercise}
+\begin{proof}
+	Let $A$ be some set. Now consider its power set, $\mathcal P(A)$. We want to find a bijective function from $\mathcal P (A) \to \{ 0, 1\}^A$. We do this by defining $F \colon \mathcal P(A) \to \{0, 1 \}^A$ where $F \colon X \mapsto f_X$ and $f_X (s) = 0$ if $s \notin X$ and  $f_X(s) = 1$ if $s \in X$. This map is indeed well defined since if we have some sets $M, N \in \mathcal P(A)$ and $M = N$, then we have that the corresponding induced maps $f_M$ and $f_N$ both send the set to $1$ or $0$ if the condition is satisfied. To show that this map is surjective, suppose that we have some function $f$ on $A$ taking inputs from $\{ 0, 1 \}$. Then we can note that $f \in \{ 0, 1 \}^A$ is $F_A$ since $X = \{ x \in X \colon f (x) = 1 \}$, and so there is a surjection. Now for an injection, suppose that $F(X) = F(Y)$ for some $X, Y \in \mathcal P(A)$. Then $f_X = f_Y$, which means that $f_X$ and $f_Y$ agree on all inputs of $A$, which implies that $X = Y$ so the mapping is injective. Hence $\mathcal P(A) \sim \{0, 1 \}^A$ as there is a bijection between the two. 
+	\end{proof}
+
+
+
+
+\end{document}

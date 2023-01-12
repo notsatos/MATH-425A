@@ -1,0 +1,220 @@
+\documentclass[oneside]{amsart}
+\usepackage[left=1.25in,right=1.25in,top=0.75in,bottom=0.75in]{geometry}
+\linespread{1.05}
+\usepackage{mathtools}
+\usepackage{tcolorbox}
+\usepackage{euler}
+\usepackage{amssymb,latexsym,amsmath,amsthm}
+\usepackage{mathrsfs}
+\usepackage{xcolor}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks = true,
+    linkbordercolor = {red}
+}
+\usepackage[all]{xy}
+\usepackage[T1]{fontenc}
+\usepackage{xstring}
+\usepackage{xparse}
+\usepackage{mathrsfs}
+% \definecolor{brightmaroon}{rgb}{0.76, 0.13, 0.28}
+% \usepackage[linktocpage=true,colorlinks=true,hyperindex,citecolor=blue,linkcolor=brightmaroon]{hyperref}
+%\usepackage{fullpage}
+% \usepackage[a4paper, total={5.5in, 9in}]{geometry}
+\usepackage{tikz-cd}
+\theoremstyle{definition}
+%% this allows for theorems which are not automatically numbered
+\newtheorem{defi}{Definition}[section]
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}{Lemma}[section]
+\newtheorem{obs}{Observation}
+\newtheorem{exercise}{Exercise}[section]
+\newtheorem{rem}{Remark}[section]
+\newtheorem{construction}{Construction}[section]
+\newtheorem{prop}{Proposition}[section]
+\newtheorem{coro}{Corollary}[section]
+\newtheorem{disc}{Discussion}[section]
+\DeclareMathOperator{\spec}{Spec}
+\DeclareMathOperator{\im}{im}
+\DeclareMathOperator{\obj}{obj}
+\DeclareMathOperator{\ext}{Ext}
+\DeclareMathOperator{\Lim}{Lim}
+\DeclareMathOperator{\Int}{Int}
+\DeclareMathOperator{\tor}{Tor}
+\DeclareMathOperator{\ann}{ann}
+\DeclareMathOperator{\id}{id}
+\DeclareMathOperator{\proj}{Proj}
+\DeclareMathOperator{\gal}{Gal}
+\DeclareMathOperator{\coker}{coker}
+\newcommand{\degg}{\textup{deg}}
+\newtheorem{ex}{Example}[section]
+%% The above lines are for formatting.  In general, you will not want to change these.
+%%Commands to make life easier
+\newcommand{\RR}{\mathbf R}
+\newcommand{\aff}{\mathbf A}
+\newcommand{\ff}{\mathbf F}
+\usepackage{mathtools}
+% \newcommand{\ZZ}{\mathbf Z}
+\newcommand{\pring}{k[x_1, \ldots , x_n]}
+\newcommand{\polyring}{[x_1, \ldots , x_n]}
+\newcommand{\poly}{\sum_{\alpha} a_{\alpha} x^{\alpha}} 
+\newcommand{\ZZn}[1]{\ZZ/{#1}\ZZ}
+% \newcommand{\QQ}{\mathbf Q}
+\newcommand{\rr}{\mathbb R}
+\newcommand{\cc}{\mathbf C}
+\newcommand{\complex}{\mathbf {C}_\bullet}
+\newcommand{\nn}{\mathbf N}
+\newcommand{\zz}{\mathbf Z}
+\newcommand{\PP}{\mathbf  P}
+\newcommand{\cat}{\mathbf{C}}
+\newcommand{\ca}{\mathbf}
+\newcommand{\zzn}[1]{\zz/{#1}\zz}
+\newcommand{\qq}{\mathbb Q}
+\newcommand{\calM}{\mathcal M}
+\newcommand{\latex}{\LaTeX}
+\newcommand{\V}{\mathbf V}
+\newcommand{\tex}{\TeX}
+\newcommand{\sm}{\setminus} 
+\newcommand{\dom}{\text{Dom}}
+\newcommand{\lcm}{\text{lcm}}
+\DeclareMathOperator{\GL}{GL}
+\DeclareMathOperator{\cl}{cl}
+\DeclareMathOperator{\Hom}{Hom}
+\DeclareMathOperator{\aut}{Aut}
+\DeclareMathOperator{\SL}{SL}
+\DeclareMathOperator{\inn}{Inn}
+\DeclareMathOperator{\card}{card}
+\newcommand{\sym}{\text{Sym}}
+\newcommand{\ord}{\text{ord}}
+\newcommand{\ran}{\text{Ran}}
+\newcommand{\pp}{\prime}
+\newcommand{\lra}{\longrightarrow} 
+\newcommand{\lmt}{\longmapsto} 
+\newcommand{\xlra}{\xlongrightarrow} 
+\newcommand{\gap}{\; \; \;}
+\newcommand{\Mod}[1]{\ (\mathrm{mod}\ #1)}
+\newcommand{\p}{\mathfrak{p}} 
+\newcommand{\rmod}{\textit{R}-\textbf{Mod}}
+\newcommand{\idealP}{\mathfrak{P}}
+\newcommand{\ideala}{\mathfrak{a}}
+\newcommand{\idealb}{\mathfrak{b}}
+\newcommand{\idealA}{\mathfrak{A}}
+\newcommand{\idealB}{\mathfrak{B}}
+\newcommand{\X}{\mathfrak{X}}
+\newcommand{\idealF}{\mathfrak{F}}
+\newcommand{\idealm}{\mathfrak{m}}
+\newcommand{\s}{\mathcal{S}}
+\newcommand{\cha}{\text{char}}
+\newcommand{\ccc}{\mathfrak{C}}
+\newcommand{\idealM}{\mathfrak{M}}
+\tcbuselibrary{listings,theorems}
+\usetikzlibrary{decorations.pathmorphing} 
+\newcommand{\overbar}[1]{\mkern 1.5mu\overline{\mkern-1.5mu#1\mkern-1.5mu}\mkern 1.5mu}
+
+%Itemize gap:
+
+% \pagecolor{black}
+% \color{white}
+% Author info
+
+\title{Math 425A HW12, Dec. 5, 11:59PM}
+\date{November 17, 2022 \\ {Department of Mathematics, University of Southern California}}
+\address{Department of Mathematics, University of Southern California, 
+Los Angeles, CA 90007}
+\begin{document}
+\maketitle
+\setcounter{tocdepth}{4}
+\setcounter{secnumdepth}{4}
+ \section*{Chapter 8}
+\begin{tcolorbox}[colback=black!5!white,colframe=black!75!black,title= Exercise $1.2.$]  Let $f \colon \rr \to \rr$, and assume $\lim _{x \to \infty} x |f^\pp (x)| = 0$. Define a sequence $(a_n)_{n=1}^\infty $ in $\rr$ by $a_n = f(2n)-f(n)$ for each $n \in \nn$. Prove that $a_n \to 0 $ as $n \to \infty$. 
+\tcblower 
+\begin{proof} By MVT, we have $\frac{f(2n)-f(n)}{2n-n} = \frac{f(2n)-f(n)}{n} = f^\prime (x_n)$ for a sequence $x_n \in (n,2n)$, which implies $ f(2n)-f(n)=nf^\pp (x_n)$, so $a_n = n f^\pp (x_n). $ Let $x_n \to x$ in $\rr$ as $n \to \infty$. Then $0 \leq n |f^\pp (x_n )| \leq x_n |f^\pp (x_n)|$, and so $ 0 \leq \lim_{n \to \infty} n |f^\pp (x_n)| \leq \lim_{n \to \infty} x_n |f^\pp (x_n)| = 0$. Hence $ \lim_{n \to \infty} n |f^\pp (x_n)| = 0 \implies \lim_{n \to \infty} n f^\prime (x_n) = a_n = 0$. Therefore $a_n \to 0$ as $n \to \infty$.
+\end{proof}
+\end{tcolorbox}
+
+
+\begin{tcolorbox}[colback=black!5!white,colframe=black!75!black,title= Exercise $1.3.$]  Let $f \colon (a,b) \to \rr$ be a differentiable function with $f^\pp (x) >0$ for all $x \in (a,b)$.
+
+\begin{itemize}
+	\item [(a)] Prove that $f$ is injective, and and argue that its image must be an open interval $(c, d)$ (with $c$ and/or $d$ possibly infinite).
+	\item [(b)] By part $(a)$, there exists a function $g \colon (c,d) \to (a,b)$ such that $g(f(x)) = x$ for all $x \in (a, b)$. Prove that $g$ is continuous. (Hint: Use Theorem $2.19$ in Chapter $5$, and use the proof of Proposition $2.20$ of Chapter $5$ as a model for your answer.)
+	\item [(c)] Prove that $g$ is differentiable, and that $g^\pp(f(x))= 1$, for all $x \in (a,b)$. (Hint: Pick $y \in (c,d)$, $f^\pp(x)$ and let $(y_n)_{n=1}^\infty$ be a sequence in $(c, d) \setminus \{y\}$ that converges to $y$. Write the difference quotient $\frac{g(y_n)-g(y)}{y_n -y}$ in terms of $f$ and a sequence $(x_n)_{n=1}^\infty$ in $(a, b)$.)
+\end{itemize}
+\tcblower 
+\begin{proof} (a) Firstly we argue that $f$ is injective. Suppose we have $f(x) = f(y)$ such that $x \neq y$ with $x, y \in (a,b)$. Then by MVT there exists some $\gamma \in (a,b)$ such that $\frac{f(y)-f(x)}{y-x} = f^\prime (\gamma)$, which is of course defined as $x \neq y$ so $x -y \neq 0$. But then $f^\pp (\gamma ) = 0$ which is thus a contradiction. Hence $f$ must be injective. Next we argue that $\im (f)$ is open an interval of $\rr$. As $f$ is continuous and $(a,b)$ is connected, then $f((a,b))$ is also connected, so $f((a,b))$ is an interval and we still need to check that it is indeed open. We have that $f$ is a monotonically increasing function, and so for all $x, y \in (a,b)$ we have $f(x) < f(y)$, so $f( (x,y)) = (f(x), f(y))$ by the fact that $f$ is monotonically increasing and IVT (note that if we would've considered closed intervals, or half closed intervals, then these would've been absurd). Therefore we're done.
+
+(b) As $f$ is injective then we have an inverse function $g \colon (c,d) \to (a,b)$ such that $g(f(x)) = x$ for all $x \in (a,b)$. Pick $\delta > 0$ such that $a < x-\delta < b$. Then define $h\colon [x-\delta, x+\delta] \to (f(x-\delta), f(x+\delta))$, which is just a restriction and so this map is also continuous. Note also that as we've constructed the map then this map is also a bijection, and so we have a continuous bijection. By Theorem 2.19, we have a continuous map $\tilde{h} \colon (f(x-\delta), f(x+\delta)) \to [x-\delta, x+ \delta]$. But this is new map is just $g$, so $g = \tilde{h}$, which gives that $g$ is in fact continuous.
+
+(c) Let $y \in (c,d)$ and let $(y_n)_{n=1}^\infty$ be a sequence in $(c,d)\setminus \{y \}$ such that $y_n \to y$ for $n \to \infty$. As $y \in (c,d)$ and $(c,d)$ is the image of $f$, then we have $x \in (a,b)$ such that $f(x) = y$, and we can also write $x_n \in (a,b)$ with $f(x_n) = y_n$. Then 
+\begin{align*}
+	\frac{g(y_n) -g(y)}{y_n-y} = \frac{g(f(x_n)) -g(f(x))}{y_n-y} = \frac{x_n -x}{y_n-y} = \frac{x_n - x}{f(x_n)-f(x)}.
+\end{align*} Note that as $f ^\prime (x) > 0$ for all $x \in (a,b)$ then $f$ is a monotonically increasing function and so with our assumptions we can conclude $x_n \to x$ as $n \to \infty$. So 
+\begin{align*}
+	\lim_{n \to \infty} \frac{x_n - x}{f(x_n) -f(x)} = \lim_{n \to \infty} \left [ \frac{f(x_n) -f(x)}{x_n-x} \right ]^{-1} =  \left [\lim_{n \to \infty}  \frac{f(x_n) -f(x)}{x_n-x} \right ]^{-1} = [f^\pp (x) ]^{-1} = \frac{1}{f^\pp(x)}.
+\end{align*} Hence we've shown that $g$ is differentiable and that $g^\pp (f(x))=\frac{1}{f^\pp(x)}$ for all $x \in (a,b)$!
+\end{proof}
+\end{tcolorbox}
+
+
+
+\begin{tcolorbox}[colback=black!5!white,colframe=black!75!black,title= Exercise $2.2.$]  Show that if $f \colon [a,b] \to \rr$ is continuous and $F(x):= \int_a^x f(t)dt = 0$ for all $x \in [a,b]$, then $f(x) =0$ for all $x \in [a,b]$. Prove an example to show that the statement may fail if $f$ is not continuous. 
+\tcblower 
+\begin{proof} Assume that $f \colon [a,b] \to \rr$ is continuous, and let $F(x) =\int_a^x f(t) dt = 0$ for all $x \in [a,b]$ (note that we have $f \in \mathcal R([a,b]))$. By FTC we have that $F^\prime (x)  = f (x) =0$ and we're done. Alternatively, we don't need the hypothesis that $F(x) = 0$, as if we had $F^\prime (x) = f(x)$ only, then we get that $f(a) = 0$, and reading this $F^\prime (x) = f(x)$ means that the function is the same once we take its derivative and so $F(x) = ke^x$ but $f(a) = ke^a = 0$, so $k = 0$, and hence $f (x) = 0$. 
+\end{proof}
+\end{tcolorbox}
+
+
+\begin{tcolorbox}[colback=black!5!white,colframe=black!75!black,title= Exercise $2.3.$] Assume that $f$ and $g$ are differentiable functions on $[a,b]$, and assume $f^\prime, g^\prime \in \mathcal R ([a,b])$. Show that the integration by parts formula is valid:$$ \int_a^b f g^\pp dx = f(b)g(b) - f(a)g(a) - \int_a^b f^\pp g dx$$  
+\tcblower 
+\begin{proof} As $f$ and $g$ are differentiable, then $(fg)^\pp = f^\pp g + fg^\pp $. Note here that as $f,g \colon [a,b] \to \rr$ are differentiable, and thus continuous, with compact domain, then $f,g$ are both each bounded by Weierstrass and hence Riemann integrable by Theorem 2.8. Now we can integrate both sides as follows:
+
+\begin{align*}
+	\int_a^b (fg)^\prime dx = \int_a^b (f^\pp g + fg^\pp) dx = \int_a^b f^\pp g dx + \int_a^b fg^\pp dx,
+\end{align*} and we have $\int_a^b (fg)^\prime dx = f(b)g(b)-f(a)g(a)$ by FTC. Again, note that as $f^\pp,g^\prime \in \mathcal R([a,b])$ and $f,g \in \mathcal R([a,b])$, then we have $f^\prime g \in \mathcal R([a,b])$ and $fg^\pp \in \mathcal R([a,b])$ by Theorem 2.10. Now, we have \begin{align*}
+f(b)g(b)-f(a)g(a) &= \int_a^b f^\pp g dx + \int_a^b fg^\pp dx \\
+\implies \int_a^b fg^\pp dx &=f(b)g(b)-f(a)g(a) - \int_a^b f^\pp g dx.
+ \end{align*} 
+\end{proof}
+\end{tcolorbox}
+
+
+\begin{tcolorbox}[colback=black!5!white,colframe=black!75!black,title= Exercise $2.4.$]  Assume  $g \colon [a,b] \to \rr$ is differentiable, that $g^\prime$ is continuous, and $M$ and $m$ are upper and lower bounds, respectively, for the function $g$. Assume $f \colon [m, M] \to \rr$  is continuous. Show that the change of variables formula is valid 
+\[
+\int_a^b f(g(x))g^\prime (x) dx = \int_{g(a)}^{g(b)} f(t) dt
+\]
+\tcblower 
+\begin{proof} As we have appropriate assumptions made for $g$ and $f$, by Theorem $2.9$ gives that $f \circ g \colon [a,b] \to \rr$ is Riemann integrable. As $g \circ f \in \mathcal R ([a,b])$ and $g$ and $f$ are both continuous (as $g$ is differentiable then $g$ is continuous) then by FTC $1$ and $2$ we have we have 
+\[
+\int_a^b f(g(x))g^\prime dx = \int_a^b F ^\pp (g (x))g^\pp (x)  dx = 
+  \int_a^b (F\circ g)^\prime (x)  dx =  F(g(b)) - F(g(a)) = \int_{g(a)}^{g(b)} f(t) dt
+\] where we have $F^\prime = f$ by FTC. 
+\end{proof}
+\end{tcolorbox}
+
+
+\begin{tcolorbox}[colback=black!5!white,colframe=black!75!black,title= Exercise $2.5.$]  Assume $f \in \mathcal R([a,b])$, but that $f$ has a jump discontinuity at $c \in (a,b)$, i.e. $f(c-) \neq f(c+)$. Show that $F(x):=\int_a^x f(t) dt$ is not differentiable at $x = c$.  
+\tcblower 
+\begin{proof} We prove something slightly stronger. Let $f(x) \to \alpha$ as $x \to c^+$ (something similar can be said for when $x \to c^-)$. Take $\epsilon > 0$. Then we have $\delta > 0$ such that $|f(s) - \alpha | < \epsilon$ with $0 < s-c < \delta$. Now rewritting what we've done gives us $f(s) - \alpha < f(s) < \alpha + \epsilon$. Pick $r \in \rr$ such that $0 < r < \delta$. We integrate on $[c, c+r]$, which gives 
+$$
+r(\alpha - \epsilon) < \int_{c}^{c+r} f(s) ds < r(\alpha +\epsilon),
+$$ and we can simplify this to the following:
+
+$$ \alpha - \epsilon < \frac{F(c+r)-F(c)}{r} < \alpha + \epsilon .$$ Now $\lim_{r \to 0^+} \frac{F(c+h)-F(c)}{r} = \alpha = \lim_{x \to c^+} f(x)$. Hence if $f$ has the jump discontinuity at $c \in (a,b)$, that is $f(c-) \neq f(c+),$ then $F$ is not differentiable at $x =c$ .
+\end{proof}
+\end{tcolorbox}
+
+
+\begin{tcolorbox}[colback=black!5!white,colframe=black!75!black,title= Exercise $2.7.$] Assume that $g$ is bounded, $g \in \mathcal R([0,1])$ and continuous at $0$. Show that 
+\[
+\lim_{n \to \infty} \int_0^1 g(x^n) dx = g(0).
+\] 
+\tcblower 
+\begin{proof} Let $\epsilon > 0$. Since we assume $g$ is continuous at $ g(0)$, then there exists $\delta > 0$ such that  $|g(x) - g(0)| < \epsilon$, where $x \in [0,\delta]$. Now pick $\omega \in (0,1)$ such that $\omega > 1- \epsilon$. Moreover, we have $ \lim_{n \to \infty} \omega^n = 0$ as $\omega \in (0,1)$, so there exists some $N \in \nn$ with $n \geq N$ we have  $\omega^n \in [0, \delta]$. Moving on we make the clear observation that $x \in [0,\omega]$ implies $0 \leq x^n \leq \omega^n$, so that taking limits to infinity gives us that $x^n \in [0, \delta]$. So
+\begin{align*}
+	\left | \int_0^1 g(x^n) - g(0) dx\right | = \left | \int_0^1 g(x^n)dx  - \int_0^1 g(0) dx \right|  & \leq \int_0^1 \left |g(x^n)-g(0) \right| dx \\ & =  \int_\omega^1 |g(x^n)-g(0)|dx + \int_0^\omega |g(x^n)-g(0)|dx 
+\end{align*} Now for $ n \geq N$, as we picked in the previous paragraph, we have $|g(x^n) - g(0)| < \epsilon$. Then, for $n \geq N$, $\int_\omega^1 |g(x^n) - g(0)| dx \leq \int_\omega^1 2M dx = 2M(1- \omega) \leq (2M) \epsilon$, and $\int_0^\omega |g(x^n)-g(0)| < \int_0^\omega \epsilon dx \leq \epsilon$. Therefore $\lim_{n \to \infty} \int_0^1 g(x^n) dx = g(0)$, and we're done.
+\end{proof}
+\end{tcolorbox}
+
+\end{document}

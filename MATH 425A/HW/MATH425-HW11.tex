@@ -1,0 +1,199 @@
+\documentclass[oneside]{amsart}
+\usepackage[left=1.25in,right=1.25in,top=0.75in,bottom=0.75in]{geometry}
+\linespread{1.05}
+\usepackage{mathtools}
+\usepackage{tcolorbox}
+\usepackage{newpxmath}
+\usepackage{euler}
+\usepackage{amssymb,latexsym,amsmath,amsthm}
+\usepackage{mathrsfs}
+\usepackage{xcolor}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks = true,
+    linkbordercolor = {red}
+}
+\usepackage[all]{xy}
+\usepackage[T1]{fontenc}
+\usepackage{xstring}
+\usepackage{xparse}
+\usepackage{mathrsfs}
+% \definecolor{brightmaroon}{rgb}{0.76, 0.13, 0.28}
+% \usepackage[linktocpage=true,colorlinks=true,hyperindex,citecolor=blue,linkcolor=brightmaroon]{hyperref}
+%\usepackage{fullpage}
+% \usepackage[a4paper, total={5.5in, 9in}]{geometry}
+\usepackage{tikz-cd}
+\theoremstyle{definition}
+%% this allows for theorems which are not automatically numbered
+\newtheorem{defi}{Definition}[section]
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}{Lemma}[section]
+\newtheorem{obs}{Observation}
+\newtheorem{exercise}{Exercise}[section]
+\newtheorem{rem}{Remark}[section]
+\newtheorem{construction}{Construction}[section]
+\newtheorem{prop}{Proposition}[section]
+\newtheorem{coro}{Corollary}[section]
+\newtheorem{disc}{Discussion}[section]
+\DeclareMathOperator{\spec}{Spec}
+\DeclareMathOperator{\im}{im}
+\DeclareMathOperator{\obj}{obj}
+\DeclareMathOperator{\ext}{Ext}
+\DeclareMathOperator{\Lim}{Lim}
+\DeclareMathOperator{\Int}{Int}
+\DeclareMathOperator{\tor}{Tor}
+\DeclareMathOperator{\ann}{ann}
+\DeclareMathOperator{\id}{id}
+\DeclareMathOperator{\proj}{Proj}
+\DeclareMathOperator{\gal}{Gal}
+\DeclareMathOperator{\coker}{coker}
+\newcommand{\degg}{\textup{deg}}
+\newtheorem{ex}{Example}[section]
+%% The above lines are for formatting.  In general, you will not want to change these.
+%%Commands to make life easier
+\newcommand{\RR}{\mathbf R}
+\newcommand{\aff}{\mathbf A}
+\newcommand{\ff}{\mathbf F}
+\usepackage{mathtools}
+% \newcommand{\ZZ}{\mathbf Z}
+\newcommand{\pring}{k[x_1, \ldots , x_n]}
+\newcommand{\polyring}{[x_1, \ldots , x_n]}
+\newcommand{\poly}{\sum_{\alpha} a_{\alpha} x^{\alpha}} 
+\newcommand{\ZZn}[1]{\ZZ/{#1}\ZZ}
+% \newcommand{\QQ}{\mathbf Q}
+\newcommand{\rr}{\mathbb R}
+\newcommand{\cc}{\mathbb C}
+\newcommand{\complex}{\mathbf {C}_\bullet}
+\newcommand{\nn}{\mathbb N}
+\newcommand{\zz}{\mathbb Z}
+\newcommand{\PP}{\mathbb  P}
+\newcommand{\cat}{\mathbf{C}}
+\newcommand{\ca}{\mathbf}
+\newcommand{\zzn}[1]{\zz/{#1}\zz}
+\newcommand{\qq}{\mathbb Q}
+\newcommand{\calM}{\mathcal M}
+\newcommand{\latex}{\LaTeX}
+\newcommand{\V}{\mathbf V}
+\newcommand{\tex}{\TeX}
+\newcommand{\sm}{\setminus} 
+\newcommand{\dom}{\text{Dom}}
+\newcommand{\lcm}{\text{lcm}}
+\DeclareMathOperator{\GL}{GL}
+\DeclareMathOperator{\cl}{cl}
+\DeclareMathOperator{\Hom}{Hom}
+\DeclareMathOperator{\aut}{Aut}
+\DeclareMathOperator{\SL}{SL}
+\DeclareMathOperator{\inn}{Inn}
+\DeclareMathOperator{\card}{card}
+\newcommand{\sym}{\text{Sym}}
+\newcommand{\ord}{\text{ord}}
+\newcommand{\ran}{\text{Ran}}
+\newcommand{\pp}{\prime}
+\newcommand{\lra}{\longrightarrow} 
+\newcommand{\lmt}{\longmapsto} 
+\newcommand{\xlra}{\xlongrightarrow} 
+\newcommand{\gap}{\; \; \;}
+\newcommand{\Mod}[1]{\ (\mathrm{mod}\ #1)}
+\newcommand{\p}{\mathfrak{p}} 
+\newcommand{\rmod}{\textit{R}-\textbf{Mod}}
+\newcommand{\idealP}{\mathfrak{P}}
+\newcommand{\ideala}{\mathfrak{a}}
+\newcommand{\idealb}{\mathfrak{b}}
+\newcommand{\idealA}{\mathfrak{A}}
+\newcommand{\idealB}{\mathfrak{B}}
+\newcommand{\X}{\mathfrak{X}}
+\newcommand{\idealF}{\mathfrak{F}}
+\newcommand{\idealm}{\mathfrak{m}}
+\newcommand{\s}{\mathcal{S}}
+\newcommand{\cha}{\text{char}}
+\newcommand{\ccc}{\mathfrak{C}}
+\newcommand{\idealM}{\mathfrak{M}}
+\tcbuselibrary{listings,theorems}
+\usetikzlibrary{decorations.pathmorphing} 
+\newcommand{\overbar}[1]{\mkern 1.5mu\overline{\mkern-1.5mu#1\mkern-1.5mu}\mkern 1.5mu}
+
+%Itemize gap:
+
+% \pagecolor{black}
+% \color{white}
+% Author info
+
+\title{Math 425A HW11, Nov. 16, 10PM}
+\author{Juan Serratos}
+\date{October 15, 2022 \\ {Department of Mathematics, University of Southern California}}
+\address{Department of Mathematics, University of Southern California, 
+Los Angeles, CA 90007}
+\begin{document}
+\maketitle
+\setcounter{tocdepth}{4}
+\setcounter{secnumdepth}{4}
+ \section{Chapter 6}
+\begin{tcolorbox}[colback=black!5!white,colframe=black!75!black,title= Exercise $3.1.$]  A collection $\mathcal A$ of real-vlaued functions on a set $E$ is said to be \textbf{uniformly bounded} on $E$ if there exists $M > 0$ such that $|f(x)| \leq M$ for all $x \in E$, for all $f \in \mathcal A$. (So each function is bounded, and the same bound works for all functions in $\mathcal A$.) Let $(f_n)$ be a sequence of bounded functions which converges uniformly to a limit function $f$. Prove that $\{f_n \}_{n=1}^\infty$ is a uniformly bounded subset of $(B(X),d_u)$.
+\tcblower 
+\begin{proof} As $f_n \to f$, then we may pick $\epsilon = 1$ such that there exists some $N \in \nn$ where $n \geq N$ gives $|f_n - f| < 1$. For each $f_n$, we have that it is bounded by some corresponding $M_n > 0$, i.e. $|f_n| \leq M_n$. Now write $M = \max \{ M_1, \ldots, M_N\}$. Then, for $n \geq N$, $|f_n | \leq |f_n - f|+|f-f_N|+|f_N| < 2+M$. Therefore we have that $ \{ f_n \}_{n=1}^\infty$ is a uniformly bounded subset of $B(X)$.
+\end{proof}
+\end{tcolorbox}
+\begin{tcolorbox}[colback=black!5!white,colframe=black!75!black,title= Exercise $3.2.$] Let $(f_n)_{n=1}^\infty$ and $(g_n)_{n=1}^\infty$ be a sequence of real-valued functions on a set $E$, which converges uniformly on $E$ to limit functions $f$ and $g$, respectively. 
+\begin{itemize}
+	\item [(a)] Prove that $(f_n+g_n)_{n=1}^\infty$ converges to $f+g$ uniformly on $E$.
+	\item [(b)] If each $f_n$ and each $g_n$ is bounded, show that $(f_n g_n)_{n=1}^\infty$ converges uniformly to $fg$ on $E$.
+\end{itemize}
+\tcblower 
+\begin{proof} (a) As $(f_n)_{n=1}^\infty$ and $(g_n)^\infty_{n=1}$ both converge uniformly, we have some $N \in \nn$ and $M \in \nn$ such that for $n \geq N$ and $n \geq M$ we get $ |f_n(x) -f(x)| < \epsilon/2$ and $|g_n(x) - g(x)| < \epsilon/2$, respectively,  for (all) $\epsilon > 0$. Then 
+\begin{align*}
+|(f_n+g_n)-(f+g)| &= |(f_n-f)+(g_n-g)| \\ &\leq |f_n-f| + |g_n-g| < \frac{\epsilon}{2} + \frac{\epsilon}{2} = \epsilon
+\end{align*}
+for $ n \geq \max \{M,N\}$. Hence we have $(f_n+g_n)_{n=1}^\infty$ uniformly converging to $f+g$ on $E$.
+
+(b) Suppose that $f_n$ and $g_n$ are bounded; that is, for all $f_n$ and $g_n$, we have $|f_n(x) | \leq M$ and $|g_n(x)| \leq T$ for some $M,P \in \rr$ and all $x \in X$. The idea is two get an $\epsilon/2$ demonstration after applying the triangle inequality many times. As $g_n \to g$, for $\epsilon>0$, there is some $N_1 \in \nn$ such that for $n \geq N_1$ we can write $|g_n-g| < \frac{\epsilon}{2M}$. Additionally, for $\epsilon >0$, there exists some $N_2 \in \nn$ such that $|f_n - f| < \frac{\epsilon}{2(1+T)}$ for $n \geq N_2$. Note that there exists an $N_3 \in \nn$ such that $|g_n -g| < 1$ for $n \geq N_3$. Then $|g| \leq |g_n - g| +|g_n| < 1+T$. Then for $n \geq \max \{N_1, N_2, N_3 \}$,
+\begin{align*}
+	|(f_ng_n) -fg| & = |(f_n g_n) - fg + (f_n g- f_ng)| = |(f_ng_n-f_ng)+(f_ng-fg)| \\
+	&\leq |f_ng_n-f_ng|+|f_n g-fg| = |f_n (g_n-g)|+|g(f_n-f)| \\
+	&= |f_n||g_n-g| + |g||f_n-f| < M \left( \frac{\epsilon}{2M} \right) + (1+T)\left (\frac{\epsilon}{2(T+1)} \right ) = \frac{\epsilon}{2} +\frac{\epsilon}{2} = \epsilon.
+\end{align*}
+
+\end{proof}
+\end{tcolorbox}
+
+
+\begin{tcolorbox}[colback=black!5!white,colframe=black!75!black,title= Exercise $1.1.$]  Prove parts (b) and (c) of the Proposition.
+\begin{itemize}
+	\item [(a)] Let $A$ be subset of $\rr$, let $p \in \rr$ be a limit point of $A$ with respect to $\rr$, and let $f \colon A \to \overline{\rr}$ be a function. Then $$ \lim_{x \to p}f(x) = + \infty$$ if and only if for every $L \in \rr$, there exists $\delta > 0$ such that $0< |x-p|< \delta$ and $x \in A$ together imply that $f(x) > L$.
+	\item [(b)] Let $B$ be a subset of $\rr$ that is not bounded above in $\rr$, and let $g \colon B \to \overline{\rr}$ be a function. Let $q$ be a real number. Then $$ \lim_{x \to + \infty} g(x) = q$$ if and only if for every $\epsilon > 0$, there exists $M \in \rr$ such that $x > M$ and $x \in B$ together imply that $ | g(x) -q| < \epsilon$.
+	\item [(c)] Let $C$ be a subset of $\rr$ that is not bounded above in $\rr$; let $h \colon C \to \overline{\rr}$ be a function. Then $$ \lim_{x \to + \infty} h(x) = +\infty$$ if and only if for every $N \in \rr$, there exists $P \in \rr$ such that $x >P$ and $x \in C$ together imply $h(x) > N$.
+\end{itemize}	
+\tcblower 
+\begin{proof} Recall that a neighborhood of $+\infty$ is given by for any $c \in \rr$ and $x > c$, the set $(c, +\infty)$ is a neighborhood of $+\infty$.
+
+(b) $(\Rightarrow)$ Let $\lim_{x\to +\infty} g(x) = q$ and $\epsilon > 0$. As $q \in B (q, \epsilon)$ is a neighborhood of $q$ so we have a neighborhood $U$ of $+\infty$, and we can write $U = (M, + \infty)$ by Proposition $\textcolor{red}{1.1 (a)}$, such that $x \in U \cap B$ (i.e. $x>M$ and $x \in B$) implies $g(x) \in V$, that is, $|g(x)-q| < \epsilon$. $(\Leftarrow)$ Suppose that for every $\epsilon > 0$ there is some $M \in \rr$ such that $x > M$ and $x \in B$ implies $|g(x)-q|<\epsilon$. Let $V  = B (q, \epsilon)$ be a neighborhood of $q$. Then as we have $x > M$ and $x \in B$ (and $B$ is not bounded), then $ U = (M, + \infty)$ is a neighborhood of $+\infty$ (by Proposition $\textcolor{red}{1.1 (a)}$) for which $x \in U \cap B$ implies $g(x) \in V$ as we assumed $|g(x)-q| < \epsilon$ holds true for the preceding hypotheses. Side note: we're even able to even let $x \to +\infty$ since we chose $B$  to be unbounded (by Proposition $\textcolor{red}{1.1 (b)}$) in either case.
+
+(c) $(\Rightarrow)$ Let $ \lim_{x \to +\infty} h(x) = + \infty$, and let $N \in \rr$. Then $(N, +\infty]$ is an open neighborhood of $+\infty$ in $ \overline{\rr}$ by Proposition $\textcolor{red}{1.1 (a)}$. So we have an open neighborhood $U = (P, +\infty)$ of $+\infty$ such that $x \in U \cap C$ gives $h(x) \in (N, +\infty]$, which means that $x>P$ for all $x \in C$ and also $h(x) > N$. $(\Leftarrow)$ Assume that for every $N \in \rr$, there exists some $P \in \rr$ such that $x > P$ and $x \in C$ implies $h(x) > N$. Then for every $N \in \rr$, we have a neighborhood $ U = (P, +\infty)$ of $+\infty$ by Proposition $\textcolor{red}{1.1 (a)}$, and we also have that for $x > P$ and $x \in C$ (i.e. $ \in U \cap C$) we get $h(x) > N$, i.e. $h(x) \in (N, +\infty)$, a neighborhood of $+\infty$. Therefore we're done as for any neighborhood $ V = (N, +\infty)$ of $+\infty$ (by Proposition $\textcolor{red}{1.1 (a)}$) there exists an open neighborhood $ U = (P, +\infty)$ of $+\infty$ such that $x \in U \cap C$ implies $h(x) \in V$. Side note: we're even able to even let $x \to +\infty$ since we chose $C$ to be unbounded (by Proposition $\textcolor{red}{1.1 (b)}$) in either case.
+\end{proof}
+\end{tcolorbox}
+
+
+\begin{tcolorbox}[colback=black!5!white,colframe=black!75!black,title= Exercise $4.1.$]  Let $(s_n)_{n=1}^\infty$ and $(t_n)_{n=1}^\infty$ be sequences in $\overline{\rr}$. Prove the following statements. 
+\begin{itemize}
+	\item [(a)] If $s_n \leq t_n$ for each $n \in \nn$ and $\lim _{n \to \infty} s_n = +\infty$, then $ \lim _{n\to \infty} t_n = + \infty$ as well.
+	\item [(b)] If $(s_n)_{n=1}^\infty$ and $(t_n)_{n=1}^\infty$ converge in $\overline{\rr}$ to $s$ and $t$, respectively, and if $s_n \leq t_n$ for each $n \in \nn$, then $s \leq t$.
+\end{itemize}
+\tcblower 
+\begin{proof} (a) Let $s_n \leq t_n$ for each $n \in \nn$ and $\lim_{n \to \infty } s_n = +\infty$. Then we have that $(s_n)$ is an unbounded sequence, meaning that for every $M\in \rr$ such that $M>0$ we have $s_n > M$. Then this forces $M \leq s_n \leq t_n$ for each $n \in \nn$, and therefore $t_n$ is also unbounded forcing $ \lim _{n\to \infty} t_n = + \infty$ in $\overline{\rr}$. 
+
+(b) Suppose $(s_n)_{n=1}^\infty$ and $(t_n)_{n=1}^\infty$ with $s_n \to s$ and $t_n \to t$ as $n \to \infty$. Further, assume $s_n \leq t_n$ for all $n \in \nn$. By way of contradiction, suppose that $s>t$. Then $s-t> 0$, and now we write $\epsilon = \frac{s-t}{2}$. As $s_n \to s$, then there is some $N_1 \in \nn$ such that $n \geq N$ gives $s_n \in (s-\epsilon, s+\epsilon)$, i.e. $s-\epsilon < s_n < s+\epsilon$; similarly, we have some $N_2 \in \nn $ where $n \geq N_2$ produces $ t-\epsilon < t_n < t +\epsilon$. Now  we have $t_n < t+\epsilon$, and so 
+\begin{align*}
+	t_n < t+\epsilon = t+\frac{s-t}{2}=\frac{t+s}{2} = s-\epsilon < s_n,
+\end{align*} which is a contradiction. Therefore we have $s \leq t$.
+\end{proof}
+\end{tcolorbox}
+
+
+\begin{tcolorbox}[colback=black!5!white,colframe=black!75!black,title= Exercise $4.2.$]  Let $(a_n)_{n=1}^\infty$ and $(b_n)^\infty_{n=1}$ be sequences of real numbers. Prove that $$ \limsup _{n \to \infty} (a_n+b_n) \leq \limsup _{n \to \infty} a_n + \limsup _{n \to \infty} b_n. $$ Provided that the RHS isn't of the form $\infty - \infty$. 
+\tcblower 
+\begin{proof} We proceed by contradiction; suppose $$\limsup (a_n+ b_n) _{n \to \infty} > \limsup _{n \to \infty} a_n + \limsup _{n \to \infty} b_n.$$ As a short hand, we write $A = \limsup_{n \to \infty} a_n$, $B = \limsup  _{n \to \infty}$, and \\ $\ell = \limsup_{n \to \infty} (a_n +b_n)$. Then we have $\ell > A+B$ so $\ell -B>A$, and so there exists some $\gamma \in (A, \ell - B)$, so $ \gamma >A = \limsup_{n\to \infty} a_n$. By Theorem $\textcolor{red}{4.2.(b)}$, there exists some $N \in \nn$ such that $n \geq N $ we get $a_n < \gamma$ (i.e. for all but finitely many, as stated in the Theorem). Hence $a_n + b_n < \gamma + b_n$ implies $ \ell = \limsup _{n \to \infty} (a_n+b_n) \leq \limsup_{n\to \infty} (\gamma + b_n) = \gamma + \limsup_{n \to \infty} b_n = \gamma + B$ (by the previous exercise and Theorem $\textcolor{red}{4.2.(b)}$) when $n \geq N$. So $\ell \leq  \gamma + B <\ell - B + B = \ell $, as we assumed $\gamma \in (A, \ell -B)$, and so we have a contradiction. Hence we have the desired inequality $$ \limsup _{n \to \infty} (a_n+b_n) \leq \limsup _{n \to \infty} a_n + \limsup _{n \to \infty} b_n. $$
+\end{proof}
+\end{tcolorbox}
+
+
+\end{document}

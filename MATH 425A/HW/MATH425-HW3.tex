@@ -1,0 +1,228 @@
+\documentclass[9pt,reqno]{amsart}
+\usepackage{graphicx}
+% \usepackage[a4paper, total={5.5in, 8in}]{geometry}
+%\usepackage{mathpazo}
+%\usepackage{euler}
+
+
+\graphicspath{ {./urpimages/} }
+\usepackage{amsfonts,amssymb,latexsym,amsmath, amsthm}
+\usepackage{tikz-cd}
+\usepackage{mathrsfs}
+\usepackage{stmaryrd}
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks = true,
+    linkbordercolor = {red}
+}
+\theoremstyle{definition}
+%% this allows for theorems which are not automatically numbered
+\newtheorem{defi}{Definition}[section]
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}{Lemma}[section]
+\newtheorem{obs}{Observation}
+\newtheorem{exercise}{Exercise}[section]
+\newcommand{\heg}{\text{Heg}}
+\newtheorem{rem}{Remark}[section]
+\newtheorem{construction}{Construction}[section]
+\newtheorem{prop}{Proposition}[section]
+\newtheorem{coro}{Corollary}[section]
+\newtheorem{disc}{Discussion}[section]
+\DeclareMathOperator{\spec}{Spec}
+\DeclareMathOperator{\im}{im}
+\DeclareMathOperator{\obj}{obj}
+\DeclareMathOperator{\ext}{Ext}
+\DeclareMathOperator{\tor}{Tor}
+\DeclareMathOperator{\ann}{ann}
+\DeclareMathOperator{\id}{id}
+\DeclareMathOperator{\proj}{Proj}
+\DeclareMathOperator{\gal}{Gal}
+\DeclareMathOperator{\coker}{coker}
+\newcommand{\degg}{\textup{deg}}
+\newtheorem{ex}{Example}[section]
+%% The above lines are for formatting.  In general, you will not want to change these.
+%%Commands to make life easier
+\newcommand{\RR}{\mathbf R}
+\newcommand{\aff}{\mathbf A}
+\newcommand{\ff}{\mathbf F}
+\usepackage{mathtools}
+\newcommand{\cccC}{\mathbf C}
+\newcommand{\oo}{\mathcal{O}}
+% \newcommand{\ZZ}{\mathbf Z}
+\newcommand{\pring}{k[x_1, \ldots , x_n]}
+\newcommand{\polyring}{[x_1, \ldots , x_n]}
+\newcommand{\poly}{\sum_{\alpha} a_{\alpha} x^{\alpha}} 
+\newcommand{\ZZn}[1]{\ZZ/{#1}\ZZ}
+% \newcommand{\QQ}{\mathbf Q}
+\newcommand{\rr}{\mathbf R}
+\newcommand{\cc}{\mathbf C}
+\newcommand{\complex}{\mathbf {C}_\bullet}
+\newcommand{\nn}{\mathbf N}
+\newcommand{\zz}{\mathbf Z}
+\newcommand{\PP}{\mathbf P}
+\newcommand{\cat}{\mathbf{C}}
+\newcommand{\ca}{\mathbf}
+\newcommand{\zzn}[1]{\zz/{#1}\zz}
+\newcommand{\qq}{\mathbf Q}
+\newcommand{\calM}{\mathcal M}
+\newcommand{\latex}{\LaTeX}
+\newcommand{\V}{\mathbf V}
+\newcommand{\tex}{\TeX}
+\newcommand{\sm}{\setminus} 
+\newcommand{\dom}{\text{Dom}}
+\newcommand{\lcm}{\text{lcm}}
+\DeclareMathOperator{\GL}{GL}
+\DeclareMathOperator{\Hom}{Hom}
+\DeclareMathOperator{\aut}{Aut}
+\DeclareMathOperator{\SL}{SL}
+\DeclareMathOperator{\inn}{Inn}
+\DeclareMathOperator{\card}{card}
+\newcommand{\sym}{\text{Sym}}
+\newcommand{\ord}{\text{ord}}
+\newcommand{\ran}{\text{Ran}}
+\newcommand{\pp}{\prime}
+\newcommand{\lra}{\longrightarrow} 
+\newcommand{\lmt}{\longmapsto} 
+\newcommand{\xlra}{\xlongrightarrow} 
+\newcommand{\gap}{\; \; \;}
+\newcommand{\Mod}[1]{\ (\mathrm{mod}\ #1)}
+\newcommand{\p}{\mathfrak{p}} 
+\newcommand{\rmod}{\textit{R}-\textbf{Mod}}
+\newcommand{\idealP}{\mathfrak{P}}
+\newcommand{\ideala}{\mathfrak{a}}
+\newcommand{\idealb}{\mathfrak{b}}
+\newcommand{\idealA}{\mathfrak{A}}
+\newcommand{\idealB}{\mathfrak{B}}
+\newcommand{\X}{\mathfrak{X}}
+\newcommand{\idealF}{\mathfrak{F}}
+\newcommand{\idealm}{\mathfrak{m}}
+\newcommand{\s}{\mathcal{S}}
+\newcommand{\cha}{\text{char}}
+\newcommand{\ccc}{\mathfrak{C}}
+\newcommand{\idealM}{\mathfrak{M}}
+\usetikzlibrary{decorations.pathmorphing} 
+\newcommand{\overbar}[1]{\mkern 1.5mu\overline{\mkern-1.5mu#1\mkern-1.5mu}\mkern 1.5mu}
+
+%Itemize gap:
+
+% \pagecolor{black}
+% \color{white}
+% Author info
+
+\title{Math 425A HW3, Due 09/06/2022}
+\author{Juan Serratos}
+\email{jserrato@usc.edu}
+\date{ September 11, 2022 \\ {Department of Mathematics, University of Southern California}}
+\address{Department of Mathematics, University of Southern California, 
+Los Angeles, CA 90007}
+\begin{document}
+\maketitle
+\setcounter{tocdepth}{4}
+\setcounter{secnumdepth}{4}
+
+\section*{Chapter 2. \S 1.}
+\begin{exercise}[2.1.]
+	Let $A$ be a nonempty subset of an ordered field $(F, +, \cdot, \leq )$. Assume that $\sup A$ and $\inf A$ exist in $F$, and let $c$ be any element of $F$. Define the set $cA := \{ca \colon a \in A \}$.
+	\begin{itemize}
+		\item [(a)] Prove that if $c \geq 0 $, then $\sup (cA) = c \sup A$.
+		\item [(b)] What is $\sup (cA)$ if $c < 0$. Prove that your answer is correct.
+	\end{itemize}
+\end{exercise}
+\begin{proof}
+	(a) Suppose that $c \geq 0$. By hypothesis, we have that $x \leq \sup A$ for all $x \in A$, so $cx \leq c \sup A$ as $A$ is a subset of an ordered field. So then $c\sup A$ is an upper bound for $cA$. Now suppose we have some other upper bound $\gamma$ for $cA$. Let $c \neq 0$. Then $c q \leq \gamma$ for $q \in A$ gives us that $q \leq \gamma/c$ which is another upper bound for $A$; thus $\sup A \leq \gamma /c$ as $\sup A$ is the least upper bound of $A$, and so $c \sup A \leq \gamma$ by multiplication. Hence $ c \sup A = \sup (cA)$ if $c \neq 0$. Now suppose $c = 0$. This implies that $c A = (0) A = \{ 0 \}$. Let $\gamma$ be an upper bound for $cA$. So $\ell \leq \gamma$ for all $\ell \in cA$, but $cA$ consists of only $0$ so $0 \leq \gamma$. Moreover, $c \sup A = (0) \sup A = 0$, so $c \sup A = 0 \leq \gamma$ is a true statement. Hence $c \sup A = \sup (cA)$ if $c = 0$. Therefore $c \sup A = \sup (cA)$ if $c \geq 0$.
+	
+	(b) Let $c < 0$. By hypothesis, $x \leq \sup A$ for all $x \in A$, but then the inequality reverses after multiplication since $c$ is negative: $x c \geq c \sup A$. So then $cA$ is bounded below by $c \sup A$. Let $\lambda $ be some other lower bound of $cA$. Then $ca \leq \lambda$ for all $a \in A$, and so $a \geq \frac{\lambda}{c}$. But as $\sup A \geq a \geq \frac{\lambda}{c}$, and so $c \sup A \leq \lambda$. This shows that $c \sup A$ is the least upper bound for $cA$, i.e. $c \sup A = \inf(cA)$. 
+	\end{proof}
+
+
+\begin{exercise}[2.2.]
+	Let $A$ and $B$ be nonempty subsets of an ordered field $(F, +, \cdot, \leq )$. Assume $\sup A$ and $\sup B$ exist in $F$. Define $A + B:=\{ a + b \colon a \in A, b \in B \}$. Prove that $\sup (A+B) = \sup A + \sup B$ by filling in the details of the following outline:
+	\begin{itemize}
+		\item Denote $s = \sup A$, $t= \sup B$. Then $s + t$ is an upper bound for $A+ B$. 
+		\item Let $u$ be any upper bound for $A+B$, and let $a$ be any element of $A$. Then $t \leq u -a$.
+		\item We have $s + t \leq u$. Consequently, $\sup (A+B)$ exists in $F$ and is equal to $s + t = \sup A + \sup B$.
+	\end{itemize}
+\begin{proof} Denote $s = \sup A, t = \sup B$. So $a \leq s$ and $b \leq t$ for all $a \in A$ and $b \in B$, and so $a+b \leq s + t$. Thus we have that $s + t$ is an upper bound for $A + B$. Now let $u$ be some other upper bound for $A+B$, i.e. $a+b \leq u$ for all $a \in A$ and $b \in B$. Now this implies $b \leq u -a$ so that $u-a$ is another upper bound for $B$, but then as $\sup B = t$ is the least upper bound for $B$, then $t \leq u-a$. Moreover, we have that $a \leq u-t$ and so this is another upper bound for $A$; thus $ s \leq u -t$ as $s = \sup A$. Therefore we have $s + t \leq u$. [Consequently, $\sup (A+B)$ exists in $F$ and is equal to $s + t = \sup A + \sup B$.]
+\end{proof}
+	
+\end{exercise}
+\begin{exercise}[2.3.]
+Let $f$ and $g$ be functions from a set $X$ to an ordered field $(F, + , \cdot, \leq )$. Let $A$ be a subset of $X$.
+\begin{itemize}
+	\item [(a)] Prove that the following inequality holds, assuming the relevant suprema all exist.
+\begin{equation}
+	\sup_{x \in A} (f(x) + g(x)) \leq \sup_{x \in A} f(x) + \sup_{x \in A} g(x).
+	\end{equation}
+	\item[(b)]  Show by way of an example that equality might not hold in $(1)$ , even if the suprema all exist. (Hint: This is probably easiest if you choose $X$ to be a set with two elements, and $F = \qq$.)
+\end{itemize}
+\end{exercise}
+\begin{proof}
+	(a) We have that $f, g \colon X \to F$ are functions and $A \subseteq X$ by hypothesis. Now let $s = \sup f(A)= \sup_{x \in A} f(x)$ and $t = \sup g(A) = \sup_{x \in A} g(x)$. Then $f(q) \leq s$ and $g(q) \leq t$ for all $q \in A$, and so $f(q) + g(q) = (f+q)(q) \leq s + t = \sup _{x \in A} f(x) + \sup _{x \in A} g(x)$.
+	
+	(b) We define a function from $f \colon \qq \to \qq $ where $x \mapsto 0$ if $x \neq -2$ or $x \mapsto 1$ if $x = -2$, and $g \colon \qq \to \qq$ where $x \mapsto 1$ if $x=2$ or $x \mapsto 0$ if $x \neq 2$. Now, clearly, $L = \sup (\{f(x) + g(x) \colon x \in \qq \}) = f(2) + g(2) = 0+1 = 1$ but  $R = \sup (\{ f(x) \colon x \in A \}) + \sup (\{ g(x) \colon x \in A \}) = 1+1 = 2$ where $A \subseteq \qq$. So the equality $L + 1 \neq 2 = R$ doesn't hold always hold. 
+\end{proof}
+\section*{Chapter 2. \S 3.}
+\begin{exercise}[3.1.] Using the strategies similar to those of the proofs in this section, prove the following statements.
+\begin{itemize}
+	\item [(a)] There is no rational number whose square is $20$.
+	\item [(b)] The set $A:=\{r\in \qq \colon r^2 < 20 \}$ has no least upper bound in $\qq$.
+\end{itemize}
+\end{exercise}
+
+\begin{proof}
+		(a) Suppose there is a rational number whose square is $20$, i.e. let $q = \sqrt{20}$ where $q \in \qq$. Then $q = \sqrt{20} = \sqrt{2^2 \cdot 5} = 2 \sqrt{5}$ and we aim for a contradiction that this $q = 2 \sqrt{5}$ cannot possibly be rational, and it suffices to show that $\sqrt{5}$ isn't rational to show that $q$ is irrational since the product of a rational and irrational number is irrational. We suppose that $p = \sqrt{5}$ is rational, i.e. $p = \frac{a}{b}$ with some $a, b \in \zz$ and $b \neq 0$. Furthermore, we may assume that $\gcd(a, b) = 1$, which is to say that $a$ and $b$ have no common factors. Then $p^2 = 5$ and $a^2 = 5b^2$; thus $5 \mid a$ and we can write $a = 5k$ for some $k \in \zz$. Hence $a^2 = (5k)^2 = 25k^2 = 5b^2$ and so $5k^2 = b^2$. We have that $ 5 \mid b$ as well and so we have found a common factor of $a$ and $b$ that is greater than $1$. Thus we have a contradiction and we conclude that no such $p$ exists. 
+		
+		(b) The set $A$ is nonempty since $ 0^2 = 0 < 20$. Let $p \in \qq$ and $q > 0$. We define $q = p -\frac{p^2+20}{p+20}$, which is clearly another rational number. Now, $p-q =\frac{p^2+20}{p+20}$, and so $p-q$ and $p^2-20$ have the same sign, i.e. if $p^2>20$ then $p>q$, or if $p^2<20$ then $p<q$. Now \begin{align}
+			q = p - \frac{p^2+20}{p+20} &= \frac{p(p+20) -(p^2+20)}{p+20} \\ 
+			&= \frac{p^2+20p-p^2 -20}{p+20} = \frac{20(p+1)}{p+20},
+		\end{align}
+		and so $q > 0$ as $p$ was assumed to be greater than zero. Moreover, 
+		\begin{align}
+			q^2 -2 &= \left (\frac{20(p+1)}{p+20} \right)^2 -20 = \frac{400(p+1)^2}{(p+20)^2}-20 \\
+			&= \frac{400(p+1)^2 - 20(p+20)^2}{(p+20)^2} = \frac{400(p^2+2p+1) - 20(p^2 + 40p+400)}{(p+20)^2} \\
+			&= \frac{400p^2+800p+400-20p^2-800p-800}{(p+20)^2} = \frac{380p^2-400 }{(p+20)^2} \\&= \frac{20(19p^2-20)}{(p+20)^2},
+		\end{align}
+		and thus this shows that $p^2 -2$ and $q^2- 2$ have the same sign, i.e. if $p^2>20$ then $q^2>20$, or if $p^2<2$ then $q^2 < 20$. Putting together what we've established so far then $p^2<q^2<20$ or $p^2>q^2 > 20$. 
+		
+		Now we want to show that $A$ has no least upper bound. We will do this in two steps. Firstly, we want to show that if $p$ is an upper bound for $A$ then $p^2>20$. By contrapositive, if $p^2 \leq 20$, then $p$ is not an upper bound for $A$. We've established that $p^2$ cannot be equal to $20$ since $ p \in \qq$. Thus we assume that $p^2 < 20$. But then this implies that $p^2 < q^2 <20$ where $q > 0$ and $q \in \qq$. Hence $q \in A$ and $p<q$ so $p$ is not an upper bound for $A$.
+		
+		Lastly, assume that $p$ is any upper bound for $A$ in $\qq$. If $p^2> 20$, then $p^2 > q^2 > 20$. So then $q < p$. Now, by contradiction, if $r \in A$ such that $r > q$, then $r^2 > q^2 >20$; thus we cannot have that $r \in A$. Therefore $q$ is an upper bound for $A$ that is less than $p$ so $o$ is not an upper bound. We can conclude that $\qq$ has no least upper bound. 
+		\end{proof}
+		
+\section{Chapter 2. \S 4}
+\begin{exercise}[4.1.] Prove the following statements about rational and irrational numbers.
+\begin{itemize}
+	\item[(a)] Assume $r$ is rational and $x$ is irrational. Show that $r+x$ is irrational. Show that $rx$ is irrational unless $r = 0$.
+	\item[(b)] Use the Archimedean property of $\rr$ to prove that the set of irrational numbers is dense in $\rr$. (Hint: Let $x$ be any positive irrational number. If $y$ and $z$ are  real numbers with $z-y > x$, then there exists an integer $m$ such that $y < mx < z$.)
+\end{itemize}
+\end{exercise}
+\begin{proof}
+	(a) Let $r = \frac{a}{b} \in \qq$ with $a, b \in \zz$ and $b \neq 0$, and suppose $x$ is irrational. Now, by way of contradiction, assume that $r + x$ is rational. Then we can write $r+x = \frac{c}{d}$ for some $c, d \in \zz$ and $d \neq 0$. Then $x = \frac{c}{d} -r = \frac{c}{d} - \frac{a}{b}=\frac{cb -ad}{db}$ and so $x \in \qq$, which is a contradiction as we assumed that $x$ is irrational. Therefore $r+x$ is irrational. 
+	
+	Now, using the same notation, suppose that $rx$ is rational with $r \neq 0$ . Then $rx = \frac{a}{b}(x) = \frac{s}{t}$ for some $s, t \in \zz$ and $t \neq 0$. So then $rx = \frac{s}{t} \implies rxt = s \implies x = \frac{s}{rt}$ and so $x \in \qq$, which is a contradiction. Thus $rx$ is irrational. Now if $r = 0$, then $xr = 0 \in \qq$. Hence $rx$ is rational unless $r = 0$.
+	
+	(b) Let $q$ be a positive irrational number, and suppose $y, z \in \qq$ such that $x<y$. Then $x - q < y - q$, and, by the Archimedean property, there is some $n \in \nn$ such that $n > \frac{1}{y-x}$ so $n(y-x) >1$ . Now $n(x-q)<n(y-q)$ by multiplication and as $n(y-z) >1$ there is some $ m \in \zz$ such that $n(x-q) < m < n(y-q)$. Thus $x-q <m/n < y- q$, and so $x< m/n + q <y$. Clearly, as $m/n \in \qq$, then $\frac{m}{n} + q$ is irrational by part (a). Hence the set of irrational numbers are dense in $\rr$. 
+\end{proof}
+
+\begin{exercise}[4.2.] Assume $a, b \in \rr$. Prove that $a \leq b$ if and only if $a \leq b + \epsilon $ for every $\epsilon>0$. 
+\end{exercise}
+\begin{proof} Suppose that $a \leq b$. Consider the case of $a < b$. Then $b < b+\epsilon$ for some $\epsilon > 0$, and so $a < b < b+\epsilon$ so $a < b+ \epsilon$. If $a =b$, then $b \leq b + \epsilon$, clearly, from the work before. So then both cases are done. Now for the opposite direction, we will proceed by contrapositive. Suppose that $a >b$. Then we need to show that there exists some $\epsilon$ such that $a > b+\epsilon$. Now we pick $\epsilon = \frac{a-b}{2}$. So then $a>b+ \epsilon = b+ \frac{a-b}{2}$. 
+\end{proof}
+\begin{exercise}[4.3.] Let $E$ be a subset of real numbers, and let $s$ be an upper bound for $E$. Prove that $s = \sup E$ if and only if for every $\epsilon > 0$ there exists $x \in E$ such that $x > s - \epsilon$.
+\end{exercise}
+\begin{proof}
+	$(\Rightarrow)$ Suppose that $s  = \sup E$, i.e. $s$ is the least upper bound for $E$. By contradiction, suppose that for some $\epsilon > 0$ and for all $x \in E$, we have that $x \leq s-\epsilon$. Then this is another upper bound for $E$, and so $\sup E = s \leq s-\epsilon$, which is a contradiction. $(\Leftarrow)$ Now for the opposite direction, suppose that $s \neq \sup E$, i.e $s$ is not the least upper bound. Then, by contradiction, assume that for every $\epsilon >0$, there exists some $x \in E$, such that $x>s-\epsilon$. Since $E \subseteq \rr$, then $E$ has a least upper bound; we will call it $\ell$. Then we have that $\ell < s$, and as $\rr$ is dense in itself, then there is some real number $t \in \rr$ such that $\ell < t< s$. For $\epsilon = s - t > 0$, then $x>s-\epsilon = s-(s-t) = t> \ell$. But this is a contradiction as $\ell$ is an upper bound of $E$. So then we must have that $s = \ell$.
+	\end{proof}
+
+\begin{exercise}[4.4.] Let $A$ and $B$ be nonempty sets of real numbers. Decide whether the following statements are true or false. If true, give a proof; if false, give a counterexample.
+\begin{itemize}
+	\item[(a)] If $\sup A < \inf B$, then there exists a $c \in \rr$ satisfying $a<c<b$ for all $a \in A$ and $b \in B$.
+	\item[(b)] If there exists a $c \in \rr$ satisfying $a<c<b$ for all $a \in A$ and $b \in B$, then $\sup A< \inf B$.
+\end{itemize}
+\end{exercise}
+\begin{proof}
+	(a) Suppose $\sup A < \inf B$. Then we define $c= (\sup A + \inf B)/2$. So then $c> \sup A$ since $\sup A + \sup A = 2 \sup A < \sup A + \inf B$, and so $c > a$ for all $a \in A$. Now, similarly, $c < \inf B$ since $\inf B + \sup A < \inf B + \inf B = 2 \inf B$, and so $c <b$ for all $b \in B$. All together, we have that $a < c < b$. 
+	
+	(b) This is a false statement. For example, if we take $A = (0, 1)$ and $b = (1, 2)$. Then $a < 1 < b$ for all $b \in B$ and $a \in A$ and $c = 1$. We see that $\sup A = 1$ and $\inf B = 1$. Hence $\sup A = 1 = \inf B$.  
+\end{proof}
+\end{document}

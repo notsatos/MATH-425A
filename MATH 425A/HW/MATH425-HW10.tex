@@ -1,0 +1,169 @@
+\documentclass[oneside]{amsart}
+\usepackage[left=1.25in,right=1.25in,top=0.75in,bottom=0.75in]{geometry}
+\linespread{1.05}
+\usepackage{mathtools}
+\usepackage{tcolorbox}
+\usepackage{newpxmath}
+\usepackage{euler}
+\usepackage{amssymb,latexsym,amsmath,amsthm}
+\usepackage{mathrsfs}
+\usepackage{xcolor}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks = true,
+    linkbordercolor = {red}
+}
+\usepackage[all]{xy}
+\usepackage[T1]{fontenc}
+\usepackage{xstring}
+\usepackage{xparse}
+\usepackage{mathrsfs}
+% \definecolor{brightmaroon}{rgb}{0.76, 0.13, 0.28}
+% \usepackage[linktocpage=true,colorlinks=true,hyperindex,citecolor=blue,linkcolor=brightmaroon]{hyperref}
+%\usepackage{fullpage}
+% \usepackage[a4paper, total={5.5in, 9in}]{geometry}
+\usepackage{tikz-cd}
+\theoremstyle{definition}
+%% this allows for theorems which are not automatically numbered
+\newtheorem{defi}{Definition}[section]
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}{Lemma}[section]
+\newtheorem{obs}{Observation}
+\newtheorem{exercise}{Exercise}[section]
+\newtheorem{rem}{Remark}[section]
+\newtheorem{construction}{Construction}[section]
+\newtheorem{prop}{Proposition}[section]
+\newtheorem{coro}{Corollary}[section]
+\newtheorem{disc}{Discussion}[section]
+\DeclareMathOperator{\spec}{Spec}
+\DeclareMathOperator{\im}{im}
+\DeclareMathOperator{\obj}{obj}
+\DeclareMathOperator{\ext}{Ext}
+\DeclareMathOperator{\Lim}{Lim}
+\DeclareMathOperator{\Int}{Int}
+\DeclareMathOperator{\tor}{Tor}
+\DeclareMathOperator{\ann}{ann}
+\DeclareMathOperator{\id}{id}
+\DeclareMathOperator{\proj}{Proj}
+\DeclareMathOperator{\gal}{Gal}
+\DeclareMathOperator{\coker}{coker}
+\newcommand{\degg}{\textup{deg}}
+\newtheorem{ex}{Example}[section]
+%% The above lines are for formatting.  In general, you will not want to change these.
+%%Commands to make life easier
+\newcommand{\RR}{\mathbf R}
+\newcommand{\aff}{\mathbf A}
+\newcommand{\ff}{\mathbf F}
+\usepackage{mathtools}
+% \newcommand{\ZZ}{\mathbf Z}
+\newcommand{\pring}{k[x_1, \ldots , x_n]}
+\newcommand{\polyring}{[x_1, \ldots , x_n]}
+\newcommand{\poly}{\sum_{\alpha} a_{\alpha} x^{\alpha}} 
+\newcommand{\ZZn}[1]{\ZZ/{#1}\ZZ}
+% \newcommand{\QQ}{\mathbf Q}
+\newcommand{\rr}{\mathbb R}
+\newcommand{\cc}{\mathbb C}
+\newcommand{\complex}{\mathbf {C}_\bullet}
+\newcommand{\nn}{\mathbb N}
+\newcommand{\zz}{\mathbb Z}
+\newcommand{\PP}{\mathbb  P}
+\newcommand{\cat}{\mathbf{C}}
+\newcommand{\ca}{\mathbf}
+\newcommand{\zzn}[1]{\zz/{#1}\zz}
+\newcommand{\qq}{\mathbb Q}
+\newcommand{\calM}{\mathcal M}
+\newcommand{\latex}{\LaTeX}
+\newcommand{\V}{\mathbf V}
+\newcommand{\tex}{\TeX}
+\newcommand{\sm}{\setminus} 
+\newcommand{\dom}{\text{Dom}}
+\newcommand{\lcm}{\text{lcm}}
+\DeclareMathOperator{\GL}{GL}
+\DeclareMathOperator{\cl}{cl}
+\DeclareMathOperator{\Hom}{Hom}
+\DeclareMathOperator{\aut}{Aut}
+\DeclareMathOperator{\SL}{SL}
+\DeclareMathOperator{\inn}{Inn}
+\DeclareMathOperator{\card}{card}
+\newcommand{\sym}{\text{Sym}}
+\newcommand{\ord}{\text{ord}}
+\newcommand{\ran}{\text{Ran}}
+\newcommand{\pp}{\prime}
+\newcommand{\lra}{\longrightarrow} 
+\newcommand{\lmt}{\longmapsto} 
+\newcommand{\xlra}{\xlongrightarrow} 
+\newcommand{\gap}{\; \; \;}
+\newcommand{\Mod}[1]{\ (\mathrm{mod}\ #1)}
+\newcommand{\p}{\mathfrak{p}} 
+\newcommand{\rmod}{\textit{R}-\textbf{Mod}}
+\newcommand{\idealP}{\mathfrak{P}}
+\newcommand{\ideala}{\mathfrak{a}}
+\newcommand{\idealb}{\mathfrak{b}}
+\newcommand{\idealA}{\mathfrak{A}}
+\newcommand{\idealB}{\mathfrak{B}}
+\newcommand{\X}{\mathfrak{X}}
+\newcommand{\idealF}{\mathfrak{F}}
+\newcommand{\idealm}{\mathfrak{m}}
+\newcommand{\s}{\mathcal{S}}
+\newcommand{\cha}{\text{char}}
+\newcommand{\ccc}{\mathfrak{C}}
+\newcommand{\idealM}{\mathfrak{M}}
+\tcbuselibrary{listings,theorems}
+\usetikzlibrary{decorations.pathmorphing} 
+\newcommand{\overbar}[1]{\mkern 1.5mu\overline{\mkern-1.5mu#1\mkern-1.5mu}\mkern 1.5mu}
+
+%Itemize gap:
+
+% \pagecolor{black}
+% \color{white}
+% Author info
+
+\title{Math 425A HW10, Nov. 1, 6PM}
+\author{Juan Serratos}
+\date{October 15, 2022 \\ {Department of Mathematics, University of Southern California}}
+\address{Department of Mathematics, University of Southern California, 
+Los Angeles, CA 90007}
+\begin{document}
+\maketitle
+\setcounter{tocdepth}{4}
+\setcounter{secnumdepth}{4}
+ \section{Chapter 4}
+
+\begin{tcolorbox}[colback=black!5!white,colframe=black!75!black,title= Chapter $5$; $\S 2.3$: Exercise $2.6.$] Complete the following tasks.
+\begin{itemize}
+	\item [(a)] Find a closed subset of $E$ and a continuous function $f \colon \rr \to \rr$ is continuous such that $f(E)$ is not closed.
+	\item [(b)] Find a bounded subset $E$ of $\rr$ and a continuous function $f \colon E \to \rr$ such that $f(E)$ is not bounded.
+	\item [(c)] Show that if $E$ is a bounded subset of $\rr$ and $f \colon \rr \to \rr$ is continuous, then $f(E)$ is bounded.
+\end{itemize}
+\tcblower 
+\begin{proof} (a) We know from the course notes that $f \colon \rr \to \rr$, where $x \mapsto \frac{1}{1+x^2}$ is continuous. Consider $E = \rr$, which is closed in $\rr$, but $f(\rr) = (0, 1]$ and this is not closed in $\rr$ (nor is it open as well).
+
+(b) The set $E = (0,1]$ is clearly a bounded subset of $\rr$. From the course notes, we know that $f \colon (0,1] \to \rr$ where $x \mapsto 1/x$ is a continuous function since $f$ is continuous on $f \colon (0, + \infty) \to \rr$ so the restriction $f|_E \colon (0,1] \to \rr$ is continuous (Proposition 2.9). But $f(E) = f((0,1]) = [1, + \infty)$ which is of course not bounded in $\rr$.
+
+(c) Suppose $E$ is a bounded subset of $\rr$. Then $\overline{E}$ is a closed and bounded subset of $\rr$, and so $\overline{E}$ is compact. Now $f(\overline{E})$ is compact, which gives that $f(\overline{E})$ is totally bounded by Proposition 4.8 in Course Notes, and further $f(E) \subset F(\overline{E})$, so $f(E)$ is bounded as well. 
+\end{proof}
+\end{tcolorbox}
+
+\begin{tcolorbox}[colback=black!5!white,colframe=black!75!black,title= Chapter $5$; $\S 2.3$: Exercise $2.7.$] Prove that the set $\rr^2 \setminus \{(0, 0)\}$ is connected. Then, use the function $\frac{x}{|x|}$ to show that $S = \{x \in \rr^2 : |x| = 1\}$ is connected. (You may use results from section $2.4.1$ below if you want, but it is also possible to do this Exercise without it.)
+\tcblower 
+\begin{proof}  Define the sets $A = \{(x,y) \colon y >0\}$, $B = \{ (x,y) \colon x > 0 \}$, $C = \{ (x,y) \colon x< 0 \}$, $D = \{ (x,y) \colon y< 0 \}$ (we fix $x$ in the set $A$ and allow $y$ to vary, and similarly for the rest). All of the sets $A, B, C, D$ are clearly connected open sets, and so their union which is $\rr^2 \setminus \{ (0, 0) \}$ is thus connected by Exercise 6.4. in Chapter 4. Alternatively, we could've proved this using path connectedness of $\rr^2 \setminus \{ 0, 0\}$ where given $x,y \neq 0$, then we map $f\colon [0,1] \to \rr \setminus \{ 0 , 0\}$ by $f(t) = (1-t)x+ty$ where $0 \leq  t \leq 1$ works if the path between the points doesn't go through $(0,0)$, and otherwise $x$ and $y$ ca be connected through a path by another point, say, $z$ in $\rr^2 \setminus \{0,0\}$. Now the set $S$ is path connected: Define the map $\varphi \colon \rr^2 \setminus \{0, 0 \} \to S$ by $\varphi (x) = \frac{x}{|x|}$. This map is clearly surjective and continuous, and so $\varphi (\rr \setminus \{ (0,0\} )= S $ Thus we have that $S$ is connected as the image of a connected set is itself connected. 
+\end{proof}
+\end{tcolorbox}
+
+\begin{tcolorbox}[colback=black!5!white,colframe=black!75!black,title= Chapter $5$; $\S 2.3$: Exercise $2.8.$] Assume $f \colon X \to Y$ and $g \colon Y \to  Z$ are uniformly continuous functions, where $(X, d_X )$, $(Y, d_Y)$, and $(Z, d_Z )$ are metric spaces. Prove that $g \circ f$ is uniformly continuous.
+\tcblower 
+\begin{proof}  We are going to show that $h := g\circ f \colon X \to Z$ is uniformly continuous. Let $\epsilon > 0$. We want to find a $\delta > 0$ such that $d_X(s,t) < \delta$ implies $d_Z(h(s), h(t)) < \epsilon$. As $g \colon Y \to Z$ is uniformly continuous, then we have that there is some $\gamma > 0$ such that for $x, y \in X$ and $f(x), f(y) \in Y$ we have $ d_Y(f(x), f(y)) < \gamma $ gives us that $d_Z(g(f(x), g(f(y)) = d_Z(h(x), h(z))< \epsilon$. Lastly, as $f$ is uniformly continuous, then we have some $\delta > 0$ such that $d_X(x,y)< \omega $, then $d_Y(f(x), f(y))<\epsilon$. Thus for $h \colon X \to Z$, we pick $\omega = \delta$, and therefore we have that $h$ is uniformly continuous. 
+\end{proof}
+\end{tcolorbox}
+
+\begin{tcolorbox}[colback=black!5!white,colframe=black!75!black,title= Chapter $5$; $\S 2.3$: Exercise $2.9.$] Let $E$ be a bounded subset of $\rr^k$ and let $f \colon E \to \rr$ be a uniformly continuous function. Show that $f$ is bounded. (Hint: You will need to use compactness of $\overline{E}$ at some point.)
+\tcblower 
+\begin{proof} For sake of contradiction, suppose that $f$ is not bounded. As $\rr^k$ is totally bounded, then so is $E$. Now as $f$ is not bounded, then there is a sequence $(x_n)_{n=1}^\infty$ such that $|f(x_n) - 0| = |f(x_n)| \to \infty$ as $n \to \infty$. In particular, we choose $(x_n)_{n-1}^\infty$ to be such that $|f(x_n)| > n$ for all $n \in \nn$; we can do this as $f$ is not bounded then for any we have $|f(x)|> \ell $ for all $x \in E$ and any $\ell > 0$ in $\rr$. However, as $(x_n)_{n=1}^\infty$ is a sequence in $E$ which is (totally) bounded then we have some convergent subsequence $(x_{n_k})_{k=1}^\infty$. Now we have $|x_{n_k} - x_{n_l}| \to 0$ as $k,l \to \infty$. As $(x_{n_k})_{n=1}^\infty$ converges, then it is a standard fact that this sequence is Cauchy as well. As $f$ is uniformly continuous, the for any $\epsilon > 0$ there is $\delta > 0$ such that $|x-c| < \delta $ in $E$ implies $|f(x) - f(c) | < \epsilon$ (we abuse notation here for induced metric on $E$ as $E \subseteq \rr^k$). As $(x_{n_k})_{k=1}^\infty$ is Cauchy, then there is some $N \in \nn$ such that $s,t\geq N$ implies $|x_{n_s} - x_{n_t}|< \delta$ (as we've chosen $\delta > 0$). Thus, as $f$ is uniformly continuous, we have $| f(x_{n_s} )- f( x_{n_t})| < \epsilon$, and so $f( x_{n_t}) \leq |f(x_{n_s} )|+ |f(x_{n_s} )- f( x_{n_t})| < |f( x_{n_s})|+ \epsilon$, and so $|f( x_{n_t})| < f( x_{n_s}) + \epsilon$. Now if we let $s$ vary and approach infinity and fix $t$, then $\lim _{t \to \infty} |f( x_{n_t} )| < |f( x_{n_s})| + \epsilon$. This contradicts how we chose $(x_n)_{n=1}^\infty$ in sentence three. Therefore we must have that $f$ is indeed bounded. 
+\end{proof}
+\end{tcolorbox}
+
+
+
+
+\end{document}

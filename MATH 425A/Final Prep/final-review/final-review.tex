@@ -1,0 +1,752 @@
+\documentclass[oneside]{amsart}
+\usepackage[left=1.25in,right=1.25in,top=0.75in,bottom=0.75in]{geometry}
+\linespread{1.05}
+\usepackage{mathtools}
+\usepackage{tcolorbox}
+\usepackage{eulervm}
+\usepackage{amssymb,latexsym,amsmath,amsthm}
+\usepackage{mathrsfs}
+\usepackage{mathpazo}
+\usepackage{mathptmx}
+\DeclareSymbolFont{Symbols}{OMS}{zplm}{m}{n}% Palatino
+\DeclareMathSymbol{\Infty}{\mathord}{Symbols}{"31}
+\DeclareSymbolFont{symbols}{OMS}{zplm}{m}{n}
+\SetSymbolFont{symbols}{bold}{OMS}{zplm}{b}{n}
+\DeclareSymbolFontAlphabet{\mathcal}{symbols}
+\usepackage{aurical}
+\usepackage{xcolor}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks = true,
+    linkbordercolor = {red}
+}
+\usepackage[all]{xy}
+\usepackage[T1]{fontenc}
+\usepackage{xstring}
+\usepackage{xparse}
+\usepackage{mathrsfs}
+% \definecolor{brightmaroon}{rgb}{0.76, 0.13, 0.28}
+% \usepackage[linktocpage=true,colorlinks=true,hyperindex,citecolor=blue,linkcolor=brightmaroon]{hyperref}
+%\usepackage{fullpage}
+% \usepackage[a4paper, total={5.5in, 9in}]{geometry}
+\usepackage{tikz-cd}
+\theoremstyle{definition}
+%% this allows for theorems which are not automatically numbered
+\newtheorem{defi}{Definition}[section]
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}{Lemma}[section]
+\newtheorem{obs}{Observation}
+\newtheorem{exercise}{Exercise}[section]
+\newtheorem{rem}{Remark}[section]
+\newtheorem{construction}{Construction}[section]
+\newtheorem{prop}{Proposition}[section]
+\newtheorem{coro}{Corollary}[section]
+\newtheorem{disc}{Discussion}[section]
+\DeclareMathOperator{\spec}{Spec}
+\DeclareMathOperator{\im}{im}
+\DeclareMathOperator{\obj}{obj}
+\DeclareMathOperator{\ext}{Ext}
+\DeclareMathOperator{\Lim}{Lim}
+\DeclareMathOperator{\Int}{Int}
+\DeclareMathOperator{\tor}{Tor}
+\DeclareMathOperator{\ann}{ann}
+\DeclareMathOperator{\id}{id}
+\DeclareMathOperator{\proj}{Proj}
+\DeclareMathOperator{\gal}{Gal}
+\DeclareMathOperator{\coker}{coker}
+\newcommand{\degg}{\textup{deg}}
+\newtheorem{ex}{Example}[section]
+%% The above lines are for formatting.  In general, you will not want to change these.
+%%Commands to make life easier
+\newcommand{\RR}{\mathbf R}
+\newcommand{\aff}{\mathbf A}
+\newcommand{\ff}{\mathbf F}
+\usepackage{mathtools}
+% \newcommand{\ZZ}{\mathbf Z}
+\newcommand{\pring}{k[x_1, \ldots , x_n]}
+\newcommand{\polyring}{[x_1, \ldots , x_n]}
+\newcommand{\poly}{\sum_{\alpha} a_{\alpha} x^{\alpha}} 
+\newcommand{\ZZn}[1]{\ZZ/{#1}\ZZ}
+% \newcommand{\QQ}{\mathbf Q}
+\newcommand{\rr}{\mathbb R}
+\newcommand{\cc}{\mathbf C}
+\newcommand{\complex}{\mathbf {C}_\bullet}
+\newcommand{\nn}{\mathbb N}
+\newcommand{\zz}{\mathbb Z}
+\newcommand{\PP}{\mathbf  P}
+\newcommand{\cat}{\mathbf{C}}
+\newcommand{\ca}{\mathbf}
+\newcommand{\zzn}[1]{\zz/{#1}\zz}
+\newcommand{\qq}{\mathbb Q}
+\newcommand{\calM}{\mathcal M}
+\newcommand{\latex}{\LaTeX}
+\newcommand{\V}{\mathbf V}
+\newcommand{\tex}{\TeX}
+\newcommand{\sm}{\setminus} 
+\newcommand{\dom}{\text{Dom}}
+\newcommand{\lcm}{\text{lcm}}
+\DeclareMathOperator{\GL}{GL}
+\DeclareMathOperator{\cl}{cl}
+\DeclareMathOperator{\Hom}{Hom}
+\DeclareMathOperator{\aut}{Aut}
+\DeclareMathOperator{\SL}{SL}
+\DeclareMathOperator{\inn}{Inn}
+\DeclareMathOperator{\card}{card}
+\newcommand{\sym}{\text{Sym}}
+\newcommand{\ord}{\text{ord}}
+\newcommand{\ran}{\text{Ran}}
+\newcommand{\pp}{\prime}
+\newcommand{\lra}{\longrightarrow} 
+\newcommand{\lmt}{\longmapsto} 
+\newcommand{\xlra}{\xlongrightarrow} 
+\newcommand{\gap}{\; \; \;}
+\newcommand{\Mod}[1]{\ (\mathrm{mod}\ #1)}
+\newcommand{\p}{\mathfrak{p}} 
+\newcommand{\rmod}{\textit{R}-\textbf{Mod}}
+\newcommand{\idealP}{\mathfrak{P}}
+\newcommand{\ideala}{\mathfrak{a}}
+\newcommand{\idealb}{\mathfrak{b}}
+\newcommand{\idealA}{\mathfrak{A}}
+\newcommand{\idealB}{\mathfrak{B}}
+\newcommand{\X}{\mathfrak{X}}
+\newcommand{\idealF}{\mathfrak{F}}
+\newcommand{\idealm}{\mathfrak{m}}
+\newcommand{\s}{\mathcal{S}}
+\newcommand{\cha}{\text{char}}
+\newcommand{\ccc}{\mathfrak{C}}
+\newcommand{\idealM}{\mathfrak{M}}
+\tcbuselibrary{listings,theorems}
+\usetikzlibrary{decorations.pathmorphing} 
+\newcommand{\overbar}[1]{\mkern 1.5mu\overline{\mkern-1.5mu#1\mkern-1.5mu}\mkern 1.5mu}
+
+%Itemize gap:
+
+% \pagecolor{black}
+% \color{white}
+% Author info
+
+\title{Final Review: December 12th, 11AM-1PM}
+\date{November 17, 2022 \\ {Department of Mathematics, University of Southern California}}
+\address{Department of Mathematics, University of Southern California, 
+Los Angeles, CA 90007}
+\begin{document}
+\maketitle
+\setcounter{tocdepth}{4}
+\setcounter{secnumdepth}{4}
+\tableofcontents
+\section{Multiple Choice/True \& False}
+\begin{prop} Let $A \subset \rr$, and assume that every term in the sequence $\{ x_n \}_{n \in \nn}$ is an upper bound for $A$. Show that if $x_n \to x$, then $x$ is also an upper bound for $A$.
+	
+\end{prop}
+\begin{proof} (\textbf{True}.) We proceed by contradiction. Assume $x_n \to x$. Let $\epsilon > 0$. Then there exists $N \in \nn$ such that $n \geq N$ implies $|x_n - x|<\epsilon$. Suppose that $x$ is not an upper bound for $A$, meaning that there exists $\alpha \in A$ such that $\alpha > x$. Now pick $\epsilon = \alpha -x$. Then $|x_n - x| < \alpha -x$, which implies $x-\alpha < x_n -x<\alpha - x$, but then $x_n<\alpha$, and thus a contradiction.
+\end{proof}
+\begin{prop}
+Can there exist a continuous function $f \colon [0,1] \to \rr$ such that $f$ is not constant and all values are rational?
+\end{prop}
+\begin{proof}(\textbf{False}.) As $f \colon [0,1] \to \rr$ is continuous, and $[0,1]$ is connected, then $E = f([0,1]) \subset \rr$ is connected and so if $x,y \in E$ then $x<z<y$ implies $z \in E$. Let $\alpha, \beta \in f([0,1])$, and WLOG, let $\alpha < \beta$. As the irrational numbers (and also rational numbers) are dense in $\rr$, then there exists an irrational $q \in \rr$ such that $\alpha < q < \beta$. As $E$ is connected, then $q \in f([0,1])$ and $[\alpha, \beta ] \subset E$, so we have an irrational $q \in [\alpha, \beta]$ such that $f(x) = q$ for some $x \in [0,1]$.
+\end{proof}
+
+\begin{prop}
+If $f$ and $g$ are continuous on $[a,b]$, then $ \int_a^b f(x) g(x) dx = \int_a^b f(x) dx \cdot \int_a^b g(x)dx$.	
+\end{prop}
+\begin{proof}(\textbf{False}.) Consider $\int_1^2 x^2 dx = \frac{x^3}{3}|_1^2 = (2^3)/3 -1/3 = 7/3 \neq (\int_1^2 x dx )^2 = (x^2/2|_1^2)^2= (2-1/2)^2 = 9/4. $	
+\end{proof}
+
+\begin{prop}
+If $f$ is continuous on $[a,b]$, then $\int_a^b x f(x) dx =x \int_a^b f(x) dx$	
+\end{prop}
+\begin{proof}(\textbf{False}.) $f (x)= x^2$ again on $[0,1] \to \rr$. Then $ \int_0^1 x f(x)dx = \int_0^1 x^3 dx = 1$, but $x \int_0^1 f(x) dx = x$.
+\end{proof}
+
+\begin{prop}
+If $f^\pp$ is continuous on $[-1,4]$, then $\int_{-1}^4 f^\pp (x) dx = f(4) -f(-1)$
+\end{prop}
+\begin{proof}(\textbf{True}.) As $f^\pp (x)$ is continuous on $[-1,4]$, and $[-1,4]$ is a compact interval, then $f$ is bounded; thus $f^\pp (x)$ is Riemann integrable. By FTC 1, $F(x) = \int_a^x f^\pp (t) dt$ is differentiable  on $[-1,4]$ and $F^\pp (x) = f^\pp (x)$. For $x=4$ and $a=-1$, we have $\int_{-1}^4 f^\pp(x) dt = f (t)|_{-1}^4 = f(4) - f(-1)$.
+	
+\end{proof}
+
+\begin{prop}
+$\int_{-2}^1 \frac{1}{x^4}dx = -\frac{3}{8}$.	
+\end{prop}
+\begin{proof} (\textbf{False}.) The function $f(x) = \frac{1}{x^4}$ has a vertical asymptote at $x = 0$, and $0 \in [-2,1]$ so we cannot apply FTC.
+\end{proof}
+
+\begin{prop}
+All continuous functions have derivatives. 	
+\end{prop}
+\begin{proof} (\textbf{False}.) Consider $f(x) = |x|$. This functions is continuous at $x = 0$, but the function is not differentiable at this point. $f^\pp (0) = \lim _{t\to 0} \frac{f(t)-f(0)}{t-0} = \lim _{t \to 0} \frac{|t|}{t} = DNE$ as $\lim_{t \to 0^+} = 1$ and$\lim_{t \to 0^-} = -1$.
+\end{proof}
+
+
+\begin{prop}
+Even though the function $$ f(x) = \begin{cases}
+	x^2 & x<1 \\
+	3+x & x>1
+\end{cases}$$	is not continuous at $x =1$, we can compute $\int_0^2 f(x)dx$
+\end{prop}
+\begin{proof} 
+	The function $f(x)$ is not continuous at $x=1$, but we can still compute its definite integral over the interval $[0,2]$ by splitting the integral into two parts:
+
+$$\int_0^2 f(x) dx = \int_0^1 f(x) dx + \int_1^2 f(x) dx$$
+
+The first integral on the right-hand side is the definite integral of the function $f(x)$ over the interval $[0,1]$. Because the function $f(x)$ is defined as $x^2$ for all values of $x$ in this interval, we can compute this integral directly as:
+
+$$\int_0^1 x^2 dx = \left[\frac{1}{3} x^3\right]_0^1 = \frac{1}{3} \cdot 1^3 - \frac{1}{3} \cdot 0^3 = \frac{1}{3}$$
+
+The second integral on the right-hand side is the definite integral of the function $f(x)$ over the interval $[1,2]$. Because the function $f(x)$ is defined as $3+x$ for all values of $x$ in this interval, we can compute this integral directly as:
+
+$$\int_1^2 (3+x) dx = \left[3x+\frac{1}{2} x^2\right]_1^2 = (3 \cdot 2 + \frac{1}{2} \cdot 2^2) - (3 \cdot 1 + \frac{1}{2} \cdot 1^2) = 6$$
+
+Therefore, we can compute the definite integral of $f(x)$ over the interval $[0,2]$ as the sum of these two integrals:
+
+$$\int_0^2 f(x) dx = \int_0^1 f(x) dx + \int_1^2 f(x) dx = \frac{1}{3} + 6 = \boxed{\frac{19}{3}}$$
+\end{proof}
+
+\begin{prop}\
+\begin{itemize}
+	\item [(a)] If $\sum a_n$ converges absolutely, then $\sum a_n^2$ also converges absolutely. 
+	\item [(b)] If $\sum a_n$ converges and $(b_n)$, then $\sum a_n b_n$ converges. 
+	\item [(c)] If $\sum a_n$ converges conditionally, then $\sum n^2 a_n$ diverges. 
+\end{itemize}	
+\end{prop}
+\textit{Solution.}
+(a) This is \textbf{true}. Assume $\sum a_n$ converges absolutely. Then $\lim_{n\to \Infty} |a_n| \to 0$ as $n \to \Infty$, which means that for all $\epsilon > 0$ there exists $N \in \nn$ such that $n \geq N$ implies $0<| |a_n|-0| = a_n < \epsilon$. Then  $ 0 < a_n^2 < \epsilon a_n $, and as $\epsilon$ is just a constant, then $\sum a_n^2$ converges by Comparison Test.
+
+(b) This is \textbf{false}. Consider the sequence $a_n =  \frac{(-1)^n}{\sqrt{n}}$ and $b_n = \frac{(-1)^n}{\sqrt{n}}$, and as this is a $p$-series with $p=1/2$, we get $\sum \frac{(-1)^n}{\sqrt{n}} \cdot  \frac{(-1)^n}{\sqrt{n}} = \sum \frac{(-1)^{2n}}{n^{1/2 + 1/2} } = \sum \frac{1}{n}$, which diverges. 
+
+(c) This is \textbf{true}. Let $\sum a_n$ converge conditionally (i.e. the series here converges but does not converge absolutely). By contradiction, assume that $ \sum n^2a_n$ converges, and so $\lim _{n\to \Infty} n^2a_n =0$, which means that $|n^2a_n| < \epsilon$ for all $\epsilon > 0$. So $|n^2| |a_n| < \epsilon \implies |a_n| < \epsilon/n^2$ (pick $\epsilon =1$), then $|a_n| < 1/n^2$. But then this means that $\sum a_n$ converges absolutely. Thus a contradiction.
+
+\begin{prop}
+The series $\sum_{n=1}^\Infty \frac{n!}{3^n}$ converges.	
+\end{prop}
+\begin{proof}(\textbf{True}.) We can check this by the ratio test 
+\[
+\lim_{n\to \Infty} \left | \frac{(n+1)!/3^{n+1}}{n!/3^n}\right| = \lim _{n\to \Infty} \left | \frac{(n+1)!}{3^{n+1}} \cdot \frac{3^n}{n!} \right | = \lim_{n \to \Infty} \frac{n+1}{3} = \Infty 
+\]
+\end{proof}
+
+\begin{prop}
+A bounded sequence $\{a_n \}$ of real numbers always has a convergent subsequence	
+\end{prop}
+\begin{proof}
+	(\textbf{True}.) Rudin, pg.$51$ Theorem $3.6 (b)$.
+\end{proof}
+
+
+\begin{prop}
+A closed and bounded subset of a complete metric space must be compact.	
+\end{prop}
+
+\begin{proof}
+	(\textbf{False}.) Consider the unit sphere in $\ell_2$.
+\end{proof}
+
+\begin{prop}
+If $A$ and $B$ are compact subsets of a metric space, then $A \cup B$ is also compact.	
+\end{prop}
+\begin{proof}
+	(\textbf{True}.) This is a quick proof. Let $A$ and $B$ both be compact subsets, where $\mathcal A = \{ U_i \colon i \in I \}$  and $\mathcal B = \{ V_i \colon i \in I \}$ are open covers, respectively, of $A$ and $B$. As $A$ and $B$ are compact, then we can do with finitely many, i.e. $\mathcal A = \{U_i \}_{i=1}^n$ and $\mathcal B = \{ V_i \}_{i=1}^m$ still cover $A$ and $B$, respectively. Then $A \cup B \subset (\bigcup_{i=1} U_i ) \cup (\bigcup_{i=1} V_i)$ cover $A \cup B$, which admits a finite subcover given by $\mathcal A$ and $\mathcal B$ and thus $A \cup B$ is compact. 
+\end{proof}
+\begin{prop}
+If $\mathcal X$ is any metric space and $f \colon \mathcal X \to \rr$ is any continuous real-valued function, then the function $g \colon M \to \rr$ defined by $g(x) = (f(x))^2$ is always continuous.	
+\end{prop}
+\begin{proof} (\textbf{True}.) Consider $\varphi \colon \mathcal X \to \rr $ where $x \in \mathcal X\mapsto x^2$. Then $g (x) = (\varphi \circ f) (x)$ and as $\varphi$ is continuous on all of $\rr$, then $g$ is a composition of two continuous function and hence $g$ is itself continuous. Alternatively, let $\epsilon > 0$. Then we have $\delta > 0$ such that $d_\mathcal X (x,y) < \delta \implies d_\rr (f(x), f(y)) = |f(x) - f(y)|.$ Now 
+\[
+|g(x)-g(y)| = |(f(x))^2-(f(y))^2| = |(f(x)-f(y))(f(x)-f(y)+2f(x))| \leq \epsilon (\epsilon + 2M),
+\] where $M = |f(y)|$.
+\end{proof}
+
+\begin{prop}
+If $f \colon X \to Y$ is a continuous map between metric spaces, and $f(X)$ is compact, then $X$ is compact.	
+\end{prop}
+\begin{proof}
+	(\textbf{False}.) Recall that any finite metric space is compact (and also any subset of the finite metric space is also going to be compact). Now consider $f \colon \rr \to \rr$ where $f(x) = 0$ for all $x \in \rr$. Then $f(\rr) = \{ 0 \}$, which is compact. But $\rr$ itself is not. 
+\end{proof}
+
+\begin{prop}
+A compact subset of a metric space is always complete.	
+\end{prop}
+\begin{proof}
+	(\textbf{True.}) Recall that if $(X,d)$ is a metric space and $(x_n)$ is a Cauchy sequence in $X$, then if $(x_n)$ has a subsequential limit to a point $x$, then the sequence $(x_n)$ also converges to $x$. Hence as: compact if and only if subsequentially compact for any metric space $(X,d)$, then we're done as then any any sequence in $X$ has a convergent sequence.  
+\end{proof}
+
+\begin{prop}
+Let $\{x_n \}$ be a sequence of points in a metric space $\mathcal X$. If two subsequences of $(x_n)$ converge, then they must converge to the same number.	
+\end{prop}
+\begin{proof}
+	(\textbf{False}.) This is saying that, essentially, the set of subsequential limits of $S=(x_n)$ is at most $1$, i.e. $|S_\Infty | = 1$, which is obviously false. Consider $\mathcal X = \rr$ and $S = (3, 3.1, 3, 3.14, 3, 3.141, 3, \ldots)$, which has two subsequential limits $S_\Infty = \{ 3, \pi \} \subset \rr$. Alternatively, the sequence $((-1)^n)_{n=1}^\Infty = S$ also has two subsequential limits. 
+\end{proof}
+\begin{prop}
+If $f \colon [0,1] \to \rr$ is a continuous function and $\int_0^1 f(x) dx =0$, then $f(x)$ is positive somewhere and negative somewhere in this interval (unless it is identically zero).	
+\end{prop}
+\begin{proof}
+(\textbf{True.}) 
+\end{proof}
+\begin{prop}
+$f(x) = \sum_{n=1}^\Infty \frac{\sin (3^n \pi x)}{2^n}$ is a continuous function on $\rr$.	
+\end{prop}
+\begin{proof}
+	(\textbf{True}.) By $M$-test, $\left |\frac{\sin (3^n \pi x)}{2^n} \right| \leq \frac{1}{n^2}$ which makes $f(x)$ converge uniformly and hence is continuous. 
+\end{proof}
+
+\begin{prop}\
+\begin{itemize}
+	\item [(a)] The set $\{ x \in \qq \colon 0 < x <1 \}$ is uncountable.
+	\item [(b)] The collection of all possible function $f\colon \nn \to \{ 2,3,4 \}$ is finite.
+	\item [(c)] The collection of all possible function $f\colon \{ 2,3,4 \} \to \nn $ is uncountable. 
+	\item [(d)] The collection of all possible function $f\colon C \to D$ is finite
+\end{itemize}	
+\end{prop}
+
+\begin{proof}
+	(a) False. This is countably infinite.
+	
+	(b) False. This is uncountable.
+	
+	(c) False. This is countably infinite.
+	
+	(d) True.  
+\end{proof}
+
+
+\newpage 
+\section{Examples of Properties}
+\begin{ex}
+Assume $(f_n)$ and $(g_n)$ are uniformly convergent sequences of functions. Then the product $(f_ng_n)$ may not converge uniformly. 
+
+Consider $f_n(x) = g_n(x) = \frac{1}{x}+\frac{1}{n}$, where $f_n, g_n \colon (0, \Infty) \to \rr$.
+\end{ex}
+
+\begin{ex}
+Give an example of a sequence of functions that converges uniformly 	(on $E = [0,1))$. 
+
+Consider $f_n(x) = x^n$. For $x = 0$, we get $f_n(0) = 0$, and now for $x \in (0,1)$, then $f_n(x) = x^n \to 0$ as $n \to \Infty$. 
+\end{ex}
+\begin{ex}
+Give an example a of a metric space that is not compact.
+
+Consider $X = \rr$ endowed with the Euclidean metric. Then this space is not compact.	
+\end{ex}
+
+
+\begin{ex}
+Give an example of a metric space $(X,d)$ with a Cauchy sequence that does not converge.
+
+Consider the subspace $(\qq, d_{\text{Euc}}) \subset \rr$. Then the sequence $S = (3, 3.1, 3.14, 3.141, \ldots )$ is Cauchy in $\qq$ but does not converge; in $\rr$, which is a complete metric space (i.e. all Cauchy sequences converge), we have $S \to \pi $ as $n \to \Infty$.
+
+Another example is consider $\mathcal X = \rr\setminus \{ 0 \}$ with distance $d_\mathcal X (x,y) = |x-y|$, where the sequence $x_n = \frac{1}{n}$ is Cauchy in $\mathcal X$ but not convergent. 
+\end{ex}
+\begin{ex}
+All continuous functions have antiderviatives.	
+
+(\textbf{True}.) This is just FTC.
+\end{ex}
+
+\begin{ex}
+	Give an example of two sets $A$ and $B$ such that $A, B, A \cap B$, and $A \setminus B$ are all infinite sets.
+	
+	Consider $A =\zz $ and $B = \nn$.
+\end{ex}
+\begin{ex}
+Let $a =(a_n )_{n=1}^\Infty$ denote the following sequence in $\qq$: $$ a= \left( 3,1,3, \frac{1}{2}, 3, \frac{1}{3}, 3, \frac{1}{4}, \ldots \right) .$$ Write down a strictly decreasing sequence $(n_k)_{k=1}^\Infty$ of positive integers such that the image $\{a_{n_k}\}_{k=1}^\Infty$ of the sequence $(a_{n_k})_{n=1}^\Infty$ contains exactly two elements. You do not need to justify your answer, but do state explicitly what the image is. 
+
+Take the sequence $(n_k)_{k=1}^\Infty = (1,2,3,5,7,9,\ldots)$, then $(a_{n_k}) = (3,1,3,3,3,3,\ldots)$, so the image is just $\{ 1,3 \}$.
+\end{ex}
+\begin{ex}
+Example of a series that converges, but does not converge absolutely.
+
+Consider $\sum_{n=1}^\Infty \frac{(-1)^{n+1}}{n}$.	
+\end{ex}
+\begin{ex}
+Give examples of subsets of $\rr$ that have $1,2,3,$ and $4$ limit points.
+
+Consider $\{ \frac{1}{n} \}_{n \in \nn}$ has only one limit point (namely, $0$). The set $	\{ \frac{1}{n} \}_{n \in \nn} \cup \{ 1-\frac{1}{n} \}_{n \in \nn}$ has two limit points (that is, $0$ and $1$). And $	\{ \frac{1}{n} \}_{n \in \nn} \cup \{ 1-\frac{1}{n} \}_{n \in \nn} \cup \{\frac{1}{n} - 1 \}_{n \in \nn}$ has three limit points ($0,1,-1$). And a set that has four would be something more unioned.
+\end{ex}
+
+\begin{ex}
+Is every closed set a perfect set?
+
+False. Consider $[0,1] \cup \{ 2\} \subset \rr$, which is closed but not perfect.	
+\end{ex}
+
+
+
+
+\newpage 
+
+
+
+\section{Set, topology of metric spaces}
+
+\begin{tcolorbox}[colback=black!5!white,colframe=black!75!black,title= Exercise $3.1.$] Let $(X,d)$ be a metric space, and let $x_n$ be a convergent sequence in $X$. Show that $x_n$ is also Cauchy.
+\tcblower 
+\begin{proof} Let $x_n \to x$ as $n \to \Infty$ in $X$. Let $\epsilon > 0$. Then there exists $N \in \nn$ such that $n \geq N$ implies $|x_n -x | < \epsilon/2$, and similarly, for $m \geq n \geq N$, we have $|x_m - x| < \epsilon/2$. By the triangle inequality, 
+\[
+|x_m - x_n | \leq |x_m -x|+|x_n -x| < \epsilon/2 + \epsilon/2 = \epsilon.
+\] Thus we have a Cauchy sequence as well. 
+\end{proof}
+\end{tcolorbox}
+
+
+\begin{tcolorbox}[colback=black!5!white,colframe=black!75!black,title= Exercise $3.2.$]If $(x_n)$ and $(y_n)$ are both Cauchy sequences in $\rr$, then the sequence $(|x_n -y_n|)$ converges.
+\tcblower 
+\begin{proof} Assume that $(x_n)$ and $(y_n)$ are both Cauchy sequences. There there exists $N \in \nn$ and $M \in \nn$ such that $s \geq t \geq N$ and $p \geq q \geq M$ implies, respectively, that $|x_s - x_t| < \epsilon/2$ and $|y_p - y_q| < \epsilon/2$. Now to show $(|x_n-y_n|)$ converges, it suffices to show that it is Cauchy as $\rr$ is complete. Now 
+\begin{align*}
+	|(x_m -y_m) - (x_n - y_n)| = | (x_m -x_n )-(y_m-y_n)|\leq |x_m -x_n| + |y_m - y_n| < \epsilon/2 +\epsilon/2 = \epsilon.
+\end{align*} Therefore the sequence is Cauchy and hence converges in $\rr$.
+\end{proof}
+\end{tcolorbox}
+\begin{tcolorbox}[colback=black!5!white,colframe=black!75!black,title= Exercise $3.3.$] If $X$ is a connected metric space and $f \colon X \to Y$ is a continuous surjection, then $Y$ is connected.
+\tcblower 
+\begin{proof} Suppose $X$ is connected where $f \colon X\to Y$ a continuous surjection. As $f$ is surjective, then $f(X) = Y$. Now assume that $Y$ is not connected, i.e. we can write $Y = A \cup B$ where $A$ and $B$ are separated sets ($A$ and $B$ are open and nonempty). Then $f^{-1}(Y) = f^{-1} (A \cup B) = f^{-1} (A) \cup f^{-1} (B) = X$. As $f$ is continuous then both $f^{-1} (A)$ and $f^{-1}(B)$ are nonempty open sets of $X$. Hence a contradiction. 
+\end{proof} 
+\end{tcolorbox}
+
+\begin{tcolorbox}[colback=black!5!white,colframe=black!75!black,title= Exercise $3.3.$] Prove that if $E$ is a nonempty, bounded subset of $\rr$, then $D = \rr - E$ is not connected.
+\tcblower 
+\begin{proof}Recall that subset $A \subset \rr$ is connected if and only if whenever $x,y \in A$ and $x<z<y$ then $z \in A$ as well. Now, as $E$ is bounded, then we get $E \subset (-\alpha, \alpha) $ for some $\alpha \in \rr$ such that $\alpha > 0$. Then, noticeably, we have $-\alpha, \alpha \in D$. For $x \in E$ we have $-\alpha < x < \alpha$ but $x \notin D$ by construction, and therefore we have that $E$ is not connected.
+\end{proof} 
+\end{tcolorbox}
+
+
+\begin{tcolorbox}[colback=black!5!white,colframe=black!75!black,title= Exercise $3.4.$] Let $(X,d)$ be metric space; let $\rr^2$ have the usual metric. Let $f \colon \rr^2 \to X$ be a function, and let $A$ be a bounded subset of $\rr^2$. Prove that $f(A)$ is bounded. (Hint: Consider $\overline{A}$.)
+\tcblower 
+\begin{proof} As $A$ is bounded, then so is its closure $\overline{A}$. By construction $\overline{A}$ is closed, and so as $\overline{A}$ is closed and bounded then it is thus compact. Hence $f(\overline{A})$ is compact, which implies that it is (totally) bounded. As $A\subset \overline{A}$ then $f(A) \subset f(\overline{A})$, which makes $f(A)$ bounded.  
+\end{proof} 
+\end{tcolorbox}
+
+
+\newpage
+\section{Convergence, Absolute Convergence, Power series, radius of convergence (including $\limsup/ \liminf$ ), Ratio/Root
+Test.}
+
+\begin{tcolorbox}[colback=black!5!white,colframe=black!75!black,title= Exercise $4.1.$] Let $ \{ a_n\}_{n \in \nn}$ be a sequence of real numbers. Assume that the series $$\sum_{n \geq 1} |a_n - a_{n-1}|$$ converges. Show that the sequence $\{ a_n \}$ converges to a limit in $\rr$
+\tcblower 
+\begin{proof} As we're assuming the series converges, then there exists $N \in \nn$ such that $m \geq n \geq N$ implies $ \sum_{k=n}^m |a_k - a_{k-1}|< \epsilon$. Lastly, \[ |a_m -a_n | = \left | \sum_{k=n+1}^m (a_n-a_{n-1}) \right| \leq   \sum_{k=n+1}^m |a_n-a_{n-1}| < \epsilon .\]
+\end{proof}
+\end{tcolorbox}
+
+\begin{tcolorbox}[colback=black!5!white,colframe=black!75!black,title= Exercise $4.2.$] Assume $a_n > 0$ and $\lim_{n \to \infty}n^2a_n$ exists. Show that $\sum_{n \geq 1} a_n$ converges.
+\tcblower 
+\begin{proof} As $a_n > 0$ then we have a positive sequence of real numbers. As $\lim_{n \to \infty} n^2a_n$ and $a_n > 0$ is always positive, then $\lim_{n \to \infty} n^2 a_n = \ell \geq 0$. If $\ell = 0$, then for all $\epsilon > 0$ there exists $N \in \nn$ such that $n \geq N$ implies $|n^2a_n|<\epsilon$, but note that $n^2a_n$ is always positive so $n^2a_n < \ell$ and so $a_n < \epsilon/n^2$. In particular, pick $\epsilon = 1$. As $(a_n)_{n\in \nn}$ and $(1/n^2)_{n \in \nn}$ are both sequences of nonnegative real numbers, then we can apply the Comparison Test: The fact that $\sum_{n \geq 1}a_n$ converges follows quickly as $\sum_{n \geq 1} \frac{1}{n^2}$ is a $p$-series with $p=2$. Now assume $\ell \neq 0$, so $\ell > 0$. Then we can apply a similar argument: we get that for $\epsilon = 1$, there exists $N \in \nn$ such that $ n \geq N$ implies $|n^2a_n - \ell | < 1$. If $n^2a_n-\ell >0$, then $n^2a_n-\ell < 1$ and so $ a_n < \frac{1}{n^2} + \frac{\ell}{n^2}$, which implies $a_n$ converges as this is a sum of two $p$-series. Similarly, if $n^2a_n - \ell < 0$, then $\ell - n^2a_n < 1$ so $a_n < \frac{1-\ell}{-n^2} = \frac{(-1)}{n^2} +\frac{\ell}{n^2}$, which is another sum of $p$-series and thus converge. 
+\end{proof}
+\end{tcolorbox}
+
+
+
+\begin{tcolorbox}[colback=black!5!white,colframe=black!75!black,title= Exercise $4.2.$] Assume $a_n > 0$ and $\lim_{n \to \Infty}n^2a_n$ exists. Show that $\sum_{n \geq 1} a_n$ converges.
+\tcblower 
+\begin{proof} As $a_n > 0$ then we have a positive sequence of real numbers. As $\lim_{n \to \infty} n^2a_n$ and $a_n > 0$ is always positive, then $\lim_{n \to \infty} n^2 a_n = \ell \geq 0$. If $\ell = 0$, then for all $\epsilon > 0$ there exists $N \in \nn$ such that $n \geq N$ implies $|n^2a_n|<\epsilon$, but note that $n^2a_n$ is always positive so $n^2a_n < \ell$ and so $a_n < \epsilon/n^2$. In particular, pick $\epsilon = 1$. As $(a_n)_{n\in \nn}$ and $(1/n^2)_{n \in \nn}$ are both sequences of nonnegative real numbers, then we can apply the Comparison Test: The fact that $\sum_{n \geq 1}a_n$ converges follows quickly as $\sum_{n \geq 1} \frac{1}{n^2}$ is a $p$-series with $p=2$. Now assume $\ell \neq 0$, so $\ell > 0$. Then we can apply a similar argument: we get that for $\epsilon = 1$, there exists $N \in \nn$ such that $ n \geq N$ implies $|n^2a_n - \ell | < 1$. If $n^2a_n-\ell >0$, then $n^2a_n-\ell < 1$ and so $ a_n < \frac{1}{n^2} + \frac{\ell}{n^2}$, which implies $a_n$ converges as this is a sum of two $p$-series. Similarly, if $n^2a_n - \ell < 0$, then $\ell - n^2a_n < 1$ so $a_n < \frac{1-\ell}{-n^2} = \frac{(-1)}{n^2} +\frac{\ell}{n^2}$, which is another sum of $p$-series and thus converge. 
+
+Alternatively, let $\lim_{n\to \Infty} n^2a_n = \ell $. Then, for all $\epsilon > 0$, we have $n^2a_n \in (\ell - \epsilon, \ell + \epsilon)$. As $n^2 a_n > 0$, then $\ell \geq 0$. Then picking $\epsilon = \ell$, we get $n^2a_n \in (0,2\ell)$, which means  $n^2 a_n < 2\ell \implies a_n < 2\ell/n^2 $, so $ \sum_{n \geq 1} a_n $ converges. 
+\end{proof}
+\end{tcolorbox}
+
+
+
+
+
+
+
+\begin{tcolorbox}[colback=black!5!white,colframe=black!75!black,title= Exercise $4.3.$] Compute $\limsup_{n \to \Infty} a_n$ and $\liminf_{n \to \Infty} a_n$ for the following:
+\begin{itemize}
+	\item [(a)] $a_n = (-1)^n$
+	\item [(b)] $a_n = (-1)^n + \frac{2}{n}$
+	\item [(c)] $a_n = (-1)^n \cdot \frac{(n+2)}{n}$
+	\item [(d)] $a_n = n$
+	\item [(e)] $a_n = (-1)^n \cdot n$
+	\item [(f)] $a_n = (1+(-1)^n)n =n+(-1)^n n$
+\end{itemize}
+\tcblower 
+\begin{proof} (a) We start with a way to do the rest with a clear methodology: $ \{ a_k \colon k\geq n \} = \{(-1)^n \colon k \geq n \}$, and so $M_n = \sup \{a_k \colon k \geq n \} = \{ (-1)^k \colon k \geq n \} = 1$. Hence $\limsup_{n \to \Infty } = 1$, and similarly, $\liminf_{n \to \Infty } -1$.
+
+(b) $\{ (-1)^k+ \frac{2}{k} \colon k \geq n \} \rightsquigarrow M_n = (1 + \frac{2}{n} )_{n=1}^\Infty  \to 1$ as $n \to \Infty$, and also $m_n = (-1+ \frac{2}{k} )_{n=1}^\Infty = (\frac{2}{k}-1)_{n=1}^\Infty \to -1$ as $n \to \Infty$. Hence $\limsup_{n \to \Infty}a_n = 1$ and $\liminf _{n \to \Infty} a_n = -1$.
+
+(c) $\limsup_{n \to \Infty} a_n = 1$ and $\liminf_{n \to \Infty} a_n = -1$
+
+(d) $\limsup_{ n \to \Infty} a_n = +\Infty$, and $m_n = \inf \{ k \colon k \geq n \} = (n)_{n=1}^\Infty$ which gives $\liminf_{n \to \Infty} = + \Infty$ as well.
+
+(e) $ M_n = (n)_{n =1}^\Infty$ so $\limsup_{ n \to \Infty} a_n = + \Infty $, and $m_n = (-n)_{n=1}^\Infty$ so $\liminf_{ n \to \Infty} a_n = -\Infty$.
+
+(f) $M_n = \sup \{n+(-1)^n n  \} = (2n)_{n=1}^\Infty$ so $\limsup_{ n \to \Infty} a_n = +\Infty$, while $m_n = \inf \{n+(-1)^n n. \} \rightsquigarrow (n- n)_{n=1}^\Infty = (0)_{n=1}^\Infty$ so $\liminf _{ n \to \Infty} a_n = 0$.
+\end{proof}
+\end{tcolorbox}
+
+
+\begin{tcolorbox}[colback=black!5!white,colframe=black!75!black,title= Exercise $4.4.$]Consider the series 
+
+$$ f_n (x) = \sum_{n \geq 1 } \frac{x^n}{n^2}$$
+
+\begin{itemize}
+	\item [(a)] Show that the series converges uniformly for $|x| \leq a$ for any $a<1$.
+	\item [(b)] Does the series converge uniformly for $|x|<1$.
+\end{itemize}
+\tcblower 
+\begin{proof} 
+
+(a) As $|x| \leq a$ and $a<1$, $\left | \frac{x^2}{n^2}\right| \leq \frac{1}{n^2}$, and by the $M$-test we have that the series $f_n(x)$ converges uniformly as $\sum_{n \geq 1} \frac{1}{n^2}$ converges.
+
+(b) The series uniformly converges for $|x|<1$.
+\begin{align*}
+	\lim_{n\to \Infty} \sup _{x \in (-1,1)} |f_n(x)|= \lim_{n\to \Infty} \sup _{x \in (-1,1)} \left | \frac{x^n}{n^2}  \right | = \lim_{n\to \Infty} \frac{1}{n^2} \to 0 
+\end{align*}
+
+\end{proof}
+\end{tcolorbox}
+
+\begin{tcolorbox}[colback=black!5!white,colframe=black!75!black,title= Exercise $4.5.$]Consider the series 
+
+$$ f_n (x) = \sum_{ n \geq 0 }x^n$$
+
+\begin{itemize}
+	\item [(a)] Use the Weierestrass $M$-test to show that the series converges uniformly for $|x| \leq a$ for all $a < 1$.
+	\item [(b)] Does the series $f(x) = \sum _{n \geq 0} x^n$ converge uniformly for $|x|<1$.
+\end{itemize}
+\tcblower 
+\begin{proof} 
+As $|x| \leq a<1$, then $|x^n|\leq a^n$. Now as $a <1$, then $\sum_{n\geq 0} a^n$ is geometric and thus converges. Hence, by $M$-test, $f_n(x)$ converges uniformly.
+
+(b) We can use the following test.  \begin{align*}
+	\lim_{n\to \Infty} \sup _{x \in (-1,1)} |f_n(x)|= \lim_{n\to \Infty} \sup _{x \in (-1,1)} x^n =1\neq 0
+\end{align*} and thus the series doesn't converge uniformly. 
+\end{proof}
+\end{tcolorbox}
+
+
+\begin{tcolorbox}[colback=black!5!white,colframe=black!75!black,title= Exercise $4.6.$] Show that if $a_n > 0$ and $\lim_{n\to \Infty} na_n = \ell$ with $\ell \neq 0$, then the series $\sum_{n \geq 1} a_n $ diverges.
+\tcblower 
+\begin{proof} 
+Let $\lim_{n\to \Infty} na_n = \ell \neq 0$. Then, for all $\epsilon > 0$, there exists $N \in \nn$ such that $n \geq N$ implies $na_n \in (\ell -\epsilon, \ell + \epsilon)$. Pick $\epsilon = \ell /2$, and so $\ell -\ell/2 = \ell = \ell/2$ and $\ell + \ell/2 = 3\ell /2$. As $a_n> 0$ (i.e. nonegative sequence) and $na_n > \ell /2 \Leftrightarrow a_n > (\ell/2) \cdot 1/n $, and as $(\ell/2)$ is a constant and the sum $1/n$ is a divergent series, then the sum $a_n$ diverges by the Comparison Test.
+\end{proof}
+\end{tcolorbox}
+
+
+\begin{tcolorbox}[colback=black!5!white,colframe=black!75!black,title= Exercise $4.7.$] Find the radius of convergence of each of the following power series: 
+\begin{itemize}
+	\item [(a)] $\sum n^3z^n$
+	\item [(b)] $\sum \frac{2^n}{n!}z^n$
+	\item [(c)]$\sum \frac{2^n}{n^2}z^n$
+	\item [(d)] $\sum \frac{n^3}{3^n}z^n$
+\end{itemize}
+\tcblower 
+\begin{proof} (a) $a_n = n^3$, and so $\alpha  = \limsup_{ n \to \Infty} \sqrt[n]{|a_n|} = \limsup_{n \to \Infty} |n^3|^{1/n} = \limsup_{n \to \Infty} n^{3/n} = \lim_{n \to \Infty} n^{3/n} = \lim_{n \to \Infty} (n^{1/n})^3 = 1^3 = 1$. Thus $R = 1/\alpha = 1$.
+
+(b) Using the root test, $\limsup_{n\to \Infty} \left | \frac{2^{n+1}}{(n+1)!} \cdot \frac{n!}{2^n}\right| = \lim_{n \to \Infty} \frac{2^n}{n+1} = \Infty$, and so $R =1/\alpha = 0$.
+
+(c) Identify $a_n = \frac{2^n}{n^2} \rightsquigarrow \limsup_{n \to \Infty} \left ( \frac{2^n}{n^2} \right )^{1/n} = \limsup_{n \to \Infty} \left ( \frac{2}{n^{2/n}}\right ) =2 \lim_{n \to \Infty} \left (\frac{1}{n^{2/n}} \right ) = 2 \lim_{n\to \Infty} 1/(n^{1/n})^2 = 2 \cdot 1 = 2. $
+
+(d) $a_n =  \frac{n^3}{3^n}$, and so $\limsup_{n \to \Infty} \left ( \left| \frac{n^3}{3^n}\right| \right)^{1/n} = \limsup_{n \to \Infty} \frac{n^{3/n}}{3 }  = 1/3 \lim_{n \to \Infty} (n^{1/n})^3 = \frac{1}{3} \cdot 1 ^3 = \frac{1}{3}$. Hence $R = 1/\alpha = \frac{1}{1/3} = 3$.
+\end{proof}
+\end{tcolorbox}
+
+
+
+\newpage 
+
+\section{Uniform convergence, uniform continuity, etc.}
+\begin{tcolorbox}[colback=black!5!white,colframe=black!75!black,title= Exercise $5.1.$] Let $$f_n(x) = \frac{nx}{1+nx^2}.$$\label{ee: 5.1}
+\begin{itemize}
+	\item [(a)] Find the pointwise limit of $(f_n)$ for all $x \in ( 0, \Infty)$.
+	\item [(b)] Is the convergence uniform on $(0, \Infty)$?
+	\item [(c)] Is the convergence uniform on $(0,1)$?
+	\item [(d)] Is the convergence uniform on $(1, \Infty)$?
+\end{itemize}
+\tcblower 
+\begin{proof} (a) When $x= 0 \rightsquigarrow f_n(0) = 0$. For $x > 0$, 
+\[
+f_n (x) = \frac{nx}{1+nx^2} \cdot \frac{1/n}{1/n} = \frac{x}{\frac{1}{n}+x^2} = \frac{1}{x},  \, \textup{as } \, n \to \Infty.
+\] (b) 
+
+(c) A similar situation happens as with (b).
+
+(d) As $f_n  \to f$ pointwise on $(1, \Infty )$ then we can use Proposition $3.6$: 
+\begin{align*}
+	M_n = \|f_n - f\|_u = \sup_{x \in (1, \Infty)} |f_n -f| = \sup_{ x \in (1, \Infty) } \left | \frac{-1}{x(1+nx^2) }\right| &= \sup_{ x \in (1, \Infty) } \left | \frac{1}{x+nx^3 }\right| \\ &= \sup_{ x \in (1, \Infty)} \frac{1}{x(1+nx^2) } \leq \frac{1}{1+n}.
+\end{align*}
+This shows that $\|f_n -f \| \to 0 $ as $n \to \Infty$, and therefore $f_n \to f$ does converge uniformly. 
+\end{proof} 
+\end{tcolorbox}
+\begin{tcolorbox}[colback=black!5!white,colframe=black!75!black,title= Exercise $5.2.$] Let $f$ be uniformly continuous on all of $\rr$, and define a sequence of functions by $f_n(x) = f(x+\frac{1}{n})$. Show that $f_n \to f$ uniformly. Give an example to show that this proposition fails if $f$ is only assumed to be continuous and not uniformly continuous on $\rr$.
+\tcblower 
+\begin{proof} As $f$ is uniformly continuous on all of $\rr$, then for all $\epsilon > 0$, $|x-y| < \delta $ implies $ |f(x) - f(y)|< \epsilon$. Let $\epsilon > 0$. Now $x + \frac{1}{n} \to x$ as $n \to \Infty$, and so pick $N \in \nn$ such that $n \geq N$ implies $|(x+1/n)-x|=|1/n|=1/n<\delta$, i.e. $1/\delta < N$. Pick $N \in \nn$ such that $N>1/\delta$. Then for $n \geq N$, we get $n > 1/\delta$, which implies that $1/n < \delta$, and so $|(x+1/n)-x| < \delta \implies$ $|f(x+1/n)-f(x)| = |f_n(x) - f(x)| < \epsilon$. Hence $f_n \to f$ uniformly. 
+
+Lets choose a solely continuous function that fails. Consider $g(x) =x^2$ where $g \colon \rr \to \rr$. Then $g_n(x) = g(x+\frac{1}{n}) = \frac{(xn+1)^2}{n^2} = (\frac{xn+1}{n})^2$. Now, we have  
+\[
+|f_n(x) - f(x)| = \left | \left (x+\frac{1}{n}\right)^2 -x^2 \right|= \left| \frac{2x}{n} + \frac{1}{n^2} \right |.
+\]
+\end{proof} 
+\end{tcolorbox}
+
+\begin{tcolorbox}[colback=black!5!white,colframe=black!75!black,title= Exercise $5.3.$] Let $f \colon \rr \to \rr$ be a continuous function, and define $f_n (x) = f(x/n)$ for each $n \in \nn$.
+\begin{itemize}
+	\item [(a)] Prove that $f_n(x) \to f(0)$ pointwise on $\rr$.
+	\item [(b)] Prove that $f_n \to f(0)$ uniformly on any bounded subset of $\rr$.
+	\item [(c)] Does $f_n \to f(0)$ uniformly on all of $\rr$? If so, prove it; if not, give a counterexample. 
+\end{itemize}
+\tcblower 
+\begin{proof}  (a) As $x/n \to 0$ for $n \to \Infty$, then for all $\epsilon > 0$ there exists $N \in \nn$ such that $n \geq N$ implies $|x/n|< \epsilon$. As $f$ is continuous, then for $y \in \rr$, there exists $\delta > 0$ such that $|y-x|<\delta$ implies $|f(y)-f(x)| < \epsilon$. Pick $N \in \nn$ such that $ N>x/\delta $, and so $n\geq N > x/\delta$ which gives that $\delta > x/n$. Thus $ |x/n-0| = |x/n| < \delta \implies |f(x/n) - f(0)| = |f_n(x) - f(0)| <\epsilon$. Hence pointwise convergence.
+
+(b) Now if we want to show uniform convergence we must get rid of the dependency on delta in (a). Let $E \subset \rr$ be bounded, say, for all $x \in E$, we have $|x|\leq M$. In particular, as $E$ is bounded then $\sup_{x \in E} |x|$ exists, and write $\omega = \sup_{x \in E} |x|$. Pick $N \in \nn$ such that $N>\omega/\delta$. Then let $n \geq N$, which implies that $\delta > \omega/n > x/n$. Thus $|x/n-0|  = |x/n| < \delta \implies |f_n(x/n)-f(0)|<\epsilon$. Hence uniform convergence.  
+\end{proof} 
+\end{tcolorbox}
+
+\begin{tcolorbox}[colback=black!5!white,colframe=black!75!black,title= Exercise $5.4.$] Consider the sequence of functions defined by $$g_n(x) = \frac{x^n}{n}$$ 
+\begin{itemize}
+	\item [(a)] Show $(g_n)$ converges uniformly on $[0,1]$ and find $g =\lim g_n$. Show that $g$ is differentiable and compute $g^\pp (x) $ for all $x \in [0,1]$
+	\item [(b)] Now show that $(g_n^\pp)$ converges on $[0,1]$. Is the convergence uniform? Set $h = \lim g_n^\pp$ and compare $h$ and $g^\pp$. Are they the same?
+\end{itemize}
+\tcblower 
+\begin{proof}  (a) For $x = 0$, we get $g_n(x) = 0$, and for $x = 1$, $g_n(1) = 1^n/n = 1/n \to 0$ as $n \to \Infty$. Lastly, take $x \in (0,1)$. Then, $0<x^n < 1$ so $0<x^n/n< 1/n$, that is, $0<g_n(x) < 1/n$, and as $n \to \infty$, we get $0<\lim_{n\to \Infty} x^n/n< \lim_{n \to \Infty} 1/n$; thus $x^n/n \to 0$ as $n \to \Infty$. Hence $\lim_{n \to \Infty} g_n = g =0$, and this is obviously differentiable for which $x \in [0,1]$ gives $g^\pp (x)= 0$ again. 
+
+(b) Here we get that $g_n^\pp (x) = x^{n-1}$. Now $x = 0$, we get $g_n^\pp (x) = 0$, and for $x = 1$, we get $g_n(x)=1^{n-1} =1$. Lastly, take $x \in (0,1)$. Then $x^{n-1} \to 0$ as $n \to \infty$. Hence we get a piecewise function:
+
+\[
+h (x) = \begin{cases}
+	0  &x \in [0,1) \\
+	1 & x =1
+	\end{cases}
+\]
+\end{proof} 
+\end{tcolorbox}
+
+
+\begin{tcolorbox}[colback=black!5!white,colframe=black!75!black,title= Exercise $5.5.$] Let $$f_n(x) = \frac{nx}{1+n^2x^2}, \text{ for } x \in \rr.$$
+\begin{itemize}
+	\item [(a)] Show that $f_n \to 0$ pointwise on $\rr$.
+	\item [(b)] Does $(f_n)$ converge uniformly on $[0,1]$.
+	\item [(c)] Does $f_n$ converge uniformly on $[1, \Infty)$. Justify.
+\end{itemize}
+\tcblower 
+\begin{proof}  This is almost exactly Exercise 5.1.
+
+(a)  For $x = 0$, $f_n (0) = 0$. For $x \neq 0$,  
+
+\begin{align*}
+	f_n(x) = \frac{nx}{1+n^2x^2} \cdot \frac{1/n^2}{1/n^2} = \frac{x/n}{\frac{1}{n^2}+{x^2}} \to 0, \text{ as } n \to \Infty.
+\end{align*}
+
+(b) NO (?)
+
+(c) Let $x \geq 1$. Then 
+
+\begin{align*}
+	M_n = \sup _{x \in [1,\Infty)} |f_n(x) - f(x)| = \sup _{x \in [1, \Infty)} \left |\frac{nx}{1+n^2x^2} \right | \leq \frac{n}{1+n^2} \to 0.
+\end{align*} So we have uniform continuity. 
+\end{proof} 
+\end{tcolorbox}
+
+
+
+\newpage 
+\section{Riemann Integration, Fundamental Theorem of
+Calculus, etc.}
+\begin{tcolorbox}[colback=black!5!white,colframe=black!75!black,title= Exercise $6.1.$]If $f$ is a differentiable function so that $\int_0^x f(t)dt = (f(x))^2$ for all $x$, find $f$.
+\tcblower 
+\begin{proof} Assume that $f$ is differentiable so that $F (x) = \int_0^x f(t) dt = (f(x))^2$. As $f$ is differentiable, then we can differentiate both sides
+\[
+F^\pp (x) = \frac{d}{dx} ((f(x)^2) = 2f^\pp (x)f(x).
+\] By FTC, as $f$ is differentiable, then it is continuous and so $F^\pp (x) =f(x)$, and thus we have $f(x) = 2f^\pp (x) f(x)$, so $f(x)(1-2f^\pp (x))= 0$. If $f(x) = 0$ then we're done. Now consider $1 - 2f^\pp (x) = 0$. Then $1 = 2f^\pp (x) $, which gives $f^\pp (x) = \frac{1}{2}$. Find its antiderivative (which all continuous function do have) $f(x) = \frac{1}{2}x + C$. Now, 
+\end{proof} 
+\end{tcolorbox}
+
+
+\begin{tcolorbox}[colback=black!5!white,colframe=black!75!black,title= Exercise $6.2.$]Let $f \colon \rr \to \rr$ be a function such that $|f(x) - f(y) | \leq (x-y)^2$ for all $x, y \in \rr$. Prove that $f$ is constant.
+\tcblower 
+\begin{proof} This inequality gives that $\left| \frac{f(x)-f(y)}{x-y} \right | \leq |x-y|$. Pick $\epsilon > 0$. Then $0 < |x-y | < \epsilon$ implies that $\left| \frac{f(x)-f(y)}{x-y} \right | < \epsilon$, so $ \lim_{x\to y} \frac{f(x)-f(y)}{x-y}  = f^\pp (y) =0$. Hence $f$ is constant as $y$ was arbitrary. 
+\end{proof} 
+\end{tcolorbox}
+
+
+\begin{tcolorbox}[colback=black!5!white,colframe=black!75!black,title= Exercise $6.3.$] Which $n \in \nn$ have the property that $f^n \in \mathcal R([a,b])$ implies $f \in \mathcal R([a,b])$? Give proof(s) and counterexample(s) to show your answer is correct and complete.
+\tcblower 
+\begin{proof} We claim that this holds for $n \in \nn$ odd, but fails for $n$ even. Define the function $\varphi \colon \rr \to \rr$ such that $x \mapsto x^{1/n}$. Then $\varphi \circ f^n(x) = f(x)$. Hence, since $f$ is Riemann integrable and $\varphi$ is continuous then so is $f$. This argument doesn't work for $n$ even as $x \mapsto x^{1/n}$ may not be a real number unless $x \geq 0$. A function for the counter example is: $f(x) = 1$ when $x \in \qq$ and $f(x)=-1$ when $x \notin \qq$. Then $f$ is not Riemann integrable, but $f^2$ is! (Another note is that $f^2 \in \mathcal R([a,b])$ does imply that $|f| \in \mathcal R([a,b])$ as $\sqrt{f^2} = |f|$... this concept generalizes to all $n$ even.)
+\end{proof} 
+\end{tcolorbox}
+
+
+\begin{tcolorbox}[colback=black!5!white,colframe=black!75!black,title= Exercise $6.4.$] Suppose $f$ is defined and differentiable for every $x > 0$, and $f^\pp (x) \to 0$ as $x \to \Infty$. Put $g(x) = f(x+1) - f(x)$. Prove that $g(x) \to 0$ as $x \to + \Infty$.
+\tcblower 
+\begin{proof} As $f^\pp (x) \to 0$ on $(x, \Infty)$ as $x \to \Infty$, then for all $M > 0$, we have $|x| \geq M$. Additionally, for all $\epsilon > 0$, there exists $N \in \nn$ such that $n \geq N$ implies $|f^\pp (x) -0 | = |f^\pp (x)| < \epsilon$ where $x > x_0$. Now for any $x \geq x_0$ we have some $\alpha \in (x,x+1)$ such that $f(x+1)-f(x) = f^\pp (\alpha)$ by MVT.  But since $|f^\pp (\alpha )|< \epsilon $, then so $|f(x+1)-f(x)| < \epsilon$.
+\end{proof} 
+\end{tcolorbox}
+
+
+\begin{tcolorbox}[colback=black!5!white,colframe=black!75!black,title= Exercise $6.5.$] Suppose \begin{itemize}
+	\item [(a)] $f$ is continuous for $x \geq 0$,
+	\item [(b)] $f^\pp (x)$ exists for $x > 0$, 
+	\item [(c)] $f(0) = 0$,
+	\item [(d)] $f^\pp$ is monotonically increasing. 
+\end{itemize}
+Put $$ g(x) = \frac{f(x)}{x}, \; (x>0)$$
+and prove that $g$ is monotonically increasing.
+\tcblower 
+\begin{proof} We show this by showing $g^ \pp (x) > 0$. By MVT, we have $f(x) - f(0) =f(x) =  xf^\pp (\alpha )$ where $\alpha \in (0,x)$. Also as $f^\pp$ is monotonically increasing, then for $x> y$ we have  $f^\pp (x)>f^\pp (y)$, and so $f(x) <xf^\pp (x)$. Then $g^\pp (x) = \frac{xf^\pp (x)-f(x)}{x^2} > 0$ and thus $g$ is monotonically increasing. 
+\end{proof} 
+\end{tcolorbox}
+
+
+
+\begin{tcolorbox}[colback=black!5!white,colframe=black!75!black,title= Exercise $6.5.$] Prove that if $f\colon [0,15] \to \rr$
+\[
+f(x) = \begin{cases}
+	0 & x \in [0,3) \cup [5,11) \cup (11,15] \\
+	4 & x \in [3,5) \\
+	7 & x=11
+\end{cases} \]
+then $f \in \mathcal R([0,15])$.
+
+\tcblower 
+\begin{proof} The way that we will proceed is by choosing an explicit partition of $[0,15]$ such that $U (P,f) - L(P,f) < \epsilon$ for any $\epsilon > 0$. Pick the partition $\mathcal P = \{  0, 3-\eta, 3+\eta, 5-\eta,  5+\eta, 11-\eta, 11+\eta, 15\}$. Now we compute $U(\mathcal P,f)$ and $L( \mathcal P, f)$
+
+\begin{align*}
+M_1 = \sup_{x \in [0, 3-\eta]} f(x) = 0 & & m_1 = \inf_{ x\in [0, 3-\eta]} f(x) = 0\\
+M_2 =  \sup_{x \in [3-\eta, 3+\eta]} f(x) = 4  & & m_1 =  \inf_{x \in [3-\eta, 3+\eta]} f(x) = 0\\
+M_3 = \sup_{x \in [3+\eta, 5-\eta]} f(x) = 4 && m_3 =  \inf_{x \in [3+\eta, 5-\eta]} f(x)   =4 \\
+M_4 = \sup_{x \in [5-\eta, 5+\eta] } f(x) = 4  && m_4 \inf_{x \in [5-\eta, 5+\eta] } f(x) = 0 \\
+M_5 = \sup_{x \in [5+\eta, 11-\eta] } f(x) = 0 && m_5 = \inf_{x \in [5+\eta, 11-\eta] } f(x) = 0 \\
+M_6 = \sup_{x \in [11-\eta, 11+\eta] } f(x) = 7 && m_6  = \inf_{x \in [11-\eta, 11 + \eta] } f(x) = 0 \\
+M_7 = \sup_{x \in [11+\eta, 15] } f(x) = 0 && m_7 = \sup_{x \in [11+\eta, 15] } f(x) = 0
+\end{align*}
+Then $U(\mathcal P,f) = \sum_{i=1}^n M_i \Delta x_i$ and $L(\mathcal P, f) = \sum_{i=1}^n m_i \Delta x_i$, so 
+
+\begin{align*}
+	U(\mathcal P,f) - L(\mathcal P, f) &= \sum_{i=1}^7 M_i \Delta x_i - \sum_{i=1}^7 m_i \Delta x_i = \sum_{i=1}^7 (M_i-m_i) \Delta x_i \\
+	&= (M_1-m_1) (x_1-x_0) + \cdots \\
+	&= 0 + 4 (2\eta) + 0+4(2\eta) + 0 + 7 (2\eta) + 0 \\
+	&=8\eta +8\eta +14 \eta = 30\eta.
+\end{align*}
+Now pick $\eta =\frac{\epsilon}{31}$. Then $(\mathcal P,f) - L(\mathcal P, f)  = 30 \eta = 30\cdot \frac{\epsilon}{31} < \epsilon$. 
+\end{proof} 
+\end{tcolorbox}
+
+
+\section{Prove a Theorem from class}
+
+\begin{theorem}[Weierstrass $M$-test] Suppose $(f_n)_{n=1}^\Infty$ is a sequence of functions defined on $E \subset \rr$, and $|f_n(x)|\leq M_n$ for all $x \in E$, for all $n \in \nn$. If $\sum_{n=1}^\Infty M_n$ converges, then $\sum_{n=1}^\Infty f_n$ converges uniformy on $E$.
+\end{theorem}
+\begin{proof}
+	We show that the sequence $(s_n)_{n=1}^\Infty$ of partial sums is uniformly Cauchy. Let $\epsilon > 0$ such that $N \in \nn$ and $m \geq n \geq N$ implies $\sum_{k=n}^m M_n < \epsilon$. Then
+	\[|s_m - s_n | = |\sum_{k=n}^m f_n(x)| \leq \sum_{k=n}^m |f_n(x)| \leq \sum_{k=n}^m M_n < \epsilon.
+	\] Hence $(s_n)$ is uniformly Cauchy, and thus also uniformly convergent. 
+\end{proof}
+\begin{theorem}[Integrable Limit Theorem] Let $f_n \in \mathcal R([a,b])$ for each $n \in \nn$. If $f_n \to f$ uniformly on $[a,b]$, then $f \in \mathcal R([a,b])$, and $$ \lim _{n\to \infty} \int_a^b f_n dx = \int_a^b f dx.$$
+\begin{proof}
+	Assume that $f_n \to f$ uniformly. Let $\epsilon > 0$, and choose $N \in \nn$ such that $n \geq N$ implies $|f_n(x) -f(x) |< \eta$, where we pick $\eta$ later on. Then for $n\geq N$ we have $f_n(x) - \eta < f(x) < f_n (x) + \eta$ for all $x \in [a,b]$, which implies $$ 0 \leq \overline{\int_a^b} fdx - \underline{\int_a^b} f dx < \int_a^b (f_n(x)+\eta ) dx-\int_a^b (f_n(x) -\eta) dx = 2\int_a^b \eta dx = 2(b-a)\eta .$$ Now pick $\eta = \frac{\epsilon}{2(b-a)}$. Then we have $0 \leq \overline{\int_a^b} fdx -\underline{\int_a^b} f dx < \epsilon$ for all $\epsilon > 0$. Hence we have $\overline{\int_a^b} f dx = \underline{\int_a^b} f dx$, so $f \in \mathcal R([a,b])$. Lastly, for $n \geq N$, we have 
+	\[
+	|\int_a^b f dx - \int_a^b f_n dx| \leq \int_a^b |f-f_n| dx \leq \eta (b-a) = \epsilon/2 < \epsilon.
+	\] Thus $\int_a^b f_n dx \to \int_a^b f dx$ as $n \to \Infty$.
+\end{proof}
+\end{theorem}
+\begin{theorem}[Uniform Limit Theorem] Let $(f_n)_{n=1}^\Infty$ be a sequence of continuous real-valued function on a metric space $(X,d)$. Assume $f\colon E \to \rr$ is a function that $f_n \to f$ uniformly on $E \subset X$. Then $f$ is continuous.
+\end{theorem}
+\begin{proof} Let $\epsilon > 0$ and $x \in E$. Pick $N \in \nn$ sufficiently large such that $|f(z) - f_N(z)| < \epsilon /3$ for all $z \in E$. Then also for the same $N$, pick $\delta > 0$ such that $d(x,y)< \delta$ and $y \in E$ implies that $|f_N(x)-f_N(y)| < \epsilon/3$. Then for $y \in E$ and $d(x,y)<\delta$, we get 
+\[
+|f(x)-f(y)| \leq |f(x) - f_N(x) | + |f_N(x) -f_N(y)| + |f_N(y)-f(y)| \leq \epsilon/3+\epsilon/3+\epsilon/3 = \epsilon.
+\]
+\end{proof}
+
+
+
+
+\end{document}

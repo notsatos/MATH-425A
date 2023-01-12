@@ -1,0 +1,188 @@
+\documentclass[10pt,reqno]{amsart}
+\usepackage{graphicx}
+\usepackage{fullpage}
+\usepackage{tcolorbox}
+% \usepackage[a4paper, total={5.5in, 8in}]{geometry}
+%\usepackage{mathpazo}
+%\usepackage{euler}
+\usepackage{amsfonts,amssymb,latexsym,amsmath,amsthm}
+\usepackage{tikz-cd}
+\usepackage{mathrsfs}
+\usepackage{stmaryrd}
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks = true,
+    linkbordercolor = {red}
+}
+\theoremstyle{definition}
+%% this allows for theorems which are not automatically numbered
+\newtheorem{defi}{Definition}[section]
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}{Lemma}[section]
+\newtheorem{obs}{Observation}
+\newtheorem{exercise}{Exercise}[section]
+\newtheorem{rem}{Remark}[section]
+\newtheorem{construction}{Construction}[section]
+\newtheorem{prop}{Proposition}[section]
+\newtheorem{coro}{Corollary}[section]
+\newtheorem{disc}{Discussion}[section]
+\DeclareMathOperator{\spec}{Spec}
+\DeclareMathOperator{\im}{im}
+\DeclareMathOperator{\obj}{obj}
+\DeclareMathOperator{\ext}{Ext}
+\DeclareMathOperator{\Lim}{Lim}
+\DeclareMathOperator{\Int}{Int}
+\DeclareMathOperator{\tor}{Tor}
+\DeclareMathOperator{\ann}{ann}
+\DeclareMathOperator{\id}{id}
+\DeclareMathOperator{\proj}{Proj}
+\DeclareMathOperator{\gal}{Gal}
+\DeclareMathOperator{\coker}{coker}
+\newcommand{\degg}{\textup{deg}}
+\newtheorem{ex}{Example}[section]
+%% The above lines are for formatting.  In general, you will not want to change these.
+%%Commands to make life easier
+\newcommand{\RR}{\mathbf R}
+\newcommand{\aff}{\mathbf A}
+\newcommand{\ff}{\mathbf F}
+\usepackage{mathtools}
+% \newcommand{\ZZ}{\mathbf Z}
+\newcommand{\pring}{k[x_1, \ldots , x_n]}
+\newcommand{\polyring}{[x_1, \ldots , x_n]}
+\newcommand{\poly}{\sum_{\alpha} a_{\alpha} x^{\alpha}} 
+\newcommand{\ZZn}[1]{\ZZ/{#1}\ZZ}
+% \newcommand{\QQ}{\mathbf Q}
+\newcommand{\rr}{\mathbb R}
+\newcommand{\cc}{\mathbb C}
+\newcommand{\complex}{\mathbf {C}_\bullet}
+\newcommand{\nn}{\mathbb N}
+\newcommand{\zz}{\mathbb Z}
+\newcommand{\PP}{\mathbb  P}
+\newcommand{\cat}{\mathbf{C}}
+\newcommand{\ca}{\mathbf}
+\newcommand{\zzn}[1]{\zz/{#1}\zz}
+\newcommand{\qq}{\mathbb Q}
+\newcommand{\calM}{\mathcal M}
+\newcommand{\latex}{\LaTeX}
+\newcommand{\V}{\mathbf V}
+\newcommand{\tex}{\TeX}
+\newcommand{\sm}{\setminus} 
+\newcommand{\dom}{\text{Dom}}
+\newcommand{\lcm}{\text{lcm}}
+\DeclareMathOperator{\GL}{GL}
+\DeclareMathOperator{\Cl}{Cl}
+\DeclareMathOperator{\Hom}{Hom}
+\DeclareMathOperator{\aut}{Aut}
+\DeclareMathOperator{\SL}{SL}
+\DeclareMathOperator{\inn}{Inn}
+\DeclareMathOperator{\card}{card}
+\newcommand{\sym}{\text{Sym}}
+\newcommand{\ord}{\text{ord}}
+\newcommand{\ran}{\text{Ran}}
+\newcommand{\pp}{\prime}
+\newcommand{\lra}{\longrightarrow} 
+\newcommand{\lmt}{\longmapsto} 
+\newcommand{\xlra}{\xlongrightarrow} 
+\newcommand{\gap}{\; \; \;}
+\newcommand{\Mod}[1]{\ (\mathrm{mod}\ #1)}
+\newcommand{\p}{\mathfrak{p}} 
+\newcommand{\rmod}{\textit{R}-\textbf{Mod}}
+\newcommand{\idealP}{\mathfrak{P}}
+\newcommand{\ideala}{\mathfrak{a}}
+\newcommand{\idealb}{\mathfrak{b}}
+\newcommand{\idealA}{\mathfrak{A}}
+\newcommand{\idealB}{\mathfrak{B}}
+\newcommand{\X}{\mathfrak{X}}
+\newcommand{\idealF}{\mathfrak{F}}
+\newcommand{\idealm}{\mathfrak{m}}
+\newcommand{\s}{\mathcal{S}}
+\newcommand{\cha}{\text{char}}
+\newcommand{\ccc}{\mathfrak{C}}
+\newcommand{\idealM}{\mathfrak{M}}
+\tcbuselibrary{listings,theorems}
+\usetikzlibrary{decorations.pathmorphing} 
+\newcommand{\overbar}[1]{\mkern 1.5mu\overline{\mkern-1.5mu#1\mkern-1.5mu}\mkern 1.5mu}
+
+%Itemize gap:
+
+% \pagecolor{black}
+% \color{white}
+% Author info
+
+\title{Math 425A HW7, Oct. 12, 6PM}
+\date{October 3, 2022 \\ {Department of Mathematics, University of Southern California}}
+\address{Department of Mathematics, University of Southern California, 
+Los Angeles, CA 90007}
+\begin{document}
+\maketitle
+\setcounter{tocdepth}{4}
+\setcounter{secnumdepth}{4}
+
+\section{Chapter 4.}
+
+\begin{tcolorbox}[colback=black!5!white,colframe=black!75!black,title= Chapter 4 $\S 1.2$: Exercise 1.8.] Let $(X,d)$ be a metric space, and let $E$ be a subset of $X$. Prove that $\Lim_X(E)$ is a closed set of $X$.
+\tcblower 
+\begin{proof} Our strategy is to show that $\Lim_X(\Lim_X(E)) \subseteq \Lim_X(E)$. Take $x \in \Lim_X(\Lim_X(E))$. Then we have that $\Lim_X(E) \cap B_X(x, \frac{\epsilon}{2}) \neq \varnothing$ and let $\ell$ be this intersection. Then $d(x, \ell) < \epsilon/2$ and $\ell \in \Lim_X(E)$. So then $E \cap B_X(\ell, d(x, \ell)) \setminus \{ \ell \} \neq \varnothing$ and take $p$ to be in this intersection. And thus $d(x,p) \leq d(p,\ell  ) + d(\ell, x)<d(x,\ell ) + d(x,\ell ) = 2d(x, \ell ) < 2(\frac{\epsilon}{2}) = \epsilon$ as $p \in B_X(\ell, d(x,\ell))$ and $\ell \in B_X(x,\frac{\epsilon}{2})$. Now $p \neq x$ as $d(p, \ell) < d(x, \ell)$. So thus $p \in E \cap B_X(x,\epsilon) \setminus \{ x \} $. Hence $x \in \Lim_X(E)$ and we can conclude the claim of the exercise. 
+\end{proof}
+
+\end{tcolorbox}
+
+\begin{tcolorbox}[colback=black!5!white,colframe=black!75!black,title= Chapter 4 $\S 1.2$: Exercise 1.9.] Let $(X, d)$ be a metric space, and let $E$ be a subset of $X$. Prove that $X\setminus \Cl_X (E) = \Int_X (X\setminus E)$ 
+\tcblower 
+\begin{proof} $(\supseteq)$ Note that $\Int_X(X \setminus E) \subseteq X \setminus E$, and also $E = X \setminus (X \setminus E) \subseteq X \setminus  \Int_X(X\setminus E)$. Thus $X \setminus \Int_X( X\setminus E)$ is a closed set that contains $E$, which means that $\Cl_X(E) \subseteq X \setminus \Int_X ( X\setminus A)$ and so $X \setminus ( X \setminus \Int_X( X \setminus A)) = \Int_X(X \setminus A) \subseteq X \setminus \Cl_X(E)$. Hence we have the backwards inclusion.
+
+$(\subseteq)$ As $E \subseteq \Cl_X(E)$, then we have that $X \setminus \Cl_X(E) \subseteq E$. And as $\Cl_X (E)$ is a closed set, then we have an open set $X \setminus \Cl_X(E)$ contained in $E$. 
+\end{proof}
+\end{tcolorbox}
+
+\begin{tcolorbox}[colback=black!5!white,colframe=black!75!black,title= Chapter 4 $\S 1.2$: Exercise 1.10.] Let $(X, d)$ be a metric space. Let $E$ and $Y$ be subsets of $X$ such that $E \subseteq Y$ . Prove
+that
+\[ \Cl_Y(E) = \Cl_X(E) \cap Y.
+\]
+\tcblower 
+\begin{proof} $(\subseteq)$ Suppose $p \in \Cl_Y(E)$. Then $p \in \Lim_Y(E) \cup E$. If $p \in E$, then $p \in \Cl_X(E) = \Lim_X(E) \cup E$, as $p \in E$, and as $E \subseteq Y$ we also have $p \in Y$. Thus $p \in \Cl_X(E) \cap Y$. On the other hand, if $p \in \Lim_Y(E)$, then we have that $p \in Y$ such that for any open neighborhood $p \in V$ of $Y$ such that $E \setminus \{ p \} \cap Y \neq \varnothing$. As $V$ is open in $Y$ and $Y \subseteq X$, then $V = U \cap Y$ for some open set $U$ of $X$. But as $U \cap Y \subseteq U$, then $p \in U$ and $U$ is an open neighborhood of $p$ such that $U \cap E \setminus \{ p \}$. Therefore $p \in \Lim_X(E)$, and hence $p \in \Cl_X(E) \cap Y$. The forward inclusion follows from these two cases. 
+
+$(\supseteq)$ Suppose that $\ell \in \Cl_X(E) \cap Y$. Then $\ell \in \Lim_X(E) \cup E$ and $\ell \in  Y$. If $\ell \in E$, then $\ell \in \Cl_Y(E) = \Lim_Y(E) \cup E$, as $\ell \in E$. On the other hand, let $\ell \in \Lim_X(E)$. Then $\ell \in X$ and for any open neighborhood $\ell \in W$ of $X$ we have $W \cap E \setminus \{ \ell \} \neq \varnothing$. As $W$ is open in $X$, then $L = W \cap Y$ is open in $Y$. But as $\ell$ in both $Y$ and $W$ then $L$ is an open neighborhood of $\ell $ in $X$. Lastly, as $L = W \cap Y \subseteq W$, then $L \cap E \setminus \{ \ell \} \neq \varnothing$. Therefore $\ell \in \Cl_Y(E)$. Hence the backwards inclusion follows. 
+\end{proof}
+\end{tcolorbox}
+\begin{tcolorbox}[colback=black!5!white,colframe=black!75!black,title= Chapter 4 $\S 1.2$: Exercise 1.14.] Let $(X, d)$ be a metric space. 
+
+\begin{itemize}
+	\item [(a)] Prove that for any $x \in X$ and $r>0$, we have $\overline{B_X(x,r)} \subseteq \{ y \in X \colon d(x,y) \leq r \}$. Note that the inclusion $\overline{B_X(x,r) } \subseteq B_X(x,r+\epsilon)$ follows for any $\epsilon > 0$. 
+	\item [(b)] Give an example using the discrete metric that demonstrates that equality need not hold in the inclusion $\overline {B_X(x,r)} \subseteq \{ y \in X \colon d(x,y) \leq r \}$ that you proved in part $(a)$
+	\item [(c)] Prove that in $\rr^n$ under the Euclidean metric $d(x,y) = \|x- y\|$, we have $\overline{B_{\rr^n}(x,r)} = \{ y \in \rr^n \colon \|x -y\| \leq r \}$. 
+	\item [(d)] Using part $(a)$, prove that if $A$ is bounded in $(X,d)$, then $\overline{A}$ is also bounded in $(X,d)$.
+\end{itemize}
+\tcblower 
+\begin{proof} (a) Let $x \in X$ and $r > 0$. Then by Remark 1.18 in the course notes, if $p \in \overline{B_X(x,r)}$ if and only if for any $\epsilon > 0$ we have that $B_X(x,r) \cap B_X(p, \epsilon) \neq \varnothing$. By contrapositive suppose $d(x,y) > r$. Now consider $\epsilon = d(x,y) - r> 0$. So then $B_X(x,r) \cap B_X(p, d(x,y) -r) = \varnothing$. Thus we have that $p \notin \overline{B_X(x,r)}$.
+
+(b) Consider $\rr_{\text{disc}}$ with the discrete metric $d_{\text{disc}} (x,y) = 0$ if $x = y$ in $\rr$ or $1$ if $x \neq y$. Now consider $S = \{y \in \rr \colon d_{\text{disc}}(3, y) \leq 1 \}$. WLOG, consider $\ell \in S$ such that $\ell \neq 3$. Then $d_{\text{disc}} (3,\ell ) = 0 \leq 1$. So then clearly $\ell \notin B_\rr (3,1) = \{ 3 \}$. Now we claim that $\ell \notin \Lim_\rr( B_\rr (3,1) )$. This is simple as $\Lim_\rr (B_\rr (3,1)) = \Lim_ \rr (\{ 3 \})$. Now suppose that $\ell \in \Lim_\rr (\{ 3 \})$. Then this would mean that $B_\rr (\ell, 1) \cap ( \{ 3 \} \setminus \{ \ell \})$ intersect as $B_\rr( \ell, 1)$ is an open neighborhood of $\ell$. So then if $p \in B_\rr (\ell, 1) = \{\ell \}$ (i.e. $p = \ell$) and $p \in \{3 \} \setminus \{ \ell \}$ (i.e. $p = 3$ and $p \neq \ell$), then we have a contradiction. Therefore the equality in part (a) need not hold.
+
+(c) The forward inclusion follows from part (a). Thus is remains to show the backwards inclusion: It suffices to show that that if we take $p \in \{ y \in X \colon d(x,y) = r \}$. But $B_X(x,r) \subseteq \overline{B_X(x,r)} \subseteq \{y \in X \colon d(x,y) \leq r \}$. 
+
+(d) Suppose $A$ is bounded in $X$, i.e. we have $A \subseteq B_X(x, \epsilon)$, which is to say that $d(x, q) < \epsilon$ for all $q \in A$. So then for any $a \in \overline{A}$ we have that we have that $B_1(a, 1)$ intersects with $A$; let $t$ be a point in this intersection. Then $d(a, x) \leq d(a, t) + d(t,x) <1+\epsilon$. Therefore we are done. 
+
+\end{proof}
+\end{tcolorbox}\begin{tcolorbox}[colback=black!5!white,colframe=black!75!black,title=  Exercise 1.15.] Let $(X, d)$ be a metric space. 
+
+\begin{itemize}
+	\item[(a)] If $X$ is totally bounded, then it is bounded.
+	\item[(b)] If $Y \subseteq X$, then $(Y,d)$ is totally bounded if and only if for any $\epsilon > 0$, there exists $a_1, \ldots, a_J \in X$ such that $Y \subseteq \bigcup_{j=1}^J B_X(a_j, \epsilon)$.
+	\item[(c)] If $X$ is totally bounded and $Y \subseteq X$, then $Y$ is totally bounded.
+	\item[(d)] If $Y \subseteq X$ and $(Y,d)$ is totally bounded, then $(\overline{Y}, d)$ is totally bounded.
+\end{itemize}
+\tcblower 
+\begin{proof} (a) Suppose $X$ is totally bounded. Then $X = \bigcup_{j=1}^n B_X(x_j, \epsilon)$, and let $\epsilon = 1$ and $x,y \in X$. So $x \in B_X(x_j, 1)$ and $y \in B_X(x_i, 1)$ for some $1 \leq j,i \leq n$. Then $d(x,x_j) < 1$ and $d(x_i, y) < 1$. Write $\ell = \max_{1\leq i, j \leq n} \{ d(x_i, x_j) \}$. So then $d(x,y) \leq d(x, x_j) + d(x_j, x_i) + d(x_i, y) \leq  2 + \ell $. Hence $\text{diam} (\bigcup_{j=1}^n B_X(x_j, \epsilon)) = \text{diam}(X) \leq 2 + \ell $, and thus we can conclude that $X$ is bounded. 
+
+(b) Suppose $Y \subseteq X$. $(\Rightarrow)$ Assume that $(Y,d)$ is totally bounded, i.e. $Y = \bigcup _{j=1}^n B_Y (y_j, \epsilon)$ for all $\epsilon > 0$. Each open ball $B_Y(y_j, \epsilon)$ is open in $Y$ so it can be written as $B_X(a_i, \epsilon) \cap Y$, so then $Y = \bigcup_{i=1}^J (B_X(a_j, \epsilon) \cap Y) = \bigcup_{i=1}^J B_X(a_j, \epsilon) \cap Y$. So then clearly $Y \subseteq \bigcup_{i=1}^J B_X(a_i, \epsilon)$. $(\Leftarrow)$ Suppose that for any $\epsilon > 0$ there exists $a_1, \ldots, a_j \in X$ such that $Y \subseteq \bigcup_{j=1}^J B_X (a_j,\epsilon)$. Then for every open ball $B_X(a_j, \epsilon)$, we consider $B_X(a_j, \epsilon) \cap Y$  but then this just $B_Y(a_j, \epsilon)$. So then $Y = \bigcup_{j=1}^n B_Y(a_j, \epsilon)$ is clear. 
+
+
+(c) Let $X$ be totally bounded and let $Y \subseteq X$. Then $X = \bigcup_{j=1}^n B_X(x_i , 1)$. Then, for each $1$-ball open in $X$, we have open $1$-balls of $Y$ where $B_Y(x_\alpha , 1) = B_X(x_\alpha, 1) \cap Y \subseteq X$ with $1 \leq \alpha \leq n$. So then $X \cap Y = \bigcup_{j=1}^n B_X(x_i, 1) \cap Y = \bigcup_{i=1}^k B_Y(x_k, 1)$, but as $Y \subseteq X$, then $X \cap Y = Y$, so then $Y = \bigcup_{k=1}^n B_Y(x_j, 1)$. 
+
+(d) Suppose $Y \subseteq X$ and let $Y$ be totally bounded. Take $\epsilon > 0$. So then we have that $Y = \bigcup_{i=1}^n B_X(x_i, \epsilon/2)$. Now take $y \in \overline{Y}$. Then, by Remark $1.18$, we have that $B_X(y, \epsilon/2)$ and $Y$ intersect. Now let $p \in B_X(y, \epsilon/2) \cap Y$. Then we have that $p \in B_X(x_\alpha, \epsilon/2)$ for some $1 \leq \alpha \leq n$ as $Y = \bigcup_{i=1}^n B_X(x_i, \epsilon/2)$. So then $d(x_\alpha, y) \leq d(x_\alpha, p) + d(p, y) < \epsilon/2+\epsilon/2 = \epsilon$. Hence we have that $d(x_\alpha, y) < \epsilon$ so we have that $ y \in B_X(x_\alpha, \epsilon/2) \subseteq \bigcup_{i=1}^n B_X(x_i,\epsilon/2)$. Hence $\overline{Y}$ is totally bounded.  
+\end{proof}
+\end{tcolorbox}
+
+
+
+\end{document}

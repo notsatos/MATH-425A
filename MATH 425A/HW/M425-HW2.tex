@@ -1,0 +1,185 @@
+\documentclass[9pt,reqno]{amsart}
+\usepackage{graphicx}
+% \usepackage[a4paper, total={5.5in, 8in}]{geometry}
+%\usepackage{mathpazo}
+%\usepackage{euler}
+
+
+\graphicspath{ {./urpimages/} }
+\usepackage{amsfonts,amssymb,latexsym,amsmath, amsthm}
+\usepackage{tikz-cd}
+\usepackage{mathrsfs}
+\usepackage{stmaryrd}
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks = true,
+    linkbordercolor = {red}
+}
+\theoremstyle{definition}
+%% this allows for theorems which are not automatically numbered
+\newtheorem{defi}{Definition}[section]
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}{Lemma}[section]
+\newtheorem{obs}{Observation}
+\newtheorem{exercise}{Exercise}[section]
+\newcommand{\heg}{\text{Heg}}
+\newtheorem{rem}{Remark}[section]
+\newtheorem{construction}{Construction}[section]
+\newtheorem{prop}{Proposition}[section]
+\newtheorem{coro}{Corollary}[section]
+\newtheorem{disc}{Discussion}[section]
+\DeclareMathOperator{\spec}{Spec}
+\DeclareMathOperator{\im}{im}
+\DeclareMathOperator{\obj}{obj}
+\DeclareMathOperator{\ext}{Ext}
+\DeclareMathOperator{\tor}{Tor}
+\DeclareMathOperator{\ann}{ann}
+\DeclareMathOperator{\id}{id}
+\DeclareMathOperator{\proj}{Proj}
+\DeclareMathOperator{\gal}{Gal}
+\DeclareMathOperator{\coker}{coker}
+\newcommand{\degg}{\textup{deg}}
+\newtheorem{ex}{Example}[section]
+%% The above lines are for formatting.  In general, you will not want to change these.
+%%Commands to make life easier
+\newcommand{\RR}{\mathbf R}
+\newcommand{\aff}{\mathbf A}
+\newcommand{\ff}{\mathbf F}
+\usepackage{mathtools}
+\newcommand{\cccC}{\mathbf C}
+\newcommand{\oo}{\mathcal{O}}
+% \newcommand{\ZZ}{\mathbf Z}
+\newcommand{\pring}{k[x_1, \ldots , x_n]}
+\newcommand{\polyring}{[x_1, \ldots , x_n]}
+\newcommand{\poly}{\sum_{\alpha} a_{\alpha} x^{\alpha}} 
+\newcommand{\ZZn}[1]{\ZZ/{#1}\ZZ}
+% \newcommand{\QQ}{\mathbf Q}
+\newcommand{\rr}{\mathbf R}
+\newcommand{\cc}{\mathbf C}
+\newcommand{\complex}{\mathbf {C}_\bullet}
+\newcommand{\nn}{\mathbf N}
+\newcommand{\zz}{\mathbf Z}
+\newcommand{\PP}{\mathbf P}
+\newcommand{\cat}{\mathbf{C}}
+\newcommand{\ca}{\mathbf}
+\newcommand{\zzn}[1]{\zz/{#1}\zz}
+\newcommand{\qq}{\mathbf Q}
+\newcommand{\calM}{\mathcal M}
+\newcommand{\latex}{\LaTeX}
+\newcommand{\V}{\mathbf V}
+\newcommand{\tex}{\TeX}
+\newcommand{\sm}{\setminus} 
+\newcommand{\dom}{\text{Dom}}
+\newcommand{\lcm}{\text{lcm}}
+\DeclareMathOperator{\GL}{GL}
+\DeclareMathOperator{\Hom}{Hom}
+\DeclareMathOperator{\aut}{Aut}
+\DeclareMathOperator{\SL}{SL}
+\DeclareMathOperator{\inn}{Inn}
+\DeclareMathOperator{\card}{card}
+\newcommand{\sym}{\text{Sym}}
+\newcommand{\ord}{\text{ord}}
+\newcommand{\ran}{\text{Ran}}
+\newcommand{\pp}{\prime}
+\newcommand{\lra}{\longrightarrow} 
+\newcommand{\lmt}{\longmapsto} 
+\newcommand{\xlra}{\xlongrightarrow} 
+\newcommand{\gap}{\; \; \;}
+\newcommand{\Mod}[1]{\ (\mathrm{mod}\ #1)}
+\newcommand{\p}{\mathfrak{p}} 
+\newcommand{\rmod}{\textit{R}-\textbf{Mod}}
+\newcommand{\idealP}{\mathfrak{P}}
+\newcommand{\ideala}{\mathfrak{a}}
+\newcommand{\idealb}{\mathfrak{b}}
+\newcommand{\idealA}{\mathfrak{A}}
+\newcommand{\idealB}{\mathfrak{B}}
+\newcommand{\X}{\mathfrak{X}}
+\newcommand{\idealF}{\mathfrak{F}}
+\newcommand{\idealm}{\mathfrak{m}}
+\newcommand{\s}{\mathcal{S}}
+\newcommand{\cha}{\text{char}}
+\newcommand{\ccc}{\mathfrak{C}}
+\newcommand{\idealM}{\mathfrak{M}}
+\usetikzlibrary{decorations.pathmorphing} 
+\newcommand{\overbar}[1]{\mkern 1.5mu\overline{\mkern-1.5mu#1\mkern-1.5mu}\mkern 1.5mu}
+
+%Itemize gap:
+
+% \pagecolor{black}
+% \color{white}
+% Author info
+
+\title{Math 425A HW2, Due 09/09/2022}
+\author{Juan Serratos}
+\email{jserrato@usc.edu}
+\date{ September 3, 2022 \\ {Department of Mathematics, University of Southern California}}
+\address{Department of Mathematics, University of Southern California, 
+Los Angeles, CA 90007}
+\begin{document}
+\maketitle
+\setcounter{tocdepth}{4}
+\setcounter{secnumdepth}{4}
+
+\section*{Chapter 1. \S 4.3.}
+\begin{exercise}[4.3.] Let $A$ and $B$ be sets, and assume $f \colon A \to B$ and $g \colon B \to A$ are injective functions.
+\begin{itemize}
+	\item [(a)] Assume additionally that $A$ is finite. Prove that $f$ and $g$ must actually be bijections.
+	\item [(b)] Show by way of an example that both $f$ and $g$ may fail to be bijective if we do not assume that $A$ is finite.
+\end{itemize}
+\end{exercise}
+\begin{proof}(a) Suppose that $A$ is finite, i.e. $\card A = \card J_n$ for some $n \in \nn$ where $J_n = \{ 1,2, \ldots, n \}$, and so we have bijections from $A \to J_n$ and $J_n \to A$, and for all intents and purposes, these sets are essentially the same. Now as $B \to A$ and $A \to B$ both have injections, then by then there exists some bijection $h \colon A \to B$ by Schr\o ̈der-Bernstein, which implies $\card A = \card B = \card J_n$; thus $B$ is finite as well. Considering the image of $f$, we have that $f(A) = \{f(x) \colon x \in A \}$, which can be enumerated as $f(A) = \{f(a_1), f( a_2), \ldots, f(a_n) \}$ if we enumerate $A = \{a_1, a_2, \ldots,  a_n \}$, and all distinct elements of $A$ map to distinct elements of $f(A)$ since $f$ is injective which means that the cardinality of $f(A)$ is also $J_n$. As the cardinality of $f(A) \subseteq B$ and $B$ itself are the same then we must have that $f(A) = B$. Thus $f$ is injective. For $g$, we apply the same argument: We have that $\card A = \card J_n = B$, and so we can enumerate $B$ as, say, $B = \{b_1, b_2, \ldots, b_n \}$. Now the image of $g \colon B \to A$ can be presented as $g(B) = \{g (b_1), g(b_2), \ldots, g(b_n) \}$. As $g(B) \subseteq A$ has cardinality $J_n$ since $g \colon B \to A$ is also injective, then we must have that $g(B) = A$ since the cardinality of $g(B)\subseteq B$ and $B$ itself are the same.
+
+(b) Assume that $f \colon A \to B$ and $g\colon B \to A$ are injective functions. Now let $A = \nn $ and let $B = \mathcal P(\nn)$. The map $f$ fails to be surjective as $ \card \nn < \card \mathcal P(\nn)$ is strict, i.e. no surjection from $\nn \to \mathcal P(\nn)$ exists, by Proposition 4.5 in the Course Notes. Moreover, a posteriori, we know that the assumed injection $g  \colon \mathcal P(\nn) \to \nn$ cannot exist as this would imply $\card P(\nn ) \leq \card (\nn)$, and so this cannot be a bijection. [An example that doesn't take the initial assumption would of already having two injections would be that we can let $A = \qq^+$ and $B = \nn$. We can embed $i \colon \nn \to \qq^+$ by the canonical injection, and we may construct an bijection from $f \colon \nn \to \qq^+$ by letting $f(1)$, $f(2n) = f(n) + 1$, and $f(2n+1) = \frac{1}{f(n)+1}$. This provides us with an injective function $f^{-1} \colon \qq^+ \to \nn$. Now we may clearly see that $i \colon \nn \to \qq^+$ fails to be bijective since it cannot be surjective as if we assume for every $t = p/q \in \qq$ we would have some $\ell \in \nn$ such that $i(\ell) = p/q$ but this means that $\ell = p/q$ which is contradictory.]
+\section*{Chapter 1. \S 4.4.}
+\begin{exercise}[4.4.] Let $A$ and $B$ be sets. Assume $A$ is infinite, $B$ is countable, and $A$ and $B$ are disjoint. Prove that $A \sim A \cup B$. Hint: The strategy of Theorem 4.15 may be useful. You may also use the fact that the union of two countable sets is countable. (A more general statement on unions of countable sets is proved in the next subsection.)
+\end{exercise}
+\begin{proof}
+	We will approach this by trying to use Schr\o  ̈der-Bernstein. Since there is the canonical injection from $A$ to $A\cup B$, then it remains to find an injection from $A \cup B \to A$ to get that there is a bijection $A \to A \cup B$, i.e. $A \sim B$. Since $B$ is countable, then we can enumerate $B$ by $\{ b_0, b_1, b_2, \ldots \}$, and since $A$ is infinite then it contains a countably infinite subset, say,  $T = \{ a_0, a_1, \ldots \}$. Now we define a map $\varphi \colon A \cup B \to A$ by: if $a \in A \setminus (T \cup B)$ $a \mapsto a $ ; $a \mapsto a_{2n+1}$ if $a = b_n \in B$; $a \mapsto a_{2n}$ if $a = a_{n} \in T \setminus B$. This is a well-defined mapping that is indeed an injection. Thus there is a bijection $A \to A \cup B$ and so $\card A = \card A \cup B$, i.e. $A \sim A \cup B$.
+	\end{proof}
+
+\section*{Chapter 1. \S 4.5.}
+\begin{exercise}[4.5.] Let $X$ and $Y$ be sets. Assume $Y$ is countable and $X \setminus Y$ is infinite. Prove that $X \sim X \cup Y \sim X\setminus Y$ . Hint: Each of the equivalences can be done extremely quickly if you use the previous exercise and some set manipulations.
+	
+\end{exercise}
+
+\begin{proof}
+	Since $Y$ is countable and $X \setminus Y$ is infinite, and obviously $Y \cap X \setminus Y = \varnothing$, then by the previous exercise we have that $X \setminus Y \sim (X\setminus Y) \cup Y = X \cup Y$. Now it remains to show that $X \sim X\cup Y$ or $X \sim X \setminus Y$. We can define a map from $i_1 \colon X \setminus Y \to X$ by the canonical injection, and so $\card X \geq \card X\setminus Y = \card X \cup Y$. Now $i_2 \colon X \to X \cup Y$ provides another injection, and so $\card X \leq \card X \cup Y$. All together, we have that $\card X \cup Y \geq \card X \geq  \card X \setminus Y$, but $\card X \cup Y =  \card X \setminus Y$. Hence $\card X = \card X \cup Y = \card X \setminus Y$. 
+\end{proof}
+	\section*{Chapter 1. \S 4.6.}
+\begin{exercise}[4.6]  A tempting but incorrect variation on the argument of the proof of Proposition 4.17 is the following. Point out the error in the argument. 
+\begin{center}
+	\parbox{4in}{INCORRECT argument: We construct an injection $f \colon S \to  \nn \times \nn$ as follows: For each $j$, let $g_j \colon A_j → \nn$ be an injection. Then define $f \colon S \to  \nn \times \nn$ according to the following rule: If $a \in A_j$ , define $f (a) = (j, g_j (a))$. Then $f$ is injective, so $S$ is countable.
+	}
+\end{center}
+\end{exercise} 
+\textbf{Solution.} The issue with this proof is that the mapping we constructed $f \colon S \to \nn \times \nn$, where $S = \bigcup _{j = 1}^\infty A_j$ and $\{A_j \}_{j = 1}^\infty$ is a countable collection of countable sets, may not be well defined. We need the countable sets in $\{A_j \}_{j =1}^\infty$ to be pairwise disjoint since if not we may have that some element $a \in S$ that is in both, say, $A_k$ and $A_t$ in $\{A_j \}_{j =1}^\infty$ maps the same element in $S$ to different outputs in $\nn \times \nn$  according to our construction ("rule") of $f$ in the "INCORRECT argument". 
+
+
+\section*{Chapter 2. \S 1.1.}
+\begin{exercise}[2.1.1.]
+Let $E, F,$ and $G$ be nonempty subsets of an ordered set $(S, \leq )$. Prove the following statements.
+\begin{itemize}
+	\item [(a)] If $\alpha \in S$ is a lower bound for $E$ and $\beta \in S$ is an upper bound for $E$, then $\alpha \leq \beta$.
+	\item [(b)] $\sup E \leq \inf F$ if and only if $x \leq y$ for any $x \in E, y \in F$.
+	\item [(c)] If $E \subseteq G$, then $\sup E \leq \sup G$.
+\end{itemize}
+\end{exercise}
+\begin{proof}
+	(a) Suppose $\alpha \in S$ is a lower bound for $E$ and $\beta \in S$ is an upper bound for $E$. Then we have that, for all $x \in E$, both $\alpha \leq x$ and $\beta \geq x$, and so $\alpha \leq x \leq \beta $, which implies that $\alpha \leq \beta$ by the transitivity property of an ordered set. 
+	
+	(b) $(\Rightarrow)$ Assume $ \sup E = \ell \leq \inf F$. That is, $\ell$ is the least upper bound so for all other upper bounds $\gamma \in S$ of $E$, we have that $x \leq \ell \leq \gamma$ for all $x \in E$. Recall that $\inf F$ is described as being the greatest lower bound, i.e. $\inf F$ is a lower bound ($\inf F \leq y, \forall y \in F$) and for all other lower bounds $\lambda$ of $F$, we have that $\lambda \leq \inf F$. Thus, putting everything together, we have that $x \leq \ell \leq \inf F \leq y$ for all $x \in E$ and $y \in F$. Hence $x \leq y$. $(\Leftarrow)$ For the opposite direction, suppose we have that $x \leq y$ for all $x \in E$ and $y \in F$. Now fix $y_\alpha \in F$. Then $x \leq y_\alpha$ for all $x \in E$ and so $y_\alpha$ is an upper bound of $E$ which implies that $y_\alpha \geq \sup E$. Thus $\sup E$ is a lower bound of $F$ and hence $\sup E \leq \inf F$.
+	
+	(c) Suppose $E \subseteq G \subseteq (S, \leq)$. Then $\sup G$ is an upper bound of $E$ and as $\sup E$ is the least upper bound for $E$, then we have that $\sup E \leq \sup G$.
+	
+\end{proof}
+
+
+\section*{Chapter 2. \S 1.2.}
+\begin{exercise}[2.1.2.] Let $(S, \leq )$ be an ordered set, let $f$ and $g$ be functions from $X$ to $S$ and let $A$ be a subset of $X$. Assume that $f(x)\leq g(x)$ for all $x \in A$, and that furthermore $\sup _A f$ and $\sup _A g$ exist in $S$. Prove that $\sup _A f \leq  \sup _A g$.
+\end{exercise}
+\begin{proof} We assume that $f, g \colon X \to S$ are functions from $X$ to $S$ and $X \subseteq A$. Moreover, we let $f(x) \leq g(x)$ for all $x \in A$. If we assume that $\sup _A f : = \sup \{ f(x) \colon x \in A \} = \sup f(A) $ and $\sup_A g $ exist, then $\sup _A g \geq g(x)$ for all $x\in A$, and so then $\sup_A g \geq f(x)$. Thus $\sup _A g \geq \sup _A f$.
+	
+\end{proof}
+
+
+\end{document}
